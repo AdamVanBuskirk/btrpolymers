@@ -1,0 +1,699 @@
+@import 'partials/colors';
+
+
+/* =============== */
+/* Toggle Row      */
+/* =============== */
+
+.toggle-row {
+    margin: 0 auto 4px auto;
+    display: flex;              // NEW
+    justify-content: center;    // NEW
+    align-items: center;        // optional, keeps it nicely aligned
+    text-align: center;         // can stay or be removed, flex does the work
+}
+  
+  /* The outer pill should look like the progress track */
+  .toggle-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px;
+    border-radius: 999px;
+    background: #171b22;
+    height: 24px;
+  }
+  
+  .toggle-pill {
+    padding: 3px 14px;               
+    border-radius: 999px;            
+    font-size: 11px;
+    line-height: 1;
+    background: transparent;
+    color: #b0b7c3;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.18s ease;
+  }
+  .toggle-pill.active {
+    background: #555;             
+    color: #efefef;
+    box-shadow: 0 0 8px rgba(44, 43, 43, 0.55);
+  }
+  
+  /* Hover on inactive */
+  .toggle-pill:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.04);
+    color: #e2e6eb;
+  }
+  /*
+  .toggle-pill {
+    flex: 0 0 auto;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    color: #FF8A4C;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .toggle-pill.active {
+    border: 1px solid rgba(255,138,76,0.95);
+    background: rgba(255,138,76,0.12);
+    color: #FF8A4C;
+  }
+  */
+
+.sticky-top {
+    /* height: 10vh; */
+    /*height: 80px;*/
+    background-color: $color-blue-primary
+}
+
+.container-fluid {
+    padding-top:15px !important;
+    padding-bottom:15px !important;
+}
+
+.topNavLink {
+    font-size: 18px;
+    margin-right: 50px;
+    padding-top: 20px;
+    font-weight: 450;
+    a:hover {
+        text-decoration: underline !important;
+        text-underline-offset: 10px !important; /* Adjust the margin between the text and underline */
+        text-decoration-thickness: 2px !important; /* Optional: Make the underline thicker */
+        color: $color-orange !important; /* Optional: Change color on hover */
+    }
+}
+
+.leftSubNavWrapper {
+    height: 100vh;
+    /*background-color: #27282d;*/
+    background-color: $color-blue-primary;
+}
+.subTopNav {
+    display: inline-block;
+    font-weight: 450;
+    cursor: pointer; 
+}
+.subTopNavSelected {
+    display: inline-block;
+    /*color: #c44f01;*/
+    color: #02152a;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 17px;
+    text-decoration-thickness: 2px;
+    cursor: pointer;
+}
+
+.navbar-light {
+    background-color: $color-blue-primary;
+    a:link, a:visited, a:hover, a:active {
+        color: $color-white;
+        text-decoration: none;
+        line-height: 58px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        padding-right: 50px;
+        font-size: 18px;
+        font-weight: 500;
+        &:hover {
+            text-decoration: underline !important;
+            text-underline-offset: 10px !important;
+            text-decoration-thickness: 2px !important;
+            color: $color-orange !important;
+        }
+
+    }
+}
+
+.navigation {
+    .navCircleIcon {
+        padding-top: 4px;
+        text-align: center;
+        width: 35px;
+        height: 35px;
+        background-color: $color-black;
+        border-radius: 50%;
+        margin-right: 5px;
+        cursor: pointer;
+        &:hover {
+            background-color: $color-black-2;
+        }
+    }
+
+    .navCircleActiveIcon {
+        padding-top: 4px;
+        text-align: center;
+        width: 35px;
+        height: 35px;
+        background-color: $color-dark-orange;
+        border-radius: 50%;
+        margin-right: 5px;
+        cursor: pointer;
+        &:hover {
+            background-color: $color-dark-orange-hover;
+        }
+    }
+
+    .navCircleInactiveIcon {
+        padding-top: 4px;
+        text-align: center;
+        width: 35px;
+        height: 35px;
+        background-color: $color-light-gray-8;
+        border-radius: 50%;
+        margin-right: 10px;
+        /*cursor: pointer;
+        &:hover {
+            background-color: $color-black-2;
+        }*/
+    }
+
+    .bgNav {
+        background-color: $color-members-navigation;
+    }
+
+    .navbar {
+        a:link, a:visited, a:hover, a:active {
+            color: $color-white;
+            /*color: $color-black;*/
+            text-decoration: none;
+        }
+    }
+    .registerButton {
+        position: absolute; 
+        right: 20px; 
+        height: 50px;
+        line-height: 45px;
+        margin-top: 0px;
+        border-radius: 30px;
+        background-color: #e55c02;
+        color: #fff;
+        padding: 0px 30px;
+        font-size: 20px;
+        font-weight: 500;
+        /*
+        position: absolute; 
+        right: 0; 
+        height: 65px;
+        line-height: 65px;
+        background-color: #e55c02;
+        color: #fff;
+        padding: 0px 30px;
+        font-size: 18px;
+        font-weight: 500;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+        */
+        &:hover {
+            background-color: #c44f01;
+        }
+    }
+    .loginButton {
+        position: absolute; 
+        /*right: 210px; */
+        right: 245px;
+        height: 58px;
+        line-height: 58px;
+        color: $color-white;
+        padding-top: 0px;
+        /*padding: 10px 50px;*/
+        font-size: 18px;
+        font-weight: 500;
+        &:hover {
+            text-decoration: underline !important;
+            text-underline-offset: 10px !important;
+            text-decoration-thickness: 2px !important;
+            color: $color-orange !important;
+        }
+    }
+
+    .pricingLink {
+        position: absolute; 
+        /*right: 285px; */
+        right: 325px;
+        height: 58px;
+        line-height: 58px;
+        color: $color-white;
+        padding-top: 0px;
+        /*padding: 10px 50px;*/
+        font-size: 18px;
+        font-weight: 500;
+        &:hover {
+            text-decoration: underline !important;
+            text-underline-offset: 10px !important;
+            text-decoration-thickness: 2px !important;
+            color: $color-orange !important;
+        }
+    }
+/*
+    .nav-link {
+        line-height: 58px;
+        color: $color-white;
+        padding-top: 0px;
+        font-size: 18px;
+        font-weight: 500;
+        &:hover {
+            text-decoration: underline !important;
+            text-underline-offset: 10px !important;
+            text-decoration-thickness: 2px !important;
+            color: $color-orange !important;
+        }
+    }
+*/
+    .login-btn {
+        /*padding:5px 10px;*/
+        border: 1px solid $color-orange;
+        border-radius:5px;
+
+        a:hover, a:active {
+            color: $color-orange;
+            text-decoration: none;
+        }
+        a:link {
+            color: $color-black;
+            text-decoration: none;
+        }
+    }
+    .register-btn {
+        /*border-radius:5px;*/
+        background-color:$color-black;
+
+        &:hover {
+            background-color: $color-light-black;
+        }
+
+        a:link, a:visited {
+            color: $color-primary !important;
+            text-decoration: none;
+        }
+
+        a:hover, a:active {
+            color: $color-primary;
+            text-decoration: none;
+        
+        }
+    }
+
+    .logo-width {
+        /*width: 50px; */
+        width: 60px;
+        position: relative;
+        top: 5px;
+        left: 10px;
+    }
+
+    .projectName {
+        
+        margin-left:10px;
+        border:0px;
+        font-weight:bold;
+        font-size:16pt;
+        padding: 5px 15px;
+        color: $color-light-black;
+
+        :hover {
+            background-color:$color-light-gray-3;
+            padding: 5px 15px;
+        }
+        /*
+        input[type=text] {
+            border:0px;
+            font-weight:bold;
+            font-size:16pt;
+            padding-left:10px;
+            color: $color-light-black;
+            background-color: $color-navbar;
+            &:focus {
+                background-color:#fff;
+            }
+            &:hover {
+                background-color:$color-light-gray-3;
+            }
+        }
+*/
+        span {
+            border:0px;
+            font-weight:bold;
+            font-size:16pt;
+            padding:5px 15px;
+            border-radius:5px;
+            color: $color-light-black;
+            background-color: $color-navbar;
+            &:focus {
+                background-color:#fff;
+            }
+            &:hover {
+                background-color:$color-light-gray-3;
+            }
+        }
+    }
+
+    .projectView {
+        
+        /*margin-left: 10px;*/
+
+        :hover {
+            background-color: $color-light-gray-3;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        select {
+            border:0px;
+            font-weight:bold;
+            font-size:16pt;
+            /*padding-left:10px;*/
+            color:$color-light-black;
+            /*background-color: $color-navbar;*/
+
+            background-color: $color-light-gray-3;
+            padding: 5px;
+            border-radius: 5px;
+
+            &:focus {
+                background-color:#fff;
+            }
+            &:hover {
+                background-color:$color-light-gray-3;
+            }
+        }
+    }
+
+
+/*      
+
+    .custom-toggler .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+
+    .custom-toggler.navbar-toggler {
+        border: none;
+    }
+
+    .custom-toggler.navbar-toggler a:link, a:visited, a:hover, a:active {
+        border: none;
+    }
+    */
+    /* below is mobile and desktop specific */
+    /*
+    .nav-text {
+        display: none;
+    }*/
+    .nav-text {
+        display: inline-block;
+        padding-left: 5px;
+        font-size: 1.1rem;
+    }
+    .mobile-nav-top-margin {
+        margin-top: 0px;
+    }
+
+    @media only screen and (min-width: 768px) {
+        .login-btn-pos  {
+            position: absolute;
+            right: 125px;
+        }
+        .register-btn-pos {
+            position: absolute;
+            right: 15px; 
+        }
+      }
+
+    @media only screen and (max-width: 767px) {
+        /*
+        .nav-text {
+            display: inline-block;
+            padding-left: 20px;
+        }*/
+        .topNavLink {
+            text-align:center;
+            font-size:16pt;
+            width:100%;
+        }
+        .mobile-nav-top-margin {
+            margin-top: 20px;
+        }
+        .login-btn {
+        }
+    }
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  } 
+.divAvatar {
+    &:hover {
+        .divAvatarHover {
+            display: block;
+            /*animation: fadeIn 1s;*/
+        }
+    }
+}
+.divAvatarHover {
+    display: none;
+    position: absolute;
+    width: 130px;
+    left: 85px; /* 300 -130 = 170 / 2 = 85 */
+    margin-top: 5px;
+    background-color: $color-black;
+    color: $color-white;
+    font-weight: 600;
+    border-radius: 5px;
+    font-size: 9pt;
+    padding: 5px;
+}
+.avatarIcon {
+    &:hover {
+        fill: #555;
+    }
+}
+
+.inviteBtnOrange {
+    display: inline-block;
+    margin-right: 10px;
+    border-radius: 30px;
+    text-decoration: none;
+    background-color: $color-dark-orange;
+    color: $color-white;
+    font-weight: 500;
+    font-size: 14pt;
+    padding: 5px;
+    width: 200px;
+    cursor: pointer;
+    &:hover {
+        color: #fff;
+        background-color: $color-dark-orange-hover;
+    }
+}
+
+.inviteBtnGray {
+    display: inline-block;
+    border-radius: 30px;
+    text-decoration: none;
+    background-color: $color-light-gray;
+    color: #000;
+    font-weight: 500;
+    font-size: 14pt;
+    padding: 5px;
+    width: 200px;
+    cursor: pointer;
+    &:hover {
+        color: #000;
+        background-color: $color-light-gray-2;
+    }
+}
+
+/* DESKTOP: show dropdown on hover */
+@media (min-width: 768px) {
+    .navbar .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+.nav-item a {
+    margin-right: 30px;
+}
+
+.dropdown-toggle {
+    color: #fff;
+    font-size: 18px;
+    line-height: 58px;
+    font-weight: 500;
+    margin-right: 30px;
+}
+
+/* Ensure dropdown is positioned correctly in navbar */
+.navbar .dropdown-menu {
+    /*margin-top: 0.5rem;*/
+    /*background-color: red;*/
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+
+}
+
+/* You can tweak colors if needed, but Bootstrap defaults should already look good */
+.navbar .dropdown-menu .dropdown-item {
+    font-size: 16px;
+    padding: 12px;
+    font-weight: 480;
+}
+/* Clicked/active state – remove Bootstrap blue */
+.dropdown-menu .dropdown-item:active,
+.dropdown-menu .dropdown-item.active {
+  background-color: $color-light-gray-3 !important;  /* or #ffffff */
+  color: #000 !important;
+}  
+
+/* Container */
+.nav-item.tools-dropdown {
+    position: relative;
+  }
+  
+  /* Toggle label styling */
+  .tools-toggle {
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  
+  /* The big dropdown panel */
+  .mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 28px 32px;
+    width: min(1100px, calc(100vw - 40px));
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.18);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.16s ease, transform 0.16s ease;
+    z-index: 1000;
+  }
+  
+  /* Grid layout inside the panel */
+  .mega-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px 36px;
+  }
+  
+  /* Each item */
+  .mega-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 8px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  .mega-item:hover {
+    background: #f4f6fb;
+    border-radius: 10px;
+  }
+  
+  .mega-item-icon {
+    display: flex;
+    align-items: flex-start !important;
+    justify-content: flex-start;
+    font-size: 22px;
+    line-height: 1 !important;
+    margin-top: 2px; /* adjust if needed */
+    color: #000;
+  }
+  
+  .mega-item-title {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #000;
+  }
+  
+  .mega-item-subtitle {
+    font-size: 14px;
+    color: #6b6a6a;
+    margin-top: 4px;
+  }
+  
+  /* Show on desktop hover */
+  .nav-item.tools-dropdown:hover .mega-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  
+  /* --- Mobile behaviour: panel drops inside the collapsed menu --- */
+  @media (max-width: 768px) {
+    .mega-menu {
+      position: static;
+      transform: none;
+      width: 100%;
+      box-shadow: none;
+      margin-top: 4px;
+      padding: 12px 0 4px;
+      display: none;
+      opacity: 1;
+      pointer-events: auto;
+    }
+  
+    .nav-item.tools-dropdown.show .mega-menu {
+      display: block;
+    }
+  
+    .mega-menu-grid {
+      grid-template-columns: 1fr; /* stack tools */
+    }
+  }
+
+  @media (max-width: 768px) {
+    /* Make the Tools item and dropdown fill the mobile menu width */
+    .nav-item.tools-dropdown {
+      width: 100%;
+    }
+  
+    .nav-item.tools-dropdown .mega-menu {
+      position: static;          /* no absolute */
+      left: 0;
+      right: 0;
+      transform: none !important;
+      width: 100% !important;    /* override the min(1100px, ...) */
+      margin: 8px 0 0 0;
+      padding: 12px 0 4px;
+      box-shadow: none;
+      border-radius: 12px;
+    }
+  
+    /* Stack items instead of 4 columns */
+    .mega-menu-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  
+    /* Show only when Tools has .show (your mobile state) */
+    .mega-menu {
+      display: none;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .nav-item.tools-dropdown.show .mega-menu {
+      display: block;
+    }
+  }
+
+  

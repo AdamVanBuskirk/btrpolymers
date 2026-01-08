@@ -1,0 +1,23 @@
+@import 'partials/colors';
+
+#admin {
+    .block {
+        //background-color: $menu-block-color;
+        display: flex;
+        justify-content: space-around;
+        justify-content: left;
+        .font {
+            font-size: 16pt;
+        }
+    }
+    .users:nth-of-type(odd) {
+        background-color: $menu-block-color;
+    }
+    a:link, a:visited, a:hover, a:active {
+        color: $color-black;
+    }
+    .userList {
+        height: 500px;
+        overflow-y: auto;
+    }
+}

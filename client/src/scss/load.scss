@@ -1,0 +1,50 @@
+@import 'partials/colors';
+
+#load {
+    .loads {
+        cursor: pointer; 
+    }
+    .block {
+        display: flex;
+        justify-content: space-around;
+        justify-content: left;
+        .font {
+            font-size: 16pt;
+        }
+    }
+    a:link, a:visited, a:hover, a:active {
+        color: $color-black;
+    }
+    .loadList {
+        height: 500px;
+        overflow-y: auto;
+        .loads:nth-of-type(odd) {
+            background-color: $menu-block-color;
+        }
+    }
+    button {
+        background-color: $color-button-primary;
+        font-size: 20px;
+        padding: 10px 19px;
+        color: #fff;
+        border-radius: 25px;
+        
+        &:hover {
+            background-color: $color-button-secondary;
+        }
+    }
+    .me-8 {
+        margin-right: 3rem;
+    }
+}
+
+.receipt {
+    form {
+        width:50%;
+        margin: 0px auto;
+        margin-bottom:25px;
+    }
+    h2 {
+        margin-top: 50px;
+    }
+}

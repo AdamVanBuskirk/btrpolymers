@@ -1,0 +1,54 @@
+@import 'partials/colors';
+
+#login {
+
+    .social-block {
+        vertical-align: top;
+        width: 95%;
+        height: 50px;
+        display: inline-block;
+        background-color: $color-light-gray;
+        padding-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .social-icon {
+        width: 25px;
+        height: 25px;
+    }
+    
+    input {
+        max-width: 350px;
+        margin: 0px auto;
+    }
+
+    button {
+        background-color: $color-button-primary;
+        font-size: 20px;
+        /*padding: 20px 38px;*/
+        padding: 10px 19px;
+        color: #fff;
+        border-radius: 25px;
+
+        &:hover {
+            background-color: $color-button-secondary;
+        }
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+    /*
+    #googleLoginDiv {
+        #container {
+            width: 100% !important;
+            margin: 0px auto;
+            padding:0px;
+        }
+    }*/
+
+    .azureButton {
+        width: 250px;
+        margin: 0px auto;
+    }
+}

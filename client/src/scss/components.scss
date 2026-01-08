@@ -1,0 +1,59 @@
+@import 'partials/colors';
+
+.component {
+
+    display: inline-block;
+
+    .add-project {
+        padding-left:10px;
+        padding-top:6px;
+        padding-bottom:6px;
+        border-radius:5px;
+        /*width:300px;*/
+        width: 225px;
+        background-color: $color-black;
+        color: $color-light-white;
+        border: 0px;
+    }
+
+    .search-project {
+        padding-left:10px;
+        padding-top:6px;
+        padding-bottom:6px;
+        border-radius:5px;
+        /*width:300px;*/
+        width: 225px;
+        background-color: $color-black;
+        color: $color-light-white;
+        border: 0px;
+    }
+
+    input[type=text]:focus {
+        outline-style: none;
+        box-shadow: none;
+        background-color:$color-light-black;
+    }
+
+    input::placeholder {
+        color: $color-light-gray-2;
+    }
+
+    input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus {
+        outline-style: none;
+        box-shadow: none;
+    }
+
+    .generic-btn {
+        background-color:$color-dark-orange;
+        padding: 6px 10px;
+        border-radius: 5px;
+        border: 0px;
+        margin-left: 10px;
+        display: inline-block;
+        color: $color-primary !important;
+        text-decoration: none;
+        &:hover, a:hover, a:active {
+            background-color: $color-dark-orange-hover;
+        }
+    }
+}

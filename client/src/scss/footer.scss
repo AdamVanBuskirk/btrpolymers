@@ -1,0 +1,193 @@
+@import 'partials/colors';
+
+.fa-brands {
+  padding-top:11px;
+  font-size:20px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+/*
+.fa:hover {
+    opacity: 0.7;
+}
+    */
+.fa-linkedin {
+  background: $color-blue-primary;
+  border: 1px solid gray;
+  /*background: #007bb5;*/
+  color: white;
+  &:hover {
+    background: #007bb5;
+    border: 1px solid #007bb5;
+  }
+}
+
+.fa-tiktok {
+  background: $color-blue-primary;
+  border: 1px solid gray;
+  /*background: #bb0000;*/
+  color: white;
+  &:hover {
+    background:#bb0000;
+    border: 1px solid #bb0000;
+  }
+}
+
+.fa-youtube {
+  background: $color-blue-primary;
+  border: 1px solid gray;
+  /*background: #bb0000;*/
+  color: white;
+  &:hover {
+    background:#bb0000;
+    border: 1px solid #bb0000;
+  }
+}
+
+.fa-instagram {
+  background: $color-blue-primary;
+  border: 1px solid gray;
+  /*background: #125688;*/
+  color: white;
+  &:hover {
+    background:#d62976;
+    border: 1px solid #d62976;
+  }
+}
+.fa-facebook {
+  background: $color-blue-primary;
+  border: 1px solid gray;
+  /*background: #3B5998;*/
+  color: white;
+  &:hover {
+    background:#3B5998;
+    border: 1px solid #3B5998;
+  }
+}
+.fa-reddit {
+  background: $color-blue-primary;
+  border: 1px solid gray;
+  /*background: #ff5700;*/
+  color: white;
+  &:hover {
+    background:#ff5700;
+    border: 1px solid #ff5700;
+  }
+}
+
+.footerLink {
+    font-size: 14pt;
+    color: #cacfd2;
+    &:hover {
+      text-decoration: underline !important;
+      text-underline-offset: 10px !important;
+      text-decoration-thickness: 2px !important;
+      color: $color-orange !important;
+  }
+}
+
+footer {
+  font-size: .8rem;
+  color: $color-primary;
+  /*background-color: $color-light-black;*/
+  background-color: $color-blue-primary;
+
+  a:link, a:visited, a:hover, a:active {
+    padding-left: 15px;
+    color: $color-primary;
+  }
+}
+
+.footerLeft {
+  width: 40%;
+  display: inline-block;
+}
+.footerMiddle {
+  width: 20%;
+  margin-left: 10%;
+  display: inline-block;
+}
+.footerRight {
+  width: 20%;
+  margin-left: 10%;
+  display: inline-block;
+}
+.subfooter {
+  color: $color-primary;
+  padding-top: 75px;
+  font-size: 12pt;
+  text-align: center;
+  /*background-color: $color-black;*/
+  background-color: $color-blue-primary;
+  a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: $color-primary;
+  }
+}
+.subfooterInner {
+  width: 80%;
+  margin: 0px auto;
+  display: flex;
+  align-items: top;
+}
+.disclaimer {
+  padding-bottom: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+  .footerLeft {
+    width: 80%;
+    margin: 0px auto;
+    display: block;
+  }
+  .footerMiddle {
+    width: 80%;
+    margin: 0px auto;
+    display: block;
+  }
+  .footerRight {
+    width: 80%;
+    margin: 0px auto;
+    display: block;
+  }
+  .subfooter {
+    color: $color-primary;
+    padding-top: 20px;
+    font-size: 12pt;
+    text-align: center;
+    /*background-color: $color-black;*/
+    background-color: $color-blue-primary;
+    a:link, a:visited, a:hover, a:active {
+      text-decoration: none;
+      color: $color-primary;
+    }
+  }
+  .subfooterInner {
+    width: 80%;
+    margin: 0px auto;
+    display: unset;
+    align-items: unset;
+  }
+  footer {
+    padding-bottom: 250px;
+    font-size: .8rem;
+    color: $color-primary;
+    /*background-color: $color-light-black;*/
+    background-color: $color-blue-primary;
+  
+    a:link, a:visited, a:hover, a:active {
+      padding-left: 15px;
+      color: $color-primary;
+    }
+  }
+  .disclaimer {
+    padding-bottom: 30px;
+    width: 80%;
+    margin: 0px auto;
+  }
+
+}

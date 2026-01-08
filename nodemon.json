@@ -1,0 +1,4 @@
+{
+    "ignore": ["client/build", "logs", "node_modules"]
+}
+  

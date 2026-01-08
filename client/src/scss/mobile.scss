@@ -1,0 +1,1123 @@
+@import 'partials/colors';
+
+.navigation { 
+    width: 83%;
+}
+.feature-blurb {
+    width: 80%;
+}
+.pricingBillingParentBox {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 20px auto 0px auto;
+}
+.pricingBillingBox {
+    color: $color-black;
+    margin-right: 20px;
+    border-radius: 30px;
+    box-shadow: 4px 4px 14px 0px rgba(0, 0, 0, 0.08);
+    border-color: $color-white;
+    background-color: $color-white;
+    height: 190px;
+    display: inline-block;
+    width: 100%;
+}
+.pricingBillingTitle {
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 13pt;
+    font-weight: 500;
+    text-align: left;
+}
+
+.homeSplashContainer {
+    width: 80%;
+    margin: 0px auto;
+    padding-top: 30px;
+}
+.homeSplashLeft {
+    display: inline-block;
+    width: 45%;
+}
+.homeSplashMiddle {
+    display: inline-block;
+    width: 10%;
+}
+.homeSplashRight { 
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+}
+.customerSegmentBullet1 {
+    padding-right: 30px;
+    font-weight: 300;
+}
+.customerSegmentBullet2 {
+    padding-right: 30px;
+    font-weight: 400;
+}
+.customerSegmentBullet3 {
+    font-weight: 600;
+}
+.homeCustomerSegmentContainer {
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    position: relative;
+    top: -330px;
+    margin-bottom: -330px;
+}
+.homeCustomerSegmentContainerInner {
+    color: $color-light-gray;
+    text-align: center;
+    font-size: 22pt;
+    padding-bottom: 30px;
+}
+.customerSegmentBox1 {
+    box-shadow: 4px 4px 14px 0px rgba(0, 0, 0, 0.1);
+    background-color: $color-white;
+    border-radius: 20px;
+    border-color: $color-white;
+    text-align: left;
+    padding: 20px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    width: 23%;
+    height: 100%;
+}
+.customerSegmentBox2 {
+    box-shadow: 4px 4px 14px 0px rgba(0, 0, 0, 0.1);
+    background-color: $color-white;
+    border-radius: 20px;
+    border-color: $color-white;
+    text-align: left;
+    padding: 20px;
+    display: inline-block;
+    position: absolute;
+    left: 25%;
+    width: 23%;
+    height: 100%;
+}
+.customerSegmentBox3 {
+    box-shadow: 4px 4px 14px 0px rgba(0, 0, 0, 0.1);
+    background-color: $color-white;
+    border-radius: 20px;
+    border-color: $color-white;
+    text-align: left;
+    padding: 20px;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    width: 23%;
+    height: 100%;
+}
+.customerSegmentBox4 {
+    box-shadow: 4px 4px 14px 0px rgba(0, 0, 0, 0.1);
+    background-color: $color-white;
+    border-radius: 20px;
+    border-color: $color-white;
+    text-align: left;
+    padding: 20px;
+    display: inline-block;
+    position: absolute;
+    left: 75%;
+    width: 23%;
+    height: 100%;
+}
+.homeCustomerSegmentLink {
+    color: #000;
+    text-decoration: none;
+    :link, :visited, :hover, :active {
+        color: #000;
+    }
+}
+.homeJoinWaitlistTitle {
+    color: $color-white;
+    text-align: center;
+    font-size: 20pt;
+}
+.customerSegmentContainer1 {
+    width: 80%;
+    margin: 10px auto 0px auto;
+    text-align: center;
+    position: relative;
+    height: 300px;
+}
+.customerSegmentContainer2, .customerSegmentContainer3 {
+    width: 80%;
+    margin: 10px auto 0px auto;
+    text-align: center;
+    position: relative;
+    height: 300px;
+}
+.homeOrangeWave {
+    color: $color-white;
+    position: relative;
+    /*height: 950px;*/
+    height: 775px;
+    background-color: $color-orange;
+    /*margin-top: 20px;*/
+}
+.wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+    transform: rotateY(180deg);
+}
+.wave .shape-fill {
+    fill: #fff;
+}
+.pricingTierBox {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: 0px auto;
+}
+.pricingStarterBox {
+    color: $color-black;
+    margin-right: 20px;
+    border-radius: 30px;
+    box-shadow: 4px 4px 14px 0px rgba(0, 0, 0, 0.08);
+    border-color: $color-white;
+    background-color: $color-white;
+    height: 480px;
+    display: inline-block;
+    width: 30%;
+}
+.pricingEssentialsBox {
+    position: relative;
+    color: $color-black;
+    margin-right: 20px;
+    border-radius: 30px;
+    box-shadow: 4px 4px 14px 0px rgba(0, 0, 0, 0.08);
+    border-color: $color-white;
+    background-color: $color-white;
+    height: 620px;
+    display: inline-block;
+    width: 30%;
+}
+.pricingTeamsBox {
+    color: $color-black;
+    border-radius: 30px;
+    box-shadow: 4px 4px 14px 0px rgba(0, 0, 0, 0.08);
+    border-color: $color-white;
+    background-color: $color-white;
+    height: 480px;
+    display: inline-block;
+    width: 30%;
+}
+.pricingEssentialsBoxAdjustment {
+    position: absolute;
+    width: 100%;
+    left: 15%;
+    top: -26px;
+}
+.homePagePricingTiersContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
+    /*top: 160px;*/
+    top: 90px;
+    text-align: center;
+}
+.pricingStarterTitle, .pricingTeamsTitle {
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 16pt;
+    font-weight: 500;
+    text-align: left;
+}
+.pricingEssentialsTitle {
+    text-transform: uppercase;
+    margin-top: 60px;
+    margin-left: 10px;
+    font-size: 16pt;
+    font-weight: 500;
+    text-align: left;
+}
+.pricingPageTiersContainer {
+    position: relative;
+    top: -290px;
+    margin-bottom: -270px;
+}
+.pricingPageHelpForm {
+    display: flex;
+    align-items: middle;
+    width: 80%;
+    margin: 75px auto;
+    padding: 50px;
+    background-color: $color-blue-primary;
+    border-radius: 30px;
+}
+.pricingPageHelpFormLeft {
+    display: inline-block;
+    width: 50%;
+}
+.pricingPageHelpFormRight {
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+}
+.pricingPageHelpFormEmail {
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 30px;
+}
+.pricingPageHelpFormMessage {
+    padding: 20px 10px;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 30px;
+}
+/*
+.loginPageLeft {
+    display: inline-block;
+    width: 45%;
+    height: 100vh;
+    margin: 0px auto;
+    padding: 25px;
+    background-color: $color-light-gray;
+}
+.loginPageRight {
+    display: inline-block;
+    width: 55%;
+    height: 100vh;
+    margin: 0px auto;
+    padding: 50px 75px;
+    background-color: $color-blue-primary;
+}
+*/
+.loginPageLeft {
+    flex: 0 0 35%;  /* fixed to ~45% width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff; /* or whatever bg */
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .loginPageRight {
+    flex: 0 0 65%;  /* take remaining space (~55%) */
+    height: 100%; /* fill flex parent vertically */
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/advisor-smiling.jpg');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* left-align text */
+    padding: 60px 40px 60px 200px;
+    color: #fff;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  }
+  
+.loginPageSignup {
+    margin-top: 10px;
+    text-align: left;
+    font-weight: 400;
+    font-size: 11pt;
+}
+.forgotPasswordLink {
+    margin-right: 10px;
+}
+.logoCat {
+    width: 50px;
+    position: relative;
+    top: 5px;
+    left: 10px;
+}
+.logoText {
+    width: 55px;
+}
+.desktop {
+    display: flex;
+}
+.desktopFlex {
+    display: flex;
+}
+.mobile {
+    display: none;
+}
+.desktopInlineBlock {
+    width: 300px;
+    display: inline-block;
+}
+.desktopLeftMargin20 {
+    margin-left: 20px;
+}
+.mobileMarginTop20 {
+    margin-top: 0px;
+}
+.hideForDesktop {
+    display: none;
+}
+
+.navSearchInput {
+    color: gray;
+    border: 1px solid #ededee;
+    border-radius: 30px;
+    width: 200px;
+    font-size: 10pt;
+    padding: 5px 10px 5px 26px;
+    
+    &:focus {
+        border: 1px solid $color-input-highlight;
+        outline-style: none;
+        box-shadow: none;
+    }
+}
+.remoteTeamStats {
+    width: 90%;
+    margin: 0px auto;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+.remoteTeamStat {
+    width: 33.3%;
+    text-align: left;
+}
+
+.remoteTeamStatContainer {
+    background-color: #02152a;
+    text-align: center;
+    padding: 0px 0px 80px 0px;
+    margin: 0 auto;
+}
+.remoteTeamPeople {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: 0px auto;
+}
+.remoteTeamPeopleBucket {
+    width: 33.3%;
+    text-align: left;
+}
+.contextMenu {
+    background-color: $color-white;
+    padding: 10px;
+    border-style: solid;
+    border-color: $color-light-gray;
+    position: absolute;
+    border-radius: 10px;
+    h1 {
+        font-size:10pt;
+        font-weight:bold;
+        text-align:center;
+        color:$color-black-2;
+        margin-top:5px;
+        margin-bottom:20px;
+    }
+    .divClose {
+        position: absolute;
+        top:9px;
+        right:15px;
+        cursor: pointer;
+    }
+    .divBack {
+        position: absolute;
+        top: 9px;
+        left: 15px;
+        cursor: pointer;
+    }
+    .divDeleteList, .divLabelList {
+        padding: 5px;
+        cursor: pointer;
+        &:hover {
+            background-color: $color-light-gray-4;
+        }
+    }
+    a:link, a:visited, a:hover, a:active {
+        color: $color-black;
+        text-decoration: none;
+        font-size: 12pt;
+    }
+}
+.billingBlurb1 {
+    width: 60%;
+}
+.billingBlurb2 {
+    width: 50%;
+}
+.divFindChatMembers {
+    margin-top: -29px;
+}
+.divSearchFindChatMembers {
+    width: 30px;
+    float: left;
+    position: relative;
+    left: 5px;
+    top: 29px;
+}
+.divSearchFindChatMembersClose {
+    width: 30px;
+    float: right;
+    position: relative;
+    right: 5px;
+    top: 29px;
+    cursor: pointer;
+}
+
+.client-logos {
+    width: 90%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 0 0 0;
+    flex-wrap: wrap;
+  }
+
+  .client-logos img {
+    filter: grayscale(100%);
+    opacity: 0.8;        /* optional: makes it more subtle */
+    transition: 0.3s;
+  }
+  
+  .client-logos img:hover {
+    filter: grayscale(0%);   /* optional: color on hover */
+    opacity: 1;
+  }
+  
+  
+  .client-item {
+    font-size: 22px;
+    font-weight: 600;
+    color: #777;
+    text-align: center;
+    flex: 1;
+    min-width: 150px; /* controls mobile wrapping */
+    white-space: nowrap;
+  }
+    
+  .client-stats {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+    flex-wrap: wrap;
+    background: #f7f8fb;
+    border-radius: 20px;
+  }
+  
+  .client-stat {
+    font-size: 22px;
+    text-align: center;
+    flex: 1;
+    min-width: 150px; /* controls mobile wrapping */
+    white-space: nowrap;
+  }
+   
+
+@media only screen and (max-width: 768px) {
+
+    .client-stats {
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .client-stat {
+        flex: 0 0 auto;
+        font-size: 18px;
+    }
+
+    .client-logos {
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .client-item {
+        flex: 0 0 auto;
+        font-size: 18px;
+    }
+
+    .main-container {
+        width:80%;
+        margin: 10% auto;
+        /*background-color:red;*/
+    }  
+
+    .company-row {
+        width: 80%;
+    }
+
+    .datepicker-control-custom-1 {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid $input-border-gray;
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 10px;
+        &:focus {
+            border: 1px solid $color-input-highlight;
+            outline-style: none;
+            box-shadow: none;
+        }
+    }
+    .emailInviteBox {
+        width: 94%;
+    }
+    .sharingInviteSent {
+        position: unset;
+        margin-top: -15px;
+        margin-bottom: 10px;
+    }
+    .roadmapCardIcon {
+        cursor: pointer;
+        right: 5px;
+        top: 8px;
+        height: 15px;
+        width: 15px;
+        /*background-color: #17202a;*/
+        background-color: #566573;
+        border-radius: 50%;
+        text-align: center;
+        display: inline-block;
+      }
+      .roadmapCardIcon2 {
+        position: absolute;
+        cursor: pointer;
+        right: 21px;
+        top: 8px;
+        height: 15px;
+        width: 15px;
+        /*background-color: #17202a;*/
+        background-color: #566573;
+        border-radius: 50%;
+        text-align: center;
+        display: inline-block;
+      }
+    .divSearchFindChatMembers {
+        margin-top:-28px;
+        top: 32px;
+    }
+    .divFindChatMembers {
+        margin-top: 0px;
+    }
+    .divSearchFindChatMembersClose {
+        top: 5px;
+    }
+    .pricingBillingParentBox {
+        display: unset;
+        align-items: unset;
+        width: 100%;
+        margin: 20px auto 0px auto;
+    }
+    .pricingBillingBox {
+        color: $color-black;
+        margin-top: 20px;
+        border-radius: 0px;
+        box-shadow: unset;
+        border-color: unset;
+        background-color: $color-white;
+        height: auto;
+        width: 100%;
+    }
+    .billingBlurb1 {
+        width: 90%;
+    }
+    .billingBlurb2 {
+        width: 90%;
+    }
+    .contextMenu {
+        border-radius: 0px;
+    }
+    .cardContextMenu {
+        border-radius: 0px;
+    }
+    .remoteTeamStats {
+        width: 80%;
+        margin: 0px auto;
+        display: unset;
+    }
+    .remoteTeamStat {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 40px;
+    }
+    .remoteTeamStatContainer {
+        background-color: #02152a;
+        text-align: center;
+        padding: 0px 0px 20px 0px;
+        margin: 0 auto;
+    }
+    .remoteTeamPeople {
+        width: 80%;
+        display: unset;
+        margin: 0px auto;
+    }
+    .remoteTeamPeopleBucket {
+        width: 100%;
+        text-align: left;
+        margin-top: 30px;
+    }
+    .navSearchInput {
+        width: 100%;
+    }
+    .feature-blurb {
+        width: 100%;
+    }
+    .hideForMobile {
+        display: none;
+    }
+    .hideForDesktop {
+        display: block;
+    }
+    .desktopLeftMargin20 {
+        margin-left: 0px;
+    }
+    .mobile80width {
+        width: 80%; 
+    }
+    .desktop {
+        display: none;
+    }
+    .desktopFlex {
+        display: block;
+    }
+    .desktopInlineBlock {
+        width: 100%;
+        display: block;
+    }
+    .mobile {
+        display: block;
+    }
+    .mobileMarginTop20 {
+        margin-top: 20px;
+    }
+    
+    html, body {width: auto!important; overflow-x: hidden!important}
+    
+    /*
+    .logoLink {
+        display: none;
+    }
+    */
+    .navigation {
+        width: 100%;
+        .registerButton {
+            margin-top: 45px;
+            right: 10%;
+            height: 40px;
+            line-height: 36px;
+            font-size: 19px;
+        }
+        .loginButton {
+            margin-top: 40px;
+            left: 35%;
+            width: 75px;
+        }
+        .pricingLink {
+            margin-top: 40px;
+            left: 10%;
+            width: 75px;
+        }
+    }
+
+    .homeSplashContainer {
+        width: 80%;
+        margin: 0px auto;
+        padding-top: 20px;
+        text-align: center;
+    }
+    .homeSplashLeft {
+        display: block;
+        width: 90%;
+        margin: 0px auto;
+    }
+    .homeSplashMiddle {
+        display: none;
+    }
+    .homeSplashRight { 
+        display: block;
+        width: 90%;
+        margin: 0px auto;
+    }
+    .homePageHeader .squiggleSvg {
+        display: block;
+        width: 60%;
+        margin: 20px auto 0px auto;
+        float:unset;
+    }
+    .pageHeader {
+        margin: 0px auto 30px auto;
+        width: 100%;
+        color: $color-white;
+        background-color: $color-blue-primary;
+    }
+    .homeSplashList {
+        display: none;
+    }
+    .homeWaitlistBlurb {
+        display: none;
+    }
+    .customerSegmentBullet1 {
+        display: block;
+        padding-right: 0px;
+        font-weight: 300;
+    }
+    .customerSegmentBullet2 {
+        display: block;
+        padding-right: 0px;
+        font-weight: 400;
+    }
+    .customerSegmentBullet3 {
+        display: block;
+        padding-right: 0px;
+        font-weight: 600;
+    }
+    .homeCustomerSegmentContainer {
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 50px;
+        position: relative;
+        top: -330px;
+        margin-bottom: -330px;
+    }
+    .homeCustomerSegmentContainerInner {
+        color: $color-light-gray;
+        text-align: center;
+        font-size: 22pt;
+        padding-bottom: 20px;
+    }
+    .customerSegmentBox1, .customerSegmentBox2, .customerSegmentBox3, .customerSegmentBox4 {
+        margin: 15px auto 0px auto;
+        box-shadow: 4px 4px 14px 0px rgba(0, 0, 0, 0.1);
+        background-color: $color-white;
+        border-radius: 20px;
+        border-color: $color-white;
+        text-align: left;
+        padding: 20px;
+        display: block;
+        position: unset;
+        left: unset;
+        width: 90%;
+        height: auto;
+    }
+    .homeJoinWaitlistTitle {
+        color: $color-white;
+        text-align: center;
+        font-size: 26pt;
+        font-weight:550;
+    }
+    .customerSegmentContainer1, .customerSegmentContainer2, .customerSegmentContainer3 {
+        width: 90%;
+        margin: 10px auto 0px auto;
+        text-align: center;
+        position: relative;
+        height: unset;
+    }
+    .homeOrangeWave {
+        color: $color-white;
+        position: relative;
+        height: auto;
+        background-color: $color-orange;
+        margin-top: 0px;
+        padding-bottom:50px;
+        padding-top:30px;
+    }
+    .homePricingTitle {
+        display: block;
+        font-size: 22pt;
+        font-weight: 500;
+        color: #fff;
+        text-align: center;
+        font-style: italic;
+    }
+    .wave {
+        display: none;
+    }
+
+    .pricingStarterBox, .pricingTeamsBox {
+        position: relative;
+        color: $color-black;
+        margin: 0px auto;
+        border-radius: 30px;
+        box-shadow: 4px 4px 14px 0px rgba(0, 0, 0, 0.08);
+        border-color: $color-white;
+        background-color: $color-white;
+        height: 550px;
+        display: block;
+        width: 100%;
+    }
+    .pricingStarterBox, .pricingEssentialsBox, .pricingTeamsBox {
+        position: relative;
+        color: $color-black;
+        margin: 0px auto;
+        border-radius: 30px;
+        box-shadow: 4px 4px 14px 0px rgba(0, 0, 0, 0.08);
+        border-color: $color-white;
+        background-color: $color-white;
+        height: 550px;
+        display: block;
+        width: 100%;
+    }
+    .pricingTierBox {
+        display: unset;
+        align-items: unset;
+        width: 80%;
+        margin: 0px auto;
+    }
+    .homePagePricingTiersContainer {
+        display: flex;
+        align-items: center;
+        position: relative;
+        top: 0px;
+        text-align: center;
+    }
+    .pricingStarterTitle {
+        text-transform: uppercase;
+        margin-top: 20px;
+        padding-top: 20px;
+        margin-left: 10px;
+        font-size: 16pt;
+        font-weight: 500;
+        text-align: left;
+    }
+    .pricingTeamsTitle {
+        text-transform: uppercase;
+        margin-top: 40px;
+        padding-top: 20px;
+        margin-left: 10px;
+        font-size: 16pt;
+        font-weight: 500;
+        text-align: left;
+    }
+    .pricingEssentialsTitle {
+        text-transform: uppercase;
+        margin-top: 60px;
+        padding-top: 60px;
+        margin-left: 10px;
+        font-size: 16pt;
+        font-weight: 500;
+        text-align: left;
+    }
+    .standardPublicPage60 {
+        width: 80%;
+        margin: 0px auto;
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
+    .pricingPageTiersContainer {
+        position: relative;
+        width: 80%;
+        margin: 0px auto -270px auto;
+        top: -330px;
+    }
+    .pricingPageHelpForm {
+        display: flex;
+        align-items: middle;
+        text-align: center;
+        width: 100%;
+        margin: 0px;
+        padding: 40px 20px 20px 20px;
+        background-color: $color-blue-primary;
+        border-radius: 0px;
+    }
+    .pricingPageHelpFormLeft {
+        display: inline-block;
+        margin: 0px auto;
+        width: 90%;
+    }
+    .pricingPageHelpFormRight {
+        display: none;
+    }
+    .pricingPageHelpFormEmail {
+        padding: 10px;
+        margin-top: 20px;
+        width: 100%;
+        border-radius: 10px;
+    }
+    .pricingPageHelpFormMessage {
+        padding: 10px;
+        margin-top: 20px;
+        width: 100%;
+        border-radius: 10px;
+    }
+    .loginPageLeft {
+        flex: unset;
+        display: inline-block;
+        width: 100%;
+        height: 100vh;
+        margin: 100px auto 0px auto;
+        padding: 0px;
+        /*background-color: $color-light-gray;*/
+    }
+    .loginPageRight {
+        display: none;
+    }
+    .loginPageSignup {
+        margin-top: 10px;
+        text-align: center;
+        font-weight: 400;
+        font-size: 11pt;
+    }
+    .googleButton {
+        width: fit-content;
+        height:50px;
+        margin: 0px auto;
+        padding:0px;
+    }
+    .forgotPasswordLink {
+        margin-right: 0px;
+    }
+    .mobileOnlyLogo {
+        margin: 0px auto 20px auto;
+        text-align:center;
+    }
+    .logoCat {
+        width: 80px;
+        position: relative;
+        top: 5px;
+        left: unset;
+    }
+    .logoText {
+        width: 100px;
+    }
+    /*
+    .pricingEssentialsBoxAdjustment {
+        position: absolute;
+        width: 100%;
+        left: 15%;
+        top: -26px;
+    }*/
+
+}
+
+/*
+
+.imageHome {
+    width: 60%;
+}
+.pHome {
+    padding-top: 20px;
+    font-size: 1.3rem;
+    width: 60%;
+    margin: 0px auto;
+    text-align: left;
+}
+.pHomeImage {
+    padding: 40px;
+    font-size: 1.3rem;
+    width: 100%;
+    margin: 40px auto 20px auto;
+    background-color: #2A2B2C;
+}
+.nLogin {
+    margin-right: 10px;
+}
+.login-btn a {
+    display: inline-block;
+    width: 100%;
+    padding: 5px 10px;
+}
+.register-btn a {
+    display: inline-block;
+    width: 100%;
+    padding: 5px 10px;
+}
+.ReactModal__Overlay {
+    background: rgba(0, 0, 0, 0.7) !important;
+    z-index: 5000;
+}
+.registerLoginModal {
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    top: 10%;
+    height: 80%;
+    margin: 0;
+    padding: 0;
+    background: $color-white;
+}
+
+@media only screen and (max-width: 768px) {
+    .mobile60width {
+        width: 98%; 
+    }
+    .h1Home {
+        width: 80%;
+        margin: 0px auto;
+    }
+    .imageHome {
+        width: 80%;
+    }
+    .buttonHome {
+        width: 80%;
+        margin: 0px auto;
+    }
+    .pHome {
+        padding-top: 20px;
+        font-size: 1.3rem;
+        width: 80%;
+        margin: 0px auto;
+        text-align: left;
+    }
+    .pHomeImage {
+        padding: 100px 10px;
+        font-size: 1.3rem;
+        width: 100%;
+        margin: 40px auto 20px auto;
+        background-color: #2A2B2C;
+    }
+    .nLogin {
+        margin-right: 0px;
+    }
+    .navigation .login-btn {
+        padding: 7px;
+        border: 1px solid $color-orange;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 16pt;
+    }
+    .navigation .register-btn {
+        padding: 7px;
+        border-radius: 5px;
+        background-color: $color-black;
+        border: 1px solid $color-black;
+        text-align: center;
+        a span {
+            font-size: 16pt;
+        }
+    }
+    .registerLoginModal {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: $color-white;
+    }
+}
+    */
+
+input:focus, textarea:focus, select:focus {
+    outline: none !important;
+    border: 1px solid #B6BCC2 !important; /* soft orange */
+    box-shadow: none !important;  /* glow effect */
+}
