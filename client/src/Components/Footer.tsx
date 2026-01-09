@@ -30,7 +30,7 @@ function Footer(props: Props) {
                             <Link to={logoPath} className="text-white fw-bold fs-4">
                                 <div>
                                     <img className="pb-2 pt-2" style={{ width: "150px" }} 
-                                        src="/images/btr.gif" alt="BTR Polymers" />
+                                        src="/images/btr-green-arrow.gif" alt="BTR Polymers" />
                                 </div>
                             </Link>
                         </div>

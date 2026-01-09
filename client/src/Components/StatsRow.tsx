@@ -15,7 +15,7 @@ function StatsRow() {
                         lb
                     </span>
                 </div>
-                <div>PROCESSED</div>
+                <div style={{ color: "#319C17", fontWeight: "450" }}>PROCESSED</div>
             </div>
             <div className="client-stat">
                 <div>
@@ -26,7 +26,7 @@ function StatsRow() {
                         lb
                     </span>
                 </div>
-                <div>DIVERTED FROM LANDFILL</div>
+                <div style={{ color: "#319C17", fontWeight: "450" }}>DIVERTED FROM LANDFILL</div>
             </div>
             <div className="client-stat">
             <div>
@@ -37,7 +37,7 @@ function StatsRow() {
                         gal
                     </span>
                 </div>
-                <div>OF WATER SAVED</div>
+                <div style={{ color: "#319C17", fontWeight: "450" }}>OF WATER SAVED</div>
             </div>
             <div className="client-stat">
                 <div>
@@ -45,7 +45,7 @@ function StatsRow() {
                         100%
                     </span>
                 </div>
-                <div>POST-CONSUMER RESIN</div>
+                <div style={{ color: "#319C17", fontWeight: "450" }}>POST-CONSUMER RESIN</div>
             </div>
         </div>
     );

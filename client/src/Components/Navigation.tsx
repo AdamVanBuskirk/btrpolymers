@@ -51,7 +51,7 @@ function Navigation() {
       <NavbarBrand tag={Link} to={logoPath} className="logoLink">
         <img
           style={{ width: "75px", cursor: "pointer" }}
-          src="/images/btr.gif"
+          src="/images/btr-green-arrow.gif"
           alt="SalesDoing.com"
         />
       </NavbarBrand>
