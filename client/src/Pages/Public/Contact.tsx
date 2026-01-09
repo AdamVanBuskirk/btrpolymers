@@ -1,35 +1,17 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-//import { toast } from 'react-toastify';
 import { useAppSelector, useAppDispatch } from '../../Core/hooks';
-import { getUser, login, setLoggingIn } from '../../Store/Auth';
 import Footer from '../../Components/Footer';
 import Navigation from '../../Components/Navigation';
-//import Registration from '../../Modals/Registration';
-//import Login from '../../Modals/Login';
-import PricingTiers from '../../Components/PricingTiers';
-import { isValidEmail } from '../../Helpers/isValidEmail';
-import { HiArrowLongRight } from "react-icons/hi2";
-import RedirectToDash from '../../Components/RedirectToDash';
 import { useIsMobile } from '../../Core/hooks';
-import { RxCalendar, RxLightningBolt } from 'react-icons/rx';
-import { IoAnalytics, IoListSharp, IoPeople } from 'react-icons/io5';
-import { MdAutoStories } from 'react-icons/md';
-import { BiConversation } from 'react-icons/bi';
-import { emailSales } from '../../Store/Utility';
 
-/*
-interface Feedback {
-    answers: Record<string, boolean>;
-    otherText?: string;
-}
-*/
+
 function Contact() {
 
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const user = useAppSelector(getUser);
+
 
     const [email, setEmail] = useState<string>("");
     const [firstName, setFirstName] = useState<string>("");
@@ -45,12 +27,8 @@ function Contact() {
         window.scrollTo(0, 0);
     }, []);
 
-    useEffect(() => {
-        if (user.accessToken !== "" && user.status !== "loading"){
-            navigate('/dash');
-        }
-    }, [user]);
 
+/*
     const submitForm = () => {
         // reset flags
         setError(false);
@@ -89,10 +67,9 @@ function Contact() {
         setSuccess(true);
         setTimeout(() => setSuccess(false), 2000);
     };
-
+*/
     return (
     <>
-        <RedirectToDash />
         <Navigation />
 
         <div className="main-container" style={{ width: isMobile ? "80%" : "70%" }}>
@@ -150,7 +127,7 @@ function Contact() {
                         </div>
 
                         <div className="cta-orange-outline"
-                            onClick={() => submitForm()}>
+                            onClick={() => alert("form submiited")}>
                             SUBMIT
                         </div>
                     </div>

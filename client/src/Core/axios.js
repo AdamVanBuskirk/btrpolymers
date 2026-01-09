@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { store } from '../Core/store';
-import { logout, setAccessToken } from '../Store/Auth';
+//import { logout, setAccessToken } from '../Store/Auth';
 
 export const axiosPublic = axios.create({
     baseURL: process.env.REACT_APP_BACKEND_URL
@@ -39,11 +39,11 @@ export const responseIntercept = axiosPrivate.interceptors.response.use(
             const newAccessToken = await axiosPublic.get('/api/auth/refresh', { 
                 withCredentials: true 
             }).then((res) => {
-                store.dispatch(setAccessToken(res.data.accessToken));
+                //store.dispatch(setAccessToken(res.data.accessToken));
                 return res.data.accessToken;
             }).catch((error) => {
                 /* refresh failed w/ 403, log user out */
-                store.dispatch(logout());
+                //store.dispatch(logout());
             });
             prevRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
             return axiosPrivate(prevRequest);

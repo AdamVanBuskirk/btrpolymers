@@ -1,23 +1,8 @@
 import { configureStore, ThunkAction, Action, combineReducers, getDefaultMiddleware } from '@reduxjs/toolkit';
-
-import userReducer from '../Store/Auth';
-import companyReducer from '../Store/Company';
 import settingsReducer from '../Store/Settings';
-import utilityReducer from '../Store/Utility';
-import stripeReducer from '../Store/Stripe';
-import reportReducer from '../Store/Report';
-import reportSubscriptionsReducer from '../Store/ReportSubscriptions';
-import docsReducer from '../Store/Docs';
 
 const combinedReducer = combineReducers({
-  user: userReducer,
-  company: companyReducer,
   settings: settingsReducer,
-  utility: utilityReducer,
-  stripe: stripeReducer,
-  report: reportReducer,
-  reportSubscriptions: reportSubscriptionsReducer,
-  docs: docsReducer,
 });
 
 const rootReducer = (state: any, action: any) => {
