@@ -46,7 +46,7 @@ const HeroSlider = () => {
     <div
       style={{
         width: "100%",
-        height: isMobile ? "880px" : "520px",
+        height: isMobile ? "780px" : "520px",
         position: "relative",
         overflow: "hidden",
       }}
