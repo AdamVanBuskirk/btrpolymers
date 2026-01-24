@@ -73,7 +73,7 @@ function Home() {
         <div className="main-container" style={{ background: "#fff" }}>
  
             <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-                <div>
+                <div style={{ maxWidth: isMobile ? "100%" : "80%" }}>
                     <h1 style={heading}>
                         Turning Industrial Plastic Waste into High-Performance Materials
                     </h1>
