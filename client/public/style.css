@@ -182,19 +182,6 @@ code {
   padding-bottom: 15px !important;
 }
 
-.topNavLink {
-  font-size: 18px;
-  margin-right: 50px;
-  padding-top: 20px;
-  font-weight: 450;
-}
-.topNavLink a:hover {
-  text-decoration: underline !important;
-  text-underline-offset: 10px !important; /* Adjust the margin between the text and underline */
-  text-decoration-thickness: 2px !important; /* Optional: Make the underline thicker */
-  color: #f5330c !important; /* Optional: Change color on hover */
-}
-
 .leftSubNavWrapper {
   height: 100vh;
   /*background-color: #27282d;*/
@@ -221,7 +208,10 @@ code {
 .navbar-light {
   background-color: #051a26;
 }
-.navbar-light a:link, .navbar-light a:visited, .navbar-light a:hover, .navbar-light a:active {
+.navbar-light .nav-link,
+.navbar-light a.nav-link,
+.navbar-light a:link,
+.navbar-light a:visited {
   color: #fff;
   text-decoration: none;
   line-height: 58px;
@@ -231,7 +221,12 @@ code {
   font-size: 18px;
   font-weight: 500;
 }
-.navbar-light a:link:hover, .navbar-light a:visited:hover, .navbar-light a:hover:hover, .navbar-light a:active:hover {
+.navbar-light .nav-link:hover,
+.navbar-light a:hover,
+.navbar-light .nav-link[aria-current=page],
+.navbar-light a[aria-current=page],
+.navbar-light .nav-link.active,
+.navbar-light a.active {
   text-decoration: underline !important;
   text-underline-offset: 10px !important;
   text-decoration-thickness: 2px !important;
@@ -239,21 +234,6 @@ code {
 }
 
 .navigation {
-  /*
-      .nav-link {
-          line-height: 58px;
-          color: $color-white;
-          padding-top: 0px;
-          font-size: 18px;
-          font-weight: 500;
-          &:hover {
-              text-decoration: underline !important;
-              text-underline-offset: 10px !important;
-              text-decoration-thickness: 2px !important;
-              color: $color-orange !important;
-          }
-      }
-  */
   /*      
 
       .custom-toggler .navbar-toggler-icon {
@@ -987,7 +967,7 @@ code {
   text-decoration: underline !important;
   text-underline-offset: 10px !important;
   text-decoration-thickness: 2px !important;
-  color: #f5330c !important;
+  color: #76CF61 !important;
 }
 
 footer {

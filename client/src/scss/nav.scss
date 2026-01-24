@@ -1,6 +1,7 @@
 @import 'partials/colors';
 
 
+
 /* =============== */
 /* Toggle Row      */
 /* =============== */
@@ -78,19 +79,6 @@
     padding-bottom:15px !important;
 }
 
-.topNavLink {
-    font-size: 18px;
-    margin-right: 50px;
-    padding-top: 20px;
-    font-weight: 450;
-    a:hover {
-        text-decoration: underline !important;
-        text-underline-offset: 10px !important; /* Adjust the margin between the text and underline */
-        text-decoration-thickness: 2px !important; /* Optional: Make the underline thicker */
-        color: $color-orange !important; /* Optional: Change color on hover */
-    }
-}
-
 .leftSubNavWrapper {
     height: 100vh;
     /*background-color: #27282d;*/
@@ -114,24 +102,35 @@
 
 .navbar-light {
     background-color: $color-blue-primary;
-    a:link, a:visited, a:hover, a:active {
-        color: $color-white;
-        text-decoration: none;
-        line-height: 58px;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        padding-right: 50px;
-        font-size: 18px;
-        font-weight: 500;
-        &:hover {
-            text-decoration: underline !important;
-            text-underline-offset: 10px !important;
-            text-decoration-thickness: 2px !important;
-            color: #76CF61 !important;
-        }
-
+  
+    // Base link style
+    .nav-link,
+    a.nav-link,
+    a:link,
+    a:visited {
+      color: $color-white;
+      text-decoration: none;
+      line-height: 58px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      padding-right: 50px;
+      font-size: 18px;
+      font-weight: 500;
     }
-}
+  
+    // Hover + Active route (React Router v6 sets aria-current="page")
+    .nav-link:hover,
+    a:hover,
+    .nav-link[aria-current="page"],
+    a[aria-current="page"],
+    .nav-link.active,
+    a.active {
+      text-decoration: underline !important;
+      text-underline-offset: 10px !important;
+      text-decoration-thickness: 2px !important;
+      color: #76CF61 !important;
+    }
+  }
 
 .navigation {
     .navCircleIcon {
@@ -253,21 +252,7 @@
             color: $color-orange !important;
         }
     }
-/*
-    .nav-link {
-        line-height: 58px;
-        color: $color-white;
-        padding-top: 0px;
-        font-size: 18px;
-        font-weight: 500;
-        &:hover {
-            text-decoration: underline !important;
-            text-underline-offset: 10px !important;
-            text-decoration-thickness: 2px !important;
-            color: $color-orange !important;
-        }
-    }
-*/
+
     .login-btn {
         /*padding:5px 10px;*/
         border: 1px solid $color-orange;

@@ -20,9 +20,11 @@ function Footer(props: Props) {
 
     return (
         <>
+        {/*
          <CompanyRow />
          <StatsRow />
-        <div style={style}>
+        */}
+         <div style={style}>
             <div className="subfooter">
                 <div className="subfooterInner">
                     <div className="footerLeft">
@@ -40,8 +42,7 @@ function Footer(props: Props) {
                                  da fda fads fdsa fdas fads fads fdas fds fdsa fas fasd fsda fas  
                             </div>
                             <Link className="cta-orange-button" style={{ width: "unset" }}
-                                to="" 
-                                onClick={() => { navigate("/register/starter/topright-nav" ); }}>
+                                to="contact">
                                 Contact us today!
                             </Link>
                         </div>
@@ -56,38 +57,40 @@ function Footer(props: Props) {
                         </div>
                     </div>
                     <div className="footerMiddle">
-                        {/*
                         <div style={{ textAlign: "left", marginBottom: "20px", fontSize: "20pt" }}>
-                            Navigation
+                            Who We Are
                         </div>
                         <div style={{ textAlign: "left", marginBottom: "20px", fontSize: "16pt", color: "#cacfd2" }}>
                             <div style={{ marginBottom: "20px" }}>
-                                <a className="footerLink" href="">
-                                    Coming soon...
+                                <a className="footerLink" href="/about">
+                                    About
                                 </a>
                             </div>
-                           
+                            <div style={{ marginBottom: "20px" }}>
+                                <a className="footerLink" href="/contact">
+                                    Contact
+                                </a>
+                            </div>
                             <div>
-                                <a className="footerLink">
-                                    Blog
+                                <a className="footerLink" href="/careers">
+                                    Careers
                                 </a>
                             </div>
                         </div>
-                        */}
                     </div>
                     <div className="footerRight">
                         <div style={{ textAlign: "left", marginBottom: "20px", fontSize: "20pt" }}>
-                            Legal
+                            Capabilities
                         </div>
                         <div style={{ textAlign: "left", fontSize: "16pt", color: "#cacfd2" }}>
                             <div style={{ marginBottom: "20px" }}>
-                                <a className="footerLink" href="/privacy">
-                                    Privacy Policy
+                                <a className="footerLink" href="/solutions">
+                                    Solutions
                                 </a>
                             </div>
                             <div>
-                                <a className="footerLink" href="/terms">
-                                    Terms of Service
+                                <a className="footerLink" href="/materials">
+                                    Materials
                                 </a>
                             </div>
                         </div>
@@ -102,7 +105,7 @@ function Footer(props: Props) {
                         118 W Streetsboro Rd, Ste 256, Hudson, OH 44236
                     </div>
                     <div>
-                        &copy; {currentYear} Burdette Thomas Recycled Polymers, LLC. All rights reserved.
+                        &copy; {currentYear} Burdette Thomas Company LLC DBA BTR Polymers. All rights reserved.
                     </div>
                     
                 </div>

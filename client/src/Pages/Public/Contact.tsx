@@ -74,18 +74,18 @@ function Contact() {
 
         <div className="main-container" style={{ width: isMobile ? "80%" : "70%" }}>
 
-            <h1 style={{ fontWeight: "bold", fontSize: isMobile ? "50px" : "60px", margin: " 0px auto 60px auto", letterSpacing: "-1px", textAlign: "center" }}>
+            <h1 style={{ paddingTop: isMobile ? "60px" : "0px", fontWeight: "bold", 
+                fontSize: isMobile ? "50px" : "60px", margin: " 0px auto 30px auto", 
+                letterSpacing: "-1px", textAlign: "center" }}>
                 Get in touch with us
             </h1>
 
-            <div style={{ display: "flex", flexWrap: "wrap",  gap: "10%" }}>
-                <div style={{ flex: "0 0 45%", minWidth: "300px", order: 1 }}>
-                    <h2 style={{ fontWeight: "bold", fontSize: "30px", marginBottom: "30px", letterSpacing: "-1px" }}>
-                        Contact us about SalesDoing.
-                    </h2>
+            <div style={{ margin: "0px auto", textAlign: "center", width: isMobile ? "80%" : "50%" }}>
+            
 
-                    <div style={{ color: "#6B6A6A", fontSize: "24px", fontWeight: "460", marginBottom: "30px" }}>
-                        Strengthen your role as a trusted advisor and increase your revenue as a SalesDoing partner. 
+                    <div style={{ color: "#6B6A6A", fontSize: "24px", fontWeight: "460", marginBottom: "40px", textAlign: "left" }}>
+                        Whether you're interested in joining our team or exploring how we can work together, 
+                        we'd love to hear from you. Reach out and start the conversation.
                     </div>
 
                     <div style={{ margin: isMobile ? "0px auto" : "unset", textAlign: isMobile ? "center" : "unset" }}>
@@ -131,19 +131,8 @@ function Contact() {
                             SUBMIT
                         </div>
                     </div>
-                </div>
+      
 
-                <div style={{ flex: "0 0 45%", minWidth: "300px", position: "relative", order: 2, marginBottom: isMobile ? "30px" : "0px" }}>
-                    <h2 style={{ fontWeight: "bold", fontSize: "30px", marginBottom: "30px", letterSpacing: "-1px" }}>
-                        Use Live Chat for immediate assistance.
-                    </h2>
-                    <div style={{ color: "#6B6A6A", fontSize: "24px", fontWeight: "460", marginBottom: "30px" }}>
-                        Click the chat bubble in the <b>bottom-right corner</b> of pages on the website and app.
-                    </div>
-                    <div style={{ color: "#6B6A6A", fontSize: "24px", fontWeight: "460", marginBottom: "30px", fontStyle: "italic" }}>
-                        Coming soon...
-                    </div>
-                </div>
             </div>
              
         </div>
