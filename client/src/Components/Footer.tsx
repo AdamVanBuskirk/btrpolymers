@@ -38,8 +38,8 @@ function Footer(props: Props) {
                         </div>
                         <div style={{ textAlign: "left", marginBottom: "30px", fontSize: "14pt", color: "#cacfd2" }}>
                             <div style={{ marginBottom: "20px" }}>
-                                BTR Polymers is your premier enterprise recycled polymers business specializing in 
-                                 da fda fads fdsa fdas fads fads fdas fds fdsa fas fasd fsda fas  
+                                BTR Polymers is a service-driven materials company specializing in the recycling 
+                                and reprocessing of post-industrial polymer materials. 
                             </div>
                             <Link className="cta-orange-button" style={{ width: "unset" }}
                                 to="contact">
