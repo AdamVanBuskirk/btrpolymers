@@ -97,7 +97,8 @@ const HeroSlider = () => {
               style={{
                 display: "inline-block",
                 padding: "12px 22px",
-                background: "#319C17",
+                background: "#003A5D",
+                //background: "#319C17",
                 color: "#fff",
                 borderRadius: "10px",
                 textDecoration: "none",

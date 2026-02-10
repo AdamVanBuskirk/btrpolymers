@@ -132,6 +132,7 @@ export default function About() {
                   marginTop: "26px",
                   padding: "14px 26px",
                   background: "#003A5D",
+                  //background: "#319C17",
                   color: "#FFFFFF",
                   borderRadius: "8px",
                   textDecoration: "none",

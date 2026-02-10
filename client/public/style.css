@@ -1392,7 +1392,7 @@ footer a:link, footer a:visited, footer a:hover, footer a:active {
 }
 
 .form-control {
-  border-radius: 30px !important;
+  border-radius: 10px !important;
 }
 
 .form-control-error {

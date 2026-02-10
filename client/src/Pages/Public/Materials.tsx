@@ -106,14 +106,13 @@ export default function Materials() {
                 href="/contact"
                 style={{
                   display: "inline-block",
-                  marginTop: "26px",
-                  padding: "14px 26px",
+                  padding: "12px 22px",
                   background: "#003A5D",
-                  color: "#FFFFFF",
-                  borderRadius: "8px",
+                  //background: "#319C17",
+                  color: "#fff",
+                  borderRadius: "10px",
                   textDecoration: "none",
                   fontWeight: 600,
-                  boxShadow: "0 10px 26px rgba(0,0,0,0.22)",
                 }}
               >
                 Request materials
