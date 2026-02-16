@@ -155,7 +155,7 @@ function Contact() {
 
             <div style={{ marginBottom: "40px" }}>
                 <div style={{ fontSize: "24pt", fontWeight: "700" }}>
-                    <a href="tel:+18336602281" style={{ color: "#000", textDecoration: "none" }}>(833) 660-2281</a>
+                    <a href="tel:+18336602281" style={{ color: "#000", textDecoration: "none" }}>(234) 602-4211</a>
                 </div>
                 <div>OR SUBMIT YOUR</div>
             </div>
