@@ -42,7 +42,7 @@ function Footer(props: Props) {
                                 and reprocessing of post-industrial polymer materials. 
                             </div>
                             <Link className="cta-orange-button" style={{ width: "unset" }}
-                                to="contact">
+                                to="/contact">
                                 Contact us today!
                             </Link>
                         </div>
