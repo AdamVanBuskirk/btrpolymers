@@ -41,10 +41,12 @@ function Footer(props: Props) {
                                 BTR Polymers is a service-driven materials company specializing in the recycling 
                                 and reprocessing of post-industrial polymer materials. 
                             </div>
+                            {/*
                             <Link className="cta-orange-button" style={{ width: "unset" }}
                                 to="/contact">
                                 Contact us today!
                             </Link>
+                            */}
                         </div>
                         {/*
                                               <a href="" target="_BLANK" className="fa-brands fa-facebook"></a>
@@ -66,11 +68,13 @@ function Footer(props: Props) {
                                     About
                                 </a>
                             </div>
+                            {/*
                             <div style={{ marginBottom: "20px" }}>
                                 <a className="footerLink" href="/contact">
                                     Contact
                                 </a>
                             </div>
+                            */}
                             <div>
                                 <a className="footerLink" href="/careers">
                                     Careers

@@ -155,11 +155,13 @@ function Contact() {
 
             <div style={{ marginBottom: "40px" }}>
                 <div style={{ fontSize: "24pt", fontWeight: "700" }}>
-                    <a href="tel:+18336602281" style={{ color: "#000", textDecoration: "none" }}>(234) 602-4211</a>
+                    <a href="tel:+12346023600" style={{ color: "#000", textDecoration: "none" }}>(234) 602-3600</a>
                 </div>
+                {/*
                 <div>OR SUBMIT YOUR</div>
+                */}
             </div>
-
+            {/*
             <div style={{ display: "flex", gap: "10%", marginBottom: "10px" }}>
               <div style={{ flex: "0 0 45%" }}>
                 <input
@@ -182,7 +184,8 @@ function Contact() {
                 />
               </div>
             </div>
-
+            */}
+            {/*
             <div style={{ marginBottom: "10px" }}>
               <input
                 type="email"
@@ -204,7 +207,6 @@ function Contact() {
                 onFocus={resetAlerts}
               />
             </div>
-
             <div
               className="cta-orange-outline"
               onClick={() => {
@@ -218,6 +220,7 @@ function Contact() {
             >
               {isSubmitting ? "SENDING..." : "SUBMIT"}
             </div>
+            */}
           </div>
         </div>
       </div>

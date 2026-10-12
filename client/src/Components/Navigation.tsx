@@ -71,20 +71,20 @@ function Navigation() {
               About
             </NavLink>
           </NavItem>
-
+          {/*
           <NavItem>
             <NavLink to="/contact" onClick={() => setIsOpen(false)} className="nav-link">
               Contact
             </NavLink>
           </NavItem>
-
+          */}
           <NavItem>
             <NavLink to="/careers" onClick={() => setIsOpen(false)} className="nav-link">
               Careers
             </NavLink>
           </NavItem>
 
-          <a href="tel:+18336602281" style={{ color: "#fff", textDecoration: "none" }}>(234) 602-4211</a>
+          <a href="tel:+12346023600" style={{ color: "#fff", textDecoration: "none" }}>(234) 602-3600</a>
 
         </Nav>
       </Collapse>
