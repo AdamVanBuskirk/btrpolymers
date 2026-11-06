@@ -44,6 +44,14 @@ export default function About() {
     },
     */
 
+  const team = [
+    { name: "Adam VanBuskirk", title: "President", image: "/images/team/BTR_Adam_Headshot.png" },
+    { name: "Jack Bartosic", title: "Chief Revenue Officer", image: "/images/team/BTR_Jack_Headshot.png" },
+    { name: "Kim Holz", title: "Customer Service Manager", image: "/images/team/BTR_Kim_Headshot.png" },
+    { name: "Mike Murphy", title: "Operations Manager", image: "/images/team/BTR_Mike_Headshot.png" },
+    { name: "Cristina Pascual", title: "Business Development Representitive", image: "/images/team/BTR_Cristina_Headshot.png" },
+  ];
+
   const timeline = [
     {
       year: "Today",
@@ -462,6 +470,74 @@ export default function About() {
   </style>
 </section>
 
+
+
+      {/* TEAM */}
+      <section
+        style={{
+          width: "100%",
+          background: "#F5F7F8",
+          padding: "90px 24px",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <div className="content-wrap" style={{ width: "100%", maxWidth: "1200px", textAlign: "center" }}>
+          <h2
+            style={{
+              margin: 0,
+              fontSize: "clamp(32px, 3.6vw, 46px)",
+              lineHeight: 1.1,
+              fontWeight: 300,
+              letterSpacing: "-0.02em",
+              color: "#2F3A3A",
+            }}
+          >
+            Meet Our Team
+          </h2>
+          <div className="btr-team-grid">
+            {team.map((person) => (
+              <div key={person.name} className="btr-team-member">
+                <img
+                  src={person.image}
+                  alt={`${person.name} headshot`}
+                  loading="lazy"
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    aspectRatio: "1 / 1",
+                    objectFit: "cover",
+                    borderRadius: "50%",
+                    border: "4px solid #FFFFFF",
+                    boxShadow: "0 8px 24px rgba(0, 58, 93, 0.12)",
+                  }}
+                />
+                <h3 style={{ margin: "20px 0 5px", fontSize: "21px", fontWeight: 700, color: "#003A5D" }}>
+                  {person.name}
+                </h3>
+                <p style={{ margin: 0, fontSize: "15px", lineHeight: 1.5, color: "#66747A" }}>
+                  {person.title}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <style>{`
+          .btr-team-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 32px;
+            margin-top: 52px;
+          }
+          .btr-team-member { min-width: 0; }
+          @media (max-width: 900px) {
+            .btr-team-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
+          }
+          @media (max-width: 600px) {
+            .btr-team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 18px; }
+          }
+        `}</style>
+      </section>
 
       {/* CTA */}
       <section
