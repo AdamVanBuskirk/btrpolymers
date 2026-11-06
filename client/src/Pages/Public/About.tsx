@@ -11,8 +11,8 @@ export default function About() {
         window.scrollTo(0, 0);
     }, []);
 
-  const timeline = [
-    {
+    /*
+        {
       year: "2011",
       title: "Founded with an operational mindset",
       body:
@@ -42,8 +42,11 @@ export default function About() {
       body:
         "Recognizing long-term demand for sustainable materials, we expanded investment into polymer recycling operations and a vertically integrated approach from source material to end use.",
     },
+    */
+
+  const timeline = [
     {
-      year: "Next",
+      year: "Today",
       title: "Scaling infrastructure, technology, and capabilities",
       body:
         "We continue investing in infrastructure, technology, and operational capabilities to support growth across additional polymer streams and end-use applications.",

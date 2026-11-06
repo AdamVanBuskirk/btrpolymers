@@ -105,9 +105,13 @@ function Footer(props: Props) {
                 <hr style={{ margin: "20px auto 40px auto", color: "#F8F9FA", borderWidth: "1.5", 
                     width: "80%" }} />
                 <div className="disclaimer">
-                    <div style={{ fontWeight: "bold" }}>
-                        118 W Streetsboro Rd, Ste 256, Hudson, OH 44236
-                    </div>
+                    <span style={{ fontWeight: "bold" }}>
+                        Office & Operations:
+                    </span> 995 Home Ave, Akron, OH 44310
+                    <br />
+                    <span style={{ fontWeight: "bold" }}>
+                        Admin: 
+                    </span> 118 W Streetsboro Rd, Ste 256, Hudson, OH 44236
                     <div>
                         &copy; {currentYear} Burdette Thomas Company LLC DBA BTR Polymers. All rights reserved.
                     </div>
