@@ -78,7 +78,7 @@ export default function About() {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: "url(/images/group-photo.jpg)",
+            backgroundImage: "url(/images/group-photo-us.png)",
             backgroundSize: "cover",
             backgroundPosition: "center",
             filter: "brightness(0.92)",
