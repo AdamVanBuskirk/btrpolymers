@@ -157,10 +157,37 @@ function Contact() {
                 <div style={{ fontSize: "24pt", fontWeight: "700" }}>
                     <a href="tel:+12346023600" style={{ color: "#000", textDecoration: "none" }}>(234) 602-3600</a>
                 </div>
-                {/*
-                <div>OR SUBMIT YOUR</div>
-                */}
             </div>
+
+
+            <div style={{ marginTop: "20px", marginBottom: "0px", fontSize: "17pt", fontWeight: "600" }}>
+                OR
+            </div>
+
+
+            <div
+              style={{
+                width: "100%",
+                height: "800px",
+                overflow: "hidden",
+              }}
+            >
+              <iframe
+                src="https://form.jotform.com/263143393857061"
+                title="BTR Form"
+                style={{
+                  width: "100%",
+                  height: "900px",
+                  border: "none",
+                }}
+              />
+            </div>
+
+
+
+
+
+            
             {/*
             <div style={{ display: "flex", gap: "10%", marginBottom: "10px" }}>
               <div style={{ flex: "0 0 45%" }}>

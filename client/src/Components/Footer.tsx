@@ -49,13 +49,13 @@ function Footer(props: Props) {
                             */}
                         </div>
                         {/*
-                                              <a href="" target="_BLANK" className="fa-brands fa-facebook"></a>
+                            <a href="" target="_BLANK" className="fa-brands fa-facebook"></a>
                             <a href="https://www.tiktok.com/@salesdoing" target="_BLANK" className="fa-brands fa-tiktok"></a>   
                             <a href="" target="_BLANK" className="fa-brands fa-instagram"></a>
                              <a href="https://www.youtube.com/@SalesDoing" target="_BLANK" className="fa-brands fa-youtube"></a>
                         */}
                         <div style={{ textAlign: "left", marginBottom: "20px" }}>
-                            <a href="" target="_BLANK" className="fa-brands fa-linkedin"></a>
+                            <a href="https://www.linkedin.com/company/btr-polymers/" target="_BLANK" className="fa-brands fa-linkedin"></a>
                         </div>
                     </div>
                     <div className="footerMiddle">
@@ -68,13 +68,11 @@ function Footer(props: Props) {
                                     About
                                 </a>
                             </div>
-                            {/*
                             <div style={{ marginBottom: "20px" }}>
                                 <a className="footerLink" href="/contact">
                                     Contact
                                 </a>
                             </div>
-                            */}
                             <div>
                                 <a className="footerLink" href="/careers">
                                     Careers

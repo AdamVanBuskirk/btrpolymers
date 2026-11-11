@@ -71,13 +71,11 @@ function Navigation() {
               About
             </NavLink>
           </NavItem>
-          {/*
           <NavItem>
             <NavLink to="/contact" onClick={() => setIsOpen(false)} className="nav-link">
               Contact
             </NavLink>
           </NavItem>
-          */}
           <NavItem>
             <NavLink to="/careers" onClick={() => setIsOpen(false)} className="nav-link">
               Careers

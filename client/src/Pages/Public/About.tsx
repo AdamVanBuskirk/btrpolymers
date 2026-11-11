@@ -45,8 +45,8 @@ export default function About() {
     */
 
   const team = [
-    { name: "Adam VanBuskirk", title: "President", image: "/images/team/BTR_Adam_Headshot.png" },
-    { name: "Jack Bartosic", title: "Chief Revenue Officer", image: "/images/team/BTR_Jack_Headshot.png" },
+    { name: "Adam VanBuskirk", title: "President", image: "/images/team/BTR_Adam_Headshot.png", linkedin: "https://www.linkedin.com/in/adam-vanbuskirk-28b93136/" },
+    { name: "Jack Bartosic", title: "Chief Revenue Officer", image: "/images/team/BTR_Jack_Headshot.png", linkedin: "https://www.linkedin.com/in/jack-bartosic-939497215/" },
     { name: "Kim Holz", title: "Customer Service Manager", image: "/images/team/BTR_Kim_Headshot.png" },
     { name: "Mike Murphy", title: "Operations Manager", image: "/images/team/BTR_Mike_Headshot.png" },
     { name: "Cristina Pascual", title: "Business Development Representitive", image: "/images/team/BTR_Cristina_Headshot.png" },
@@ -518,6 +518,29 @@ export default function About() {
                 <p style={{ margin: 0, fontSize: "15px", lineHeight: 1.5, color: "#66747A" }}>
                   {person.title}
                 </p>
+                {person.linkedin && (
+                  <a
+                    href={person.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${person.name} on LinkedIn`}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      marginTop: "10px",
+                      color: "#003A5D",
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      textDecoration: "none",
+                    }}
+                  >
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    LinkedIn
+                  </a>
+                )}
               </div>
             ))}
           </div>
