@@ -50,6 +50,7 @@ export default function About() {
     { name: "Kim Holz", title: "Customer Service Manager", image: "/images/team/BTR_Kim_Headshot.png" },
     { name: "Mike Murphy", title: "Operations Manager", image: "/images/team/BTR_Mike_Headshot.png" },
     { name: "Cristina Pascual", title: "Business Development Representitive", image: "/images/team/BTR_Cristina_Headshot.png" },
+    { name: "", title: "Material Handlers", image: "" },
   ];
 
   const timeline = [
@@ -500,7 +501,7 @@ export default function About() {
               <div key={person.name} className="btr-team-member">
                 <img
                   src={person.image}
-                  alt={`${person.name} headshot`}
+                  alt={`${person.name}`}
                   loading="lazy"
                   style={{
                     display: "block",
