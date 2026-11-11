@@ -3,6 +3,52 @@ import Navigation from "../../Components/Navigation";
 import Footer from "../../Components/Footer";
 import { useIsMobile } from "../../Core/hooks";
 
+
+function TeamAvatar({ name, image }: { name: string; image?: string }) {
+  const [imageFailed, setImageFailed] = React.useState(false);
+  const showImage = Boolean(image?.trim()) && !imageFailed;
+
+  return (
+    <div
+      style={{
+        width: "100%",
+        aspectRatio: "1 / 1",
+        borderRadius: "50%",
+        border: "4px solid #FFFFFF",
+        boxShadow: "0 8px 24px rgba(0, 58, 93, 0.12)",
+        overflow: "hidden",
+        background: "#E9EEF0",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        boxSizing: "border-box",
+      }}
+    >
+      {showImage ? (
+        <img
+          src={image}
+          alt={name || "Team member"}
+          loading="lazy"
+          onError={() => setImageFailed(true)}
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+        />
+      ) : (
+        <svg
+          viewBox="0 0 100 100"
+          width="65%"
+          height="65%"
+          fill="none"
+          aria-label={name ? `${name} avatar placeholder` : "Team avatar placeholder"}
+          role="img"
+        >
+          <circle cx="50" cy="34" r="17" fill="#003A5D" />
+          <path d="M17 85c0-20 14-32 33-32s33 12 33 32" fill="#003A5D" />
+        </svg>
+      )}
+    </div>
+  );
+}
+
 export default function About() {
 
     const isMobile = useIsMobile();
@@ -50,7 +96,7 @@ export default function About() {
     { name: "Kim Holz", title: "Customer Service Manager", image: "/images/team/BTR_Kim_Headshot.png" },
     { name: "Mike Murphy", title: "Operations Manager", image: "/images/team/BTR_Mike_Headshot.png" },
     { name: "Cristina Pascual", title: "Business Development Representitive", image: "/images/team/BTR_Cristina_Headshot.png" },
-    { name: "", title: "Material Handlers", image: "" },
+    { name: "Warehouse Team", title: "Material Handlers", image: "" },
   ];
 
   const timeline = [
@@ -498,24 +544,13 @@ export default function About() {
           </h2>
           <div className="btr-team-grid">
             {team.map((person) => (
-              <div key={person.name} className="btr-team-member">
-                <img
-                  src={person.image}
-                  alt={`${person.name}`}
-                  loading="lazy"
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    aspectRatio: "1 / 1",
-                    objectFit: "cover",
-                    borderRadius: "50%",
-                    border: "4px solid #FFFFFF",
-                    boxShadow: "0 8px 24px rgba(0, 58, 93, 0.12)",
-                  }}
-                />
-                <h3 style={{ margin: "20px 0 5px", fontSize: "21px", fontWeight: 700, color: "#003A5D" }}>
-                  {person.name}
-                </h3>
+              <div key={person.name || person.title} className="btr-team-member">
+                <TeamAvatar name={person.name} image={person.image} />
+                {person.name && (
+                  <h3 style={{ margin: "20px 0 5px", fontSize: "21px", fontWeight: 700, color: "#003A5D" }}>
+                    {person.name}
+                  </h3>
+                )}
                 <p style={{ margin: 0, fontSize: "15px", lineHeight: 1.5, color: "#66747A" }}>
                   {person.title}
                 </p>
