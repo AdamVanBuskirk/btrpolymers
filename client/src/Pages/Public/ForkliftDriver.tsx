@@ -420,8 +420,8 @@ export default function ForkliftDriver() {
                   border: "1px solid rgba(0,0,0,0.06)",
                 }}
               >
+              {/*
                 <div style={{ color: "#003A5D", fontWeight: 900 }}>Position Details & Benefits</div>
-
                 <ul
                   style={{
                     marginTop: "12px",
@@ -439,7 +439,9 @@ export default function ForkliftDriver() {
                     </li>
                   ))}
                 </ul>
+                 */}
               </div>
+             
 
               <div style={{ marginTop: "18px" }}>
                 <Link
