@@ -1,123 +1,118 @@
-import React, { useState, useEffect, CSSProperties } from 'react';
-import { format } from 'date-fns';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAppSelector } from '../Core/hooks';
-import StatsRow from './StatsRow';
-import CompanyRow from './CompanyRow';
+
+import React, { CSSProperties } from 'react';
+import { Link } from 'react-router-dom';
 
 interface Props {
     style?: CSSProperties;
 }
 
-function Footer(props: Props) {
-
-
-    const navigate = useNavigate();
-    const [logoPath, setLogoPath] = useState("/");
-
-    const currentYear = format(new Date(), 'y');
-    let style: CSSProperties = (props.style) ? props.style : {};
+function Footer({ style }: Props) {
+    const currentYear = new Date().getFullYear();
 
     return (
-        <>
-        {/*
-         <CompanyRow />
-         <StatsRow />
-        */}
-         <div style={style}>
+        <div style={style}>
             <div className="subfooter">
-                <div className="subfooterInner">
+                <div className="subfooterInner btr-footer-layout">
+
                     <div className="footerLeft">
-                        <div style={{ textAlign: "left", marginBottom: "20px" }}>
-                            <Link to={logoPath} className="text-white fw-bold fs-4">
-                                <div>
-                                    <img className="pb-2 pt-2" style={{ width: "150px" }} 
-                                        src="/images/btr-green-arrow.gif" alt="BTR Polymers" />
-                                </div>
-                            </Link>
-                        </div>
-                        <div style={{ textAlign: "left", marginBottom: "30px", fontSize: "14pt", color: "#cacfd2" }}>
-                            <div style={{ marginBottom: "20px" }}>
-                                BTR Polymers is a service-driven materials company specializing in the recycling 
-                                and reprocessing of post-industrial polymer materials. 
-                            </div>
-                            {/*
-                            <Link className="cta-orange-button" style={{ width: "unset" }}
-                                to="/contact">
-                                Contact us today!
-                            </Link>
-                            */}
-                        </div>
-                        {/*
-                            <a href="" target="_BLANK" className="fa-brands fa-facebook"></a>
-                            <a href="https://www.tiktok.com/@salesdoing" target="_BLANK" className="fa-brands fa-tiktok"></a>   
-                            <a href="" target="_BLANK" className="fa-brands fa-instagram"></a>
-                             <a href="https://www.youtube.com/@SalesDoing" target="_BLANK" className="fa-brands fa-youtube"></a>
-                        */}
-                        <div style={{ textAlign: "left", marginBottom: "20px" }}>
-                            <a href="https://www.linkedin.com/company/btr-polymers/" target="_BLANK" className="fa-brands fa-linkedin"></a>
-                        </div>
+                        <Link to="/" aria-label="BTR Polymers Home">
+                            <img
+                                className="pb-2 pt-2"
+                                style={{ width: '150px', maxWidth: '100%' }}
+                                src="/images/btr-green-arrow.gif"
+                                alt="BTR Polymers"
+                            />
+                        </Link>
+
+                        <p className="btr-footer-description">
+                            {/*BTR Polymers is a service-driven materials
+                            company specializing in the recycling and
+                            reprocessing of post-industrial polymer
+                            materials. */}
+                            BTR Polymers is on a mission to recycle 3 billion 
+                            pounds of post-industrial plastic scrap by 2036
+                        </p>
+
+                        <a
+                            href="https://www.linkedin.com/company/btr-polymers/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="fa-brands fa-linkedin"
+                            aria-label="BTR Polymers LinkedIn"
+                        />
                     </div>
+
                     <div className="footerMiddle">
-                        <div style={{ textAlign: "left", marginBottom: "20px", fontSize: "20pt" }}>
+                        <h3 className="btr-footer-heading">
                             Who We Are
-                        </div>
-                        <div style={{ textAlign: "left", marginBottom: "20px", fontSize: "16pt", color: "#cacfd2" }}>
-                            <div style={{ marginBottom: "20px" }}>
-                                <a className="footerLink" href="/about">
-                                    About
-                                </a>
-                            </div>
-                            <div style={{ marginBottom: "20px" }}>
-                                <a className="footerLink" href="/contact">
-                                    Contact
-                                </a>
-                            </div>
-                            <div>
-                                <a className="footerLink" href="/careers">
-                                    Careers
-                                </a>
-                            </div>
+                        </h3>
+
+                        <div className="btr-footer-links">
+                            <Link className="footerLink" to="/about">
+                                About
+                            </Link>
+                            <Link className="footerLink" to="/contact">
+                                Contact
+                            </Link>
+                            <Link className="footerLink" to="/careers">
+                                Careers
+                            </Link>
                         </div>
                     </div>
+
                     <div className="footerRight">
-                        <div style={{ textAlign: "left", marginBottom: "20px", fontSize: "20pt" }}>
+                        <h3 className="btr-footer-heading">
                             Capabilities
-                        </div>
-                        <div style={{ textAlign: "left", fontSize: "16pt", color: "#cacfd2" }}>
-                            <div style={{ marginBottom: "20px" }}>
-                                <a className="footerLink" href="/solutions">
-                                    Solutions
-                                </a>
-                            </div>
-                            <div>
-                                <a className="footerLink" href="/materials">
-                                    Materials
-                                </a>
-                            </div>
+                        </h3>
+
+                        <div className="btr-footer-links">
+                            <Link className="footerLink" to="/solutions">
+                                Solutions
+                            </Link>
+                            <Link className="footerLink" to="/materials">
+                                Materials
+                            </Link>
                         </div>
                     </div>
+
+                    <div className="footerLocations">
+                        <h3 className="btr-footer-heading">
+                            Locations
+                        </h3>
+
+                        <div className="btr-location">
+                            <div className="btr-location-title">
+                                Office &amp; Operations
+                            </div>
+                            <address>
+                                995 Home Ave<br />
+                                Akron, OH 44310
+                            </address>
+                        </div>
+
+                        <div className="btr-location">
+                            <div className="btr-location-title">
+                                Billing
+                            </div>
+                            <address>
+                                118 W Streetsboro Rd<br />
+                                Suite 256<br />
+                                Hudson, OH 44236
+                            </address>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            <footer className="text-center pb-3 pt-2">
-                <hr style={{ margin: "20px auto 40px auto", color: "#F8F9FA", borderWidth: "1.5", 
-                    width: "80%" }} />
+
+            <footer className="btr-footer-bottom">
+                <div className="btr-footer-divider" />
                 <div className="disclaimer">
-                    <span style={{ fontWeight: "bold" }}>
-                        Office & Operations:
-                    </span> 995 Home Ave, Akron, OH 44310
-                    <br />
-                    <span style={{ fontWeight: "bold" }}>
-                        Admin: 
-                    </span> 118 W Streetsboro Rd, Ste 256, Hudson, OH 44236
-                    <div>
-                        &copy; {currentYear} Burdette Thomas Company LLC DBA BTR Polymers. All rights reserved.
-                    </div>
-                    
+                    &copy; {currentYear} Burdette Thomas Company LLC
+                    DBA BTR Polymers. All rights reserved.
                 </div>
             </footer>
         </div>
-        </>
     );
 }
 

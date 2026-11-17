@@ -1,193 +1,516 @@
+
 @import 'partials/colors';
 
+/* ==========================================
+   BTR POLYMERS FOOTER
+   ========================================== */
+
+$footer-text: #cacfd2;
+$footer-muted: #aebbc3;
+$footer-green: #75d83d;
+$footer-border: rgba(255, 255, 255, 0.18);
+
+/* ==========================================
+   SOCIAL ICONS
+   ========================================== */
+
 .fa-brands {
-  padding-top:11px;
-  font-size:20px;
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  text-decoration: none;
-  margin-right: 20px;
-  border-radius: 50%;
-}
-/*
-.fa:hover {
-    opacity: 0.7;
-}
-    */
-.fa-linkedin {
-  background: $color-blue-primary;
-  border: 1px solid gray;
-  /*background: #007bb5;*/
-  color: white;
-  &:hover {
-    background: #007bb5;
-    border: 1px solid #007bb5;
-  }
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    padding: 0;
+    margin: 0 20px 0 0;
+
+    box-sizing: border-box;
+
+    font-size: 20px;
+    line-height: 1;
+
+    text-align: center;
+    text-decoration: none;
+
+    border: 1px solid #7b8a94;
+    border-radius: 50%;
+
+    background: transparent;
+    color: #ffffff;
+
+    vertical-align: middle;
+    transition: background 0.2s ease,
+                border-color 0.2s ease;
 }
 
-.fa-tiktok {
-  background: $color-blue-primary;
-  border: 1px solid gray;
-  /*background: #bb0000;*/
-  color: white;
-  &:hover {
-    background:#bb0000;
-    border: 1px solid #bb0000;
-  }
+/* Center Font Awesome icon glyph */
+
+.fa-brands::before {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    font-size: 20px;
+    line-height: 1;
 }
 
-.fa-youtube {
-  background: $color-blue-primary;
-  border: 1px solid gray;
-  /*background: #bb0000;*/
-  color: white;
-  &:hover {
-    background:#bb0000;
-    border: 1px solid #bb0000;
-  }
+/* LinkedIn */
+
+.fa-linkedin:hover {
+    background: #0077b5;
+    border-color: #0077b5;
+    color: #ffffff;
 }
 
-.fa-instagram {
-  background: $color-blue-primary;
-  border: 1px solid gray;
-  /*background: #125688;*/
-  color: white;
-  &:hover {
-    background:#d62976;
-    border: 1px solid #d62976;
-  }
-}
-.fa-facebook {
-  background: $color-blue-primary;
-  border: 1px solid gray;
-  /*background: #3B5998;*/
-  color: white;
-  &:hover {
-    background:#3B5998;
-    border: 1px solid #3B5998;
-  }
-}
-.fa-reddit {
-  background: $color-blue-primary;
-  border: 1px solid gray;
-  /*background: #ff5700;*/
-  color: white;
-  &:hover {
-    background:#ff5700;
-    border: 1px solid #ff5700;
-  }
+/* Other social icons */
+
+.fa-tiktok:hover,
+.fa-youtube:hover {
+    background: #bb0000;
+    border-color: #bb0000;
 }
 
-.footerLink {
-    font-size: 14pt;
-    color: #cacfd2;
-    &:hover {
-      text-decoration: underline !important;
-      text-underline-offset: 10px !important;
-      text-decoration-thickness: 2px !important;
-      color: #76CF61 !important;
-  }
+.fa-instagram:hover {
+    background: #d62976;
+    border-color: #d62976;
 }
 
-footer {
-  font-size: .8rem;
-  color: $color-primary;
-  /*background-color: $color-light-black;*/
-  background-color: $color-blue-primary;
-
-  a:link, a:visited, a:hover, a:active {
-    padding-left: 15px;
-    color: $color-primary;
-  }
+.fa-facebook:hover {
+    background: #3b5998;
+    border-color: #3b5998;
 }
+
+.fa-reddit:hover {
+    background: #ff5700;
+    border-color: #ff5700;
+}
+
+/* ==========================================
+   MAIN FOOTER
+   ========================================== */
+
+.subfooter {
+    background-color: $color-blue-primary;
+    color: #ffffff;
+
+    padding: 65px 0 45px;
+
+    font-size: 16px;
+    text-align: left;
+}
+
+/* Main four-column container */
+
+.subfooterInner,
+.subfooterInner.btr-footer-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(250px, 1.5fr)
+        minmax(120px, 0.65fr)
+        minmax(120px, 0.65fr)
+        minmax(360px, 1.7fr);
+
+    align-items: start;
+
+    column-gap: 48px;
+
+    width: 100%;
+    max-width: 1500px;
+
+    margin: 0 auto;
+    padding: 0 48px;
+
+    box-sizing: border-box;
+}
+
+/* Reset old column styling */
+
+.btr-footer-layout > div,
+.footerLeft,
+.footerMiddle,
+.footerRight,
+.footerLocations {
+    width: auto;
+    min-width: 0;
+    max-width: none;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    flex: none;
+    text-align: left;
+}
+
+/* ==========================================
+   COMPANY COLUMN
+   ========================================== */
 
 .footerLeft {
-  width: 40%;
-  display: inline-block;
+    padding-right: 15px;
 }
-.footerMiddle {
-  width: 20%;
-  margin-left: 10%;
-  display: inline-block;
+
+.footerLeft img {
+    display: block;
+
+    width: 150px;
+    max-width: 100%;
+    height: auto;
 }
-.footerRight {
-  width: 20%;
-  margin-left: 10%;
-  display: inline-block;
+
+/* Logo link */
+
+.footerLeft > a:first-child {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
 }
-.subfooter {
-  color: $color-primary;
-  padding-top: 75px;
-  font-size: 12pt;
-  text-align: center;
-  /*background-color: $color-black;*/
-  background-color: $color-blue-primary;
-  a:link, a:visited, a:hover, a:active {
-    text-decoration: none;
-    color: $color-primary;
-  }
+
+/* Company description */
+
+.btr-footer-description {
+    max-width: 380px;
+
+    margin: 0px 0 28px;
+
+    font-size: 17px;
+    font-weight: 550;
+    line-height: 1.75;
+
+    color: $footer-text;
 }
-.subfooterInner {
-  width: 80%;
-  margin: 0px auto;
-  display: flex;
-  align-items: top;
+
+/* LinkedIn icon specifically */
+
+.footerLeft a.fa-brands {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    padding: 0 !important;
+    margin: 0;
+
+    line-height: 1;
+    color: #ffffff !important;
+
+    text-decoration: none !important;
 }
-.disclaimer {
-  padding-bottom: 30px;
+
+.footerLeft a.fa-brands::before {
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    line-height: 1;
+    font-size: 20px;
 }
+
+/* ==========================================
+   COLUMN HEADINGS
+   ========================================== */
+
+.btr-footer-heading {
+    margin: 0 0 28px;
+
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1.3;
+
+    color: #ffffff;
+}
+
+/* ==========================================
+   NAVIGATION LINKS
+   ========================================== */
+
+.btr-footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 19px;
+}
+
+.footerLink,
+.btr-footer-links .footerLink {
+    display: inline-block;
+
+    padding: 0;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+
+    color: $footer-text !important;
+    text-decoration: none !important;
+
+    transition: color 0.2s ease;
+}
+
+.footerLink:hover,
+.btr-footer-links .footerLink:hover {
+    color: $footer-green !important;
+
+    text-decoration: underline !important;
+    text-underline-offset: 7px;
+    text-decoration-thickness: 2px;
+}
+
+/* ==========================================
+   LOCATIONS
+   ========================================== */
+
+/* Two addresses side by side */
+
+.footerLocations {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    column-gap: 28px;
+    row-gap: 0;
+
+    align-content: start;
+}
+
+/* Locations heading spans both columns */
+
+.footerLocations .btr-footer-heading {
+    grid-column: 1 / -1;
+}
+
+/* Individual address */
+
+.btr-location {
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+}
+
+/* Green location labels */
+
+.btr-location-title {
+    margin: 0 0 10px;
+
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+
+    color: $footer-green;
+}
+
+/* Address text */
+
+.btr-location address {
+    margin: 0;
+    padding: 0;
+
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.75;
+
+    color: $footer-text;
+}
+
+/* ==========================================
+   COPYRIGHT FOOTER
+   ========================================== */
+
+footer.btr-footer-bottom {
+    background-color: $color-blue-primary;
+
+    padding: 0 48px 28px;
+    margin: 0;
+
+    text-align: center;
+}
+
+.btr-footer-divider {
+    width: 100%;
+    max-width: 1404px;
+
+    height: 1px;
+
+    margin: 0 auto 22px;
+
+    background: $footer-border;
+}
+
+.btr-footer-bottom .disclaimer {
+    width: 100%;
+    max-width: 1404px;
+
+    margin: 0 auto;
+    padding: 0;
+
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.6;
+
+    text-align: center;
+    color: $footer-muted;
+}
+
+/* ==========================================
+   TABLET / SMALL DESKTOP
+   ========================================== */
+
+@media only screen and (max-width: 1200px) {
+
+    .subfooterInner,
+    .subfooterInner.btr-footer-layout {
+        padding: 0 36px;
+
+        grid-template-columns:
+            minmax(220px, 1.3fr)
+            minmax(110px, 0.7fr)
+            minmax(110px, 0.7fr);
+
+        column-gap: 35px;
+        row-gap: 40px;
+    }
+
+    /* Locations moves to second row */
+
+    .footerLocations {
+        grid-column: 1 / -1;
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+
+        max-width: 650px;
+    }
+
+    footer.btr-footer-bottom {
+        padding-left: 36px;
+        padding-right: 36px;
+    }
+}
+
+/* ==========================================
+   MOBILE
+   ========================================== */
 
 @media only screen and (max-width: 768px) {
-  .footerLeft {
-    width: 80%;
-    margin: 0px auto;
-    display: block;
-  }
-  .footerMiddle {
-    width: 80%;
-    margin: 0px auto;
-    display: block;
-  }
-  .footerRight {
-    width: 80%;
-    margin: 0px auto;
-    display: block;
-  }
-  .subfooter {
-    color: $color-primary;
-    padding-top: 20px;
-    font-size: 12pt;
-    text-align: center;
-    /*background-color: $color-black;*/
-    background-color: $color-blue-primary;
-    a:link, a:visited, a:hover, a:active {
-      text-decoration: none;
-      color: $color-primary;
-    }
-  }
-  .subfooterInner {
-    width: 80%;
-    margin: 0px auto;
-    display: unset;
-    align-items: unset;
-  }
-  footer {
-    padding-bottom: 250px;
-    font-size: .8rem;
-    color: $color-primary;
-    /*background-color: $color-light-black;*/
-    background-color: $color-blue-primary;
-  
-    a:link, a:visited, a:hover, a:active {
-      padding-left: 15px;
-      color: $color-primary;
-    }
-  }
-  .disclaimer {
-    padding-bottom: 30px;
-    width: 80%;
-    margin: 0px auto;
-  }
 
+    .subfooter {
+        padding: 40px 0 35px;
+    }
+
+    .subfooterInner,
+    .subfooterInner.btr-footer-layout {
+        width: 100%;
+
+        padding: 0 24px;
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+
+        column-gap: 24px;
+        row-gap: 38px;
+    }
+
+    /* Company occupies full width */
+
+    .footerLeft {
+        grid-column: 1 / -1;
+        padding-right: 0;
+    }
+
+    .btr-footer-description {
+        max-width: 480px;
+        margin: 20px 0 22px;
+    }
+
+    /* Navigation columns */
+
+    .footerMiddle,
+    .footerRight {
+        grid-column: auto;
+    }
+
+    /* Locations occupies full width */
+
+    .footerLocations {
+        grid-column: 1 / -1;
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+
+        column-gap: 20px;
+        row-gap: 0;
+
+        max-width: none;
+    }
+
+    .btr-footer-heading {
+        font-size: 19px;
+        margin-bottom: 22px;
+    }
+
+    .btr-footer-links {
+        gap: 15px;
+    }
+
+    .btr-location-title {
+        font-size: 15px;
+    }
+
+    .btr-location address {
+        font-size: 15px;
+    }
+
+    footer.btr-footer-bottom {
+        padding: 0 24px 25px;
+    }
+
+    .btr-footer-bottom .disclaimer {
+        font-size: 12px;
+    }
+}
+
+/* ==========================================
+   SMALL MOBILE
+   ========================================== */
+
+@media only screen and (max-width: 420px) {
+
+    .subfooterInner,
+    .subfooterInner.btr-footer-layout {
+        padding: 0 20px;
+        column-gap: 18px;
+    }
+
+    /* Stack addresses on narrow screens */
+
+    .footerLocations {
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+
+    .footerLocations .btr-footer-heading {
+        margin-bottom: 0;
+    }
+
+    .btr-location-title {
+        margin-bottom: 5px;
+    }
+
+    footer.btr-footer-bottom {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }

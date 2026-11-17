@@ -1,546 +1,875 @@
+
 import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Navigation from "../../Components/Navigation";
 import Footer from "../../Components/Footer";
-import { useIsMobile } from "../../Core/hooks";
+
+const responsibilities = [
+  "Develop and grow B2B relationships with customers and suppliers in the plastics industry.",
+  "Identify new sales and sourcing opportunities through outbound calls, email, and virtual meetings.",
+  "Source recycled polymer materials and match supply with customer demand.",
+  "Manage multiple opportunities through the sales cycle, from prospecting to closing.",
+  "Work closely with operations and logistics to ensure successful execution.",
+  "Maintain accurate CRM records and monitor opportunities, pricing, and market trends.",
+  "Build lasting partnerships through responsive communication and reliable follow-through.",
+  "Meet or exceed individual sales and performance goals.",
+];
+
+const qualifications = [
+  "Experience in B2B sales, account management, or sourcing preferred.",
+  "Strong communication skills, particularly over the phone and through email.",
+  "Self-motivated, organized, and comfortable managing multiple priorities.",
+  "Results-driven with a high level of ownership and accountability.",
+  "Ability to learn technical products and navigate complex markets.",
+  "Experience in industrial, manufacturing, commodities, or materials markets is a plus.",
+  "Comfortable working independently in a primarily remote sales environment.",
+];
+
+const benefits = [
+  "Competitive base salary",
+  "Uncapped commission",
+  "Paid vacation and holidays",
+  "Medical and dental benefits",
+  "Minimal travel",
+  "Full-time employment",
+];
+
+const role = {
+  title: "Account Manager",
+  department: "Sales",
+  type: "Full-time",
+  location: "On-site",
+  email: "hr@btrpolymers.com",
+};
 
 export default function AccountManager() {
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "auto" });
+    window.scrollTo(0, 0);
   }, []);
 
-  // Optional: support routes like /careers/:slug
-  const { slug } = useParams();
-  const isMobile = useIsMobile();
-
-  // For now we render the Account Manager role regardless of slug.
-  // Later you can map slug -> posting content.
-  const role = {
-    title: "Account Manager",
-    location: "On-site",
-    type: "Full-time",
-    department: "Sales",
-    email: "hr@btrpolymers.com",
-  };
-
-  const responsibilities = [
-    "Develop and manage B2B customer relationships, serving as the primary point of contact for assigned accounts.",
-    "Identify, pursue, and close new sales and sourcing opportunities within the recycled polymers market.",
-    "Source recycled polymer materials and match supply with customer demand to create value-driven solutions.",
-    "Manage multiple active opportunities concurrently, progressing prospects through the sales cycle using primarily remote communication.",
-    "Conduct outbound sales outreach via phone, email, and virtual meetings to generate and advance new business.",
-    "Collaborate with internal teams, including logistics and operations, to ensure successful execution of sales and sourcing activities.",
-    "Maintain accurate records of opportunities, communications, and account activity within internal systems.",
-    "Monitor market trends, pricing dynamics, and customer needs to identify new growth opportunities.",
-    "Provide responsive, professional communication to customers and suppliers to build long-term partnerships.",
-    "Meet or exceed individual performance goals and sales objectives.",
-  ];
-
-  const skills = [
-    "Strong sales aptitude with a results-driven, goal-oriented mindset.",
-    "Ability to manage multiple opportunities and priorities in a fast-paced environment.",
-    "Excellent verbal and written communication skills, particularly in phone- and email-based sales environments.",
-    "Self-motivated with a high level of accountability and initiative.",
-    "Strong organizational skills and attention to detail.",
-    "Ability to work independently while collaborating effectively with internal teams.",
-    "Comfortable navigating complex markets and learning technical product details.",
-  ];
-
-  const qualifications = [
-    "Prior experience in B2B sales, account management, or sourcing roles preferred.",
-    "Experience working in industrial, manufacturing, commodities, or materials-based markets is a plus.",
-    "Familiarity with CRM systems and sales tracking tools preferred.",
-    "Proven ability to succeed in a remote-centric sales environment.",
-  ];
-
-  const benefits = [
-    "Full-time employment",
-    "Competitive base salary plus commission",
-    "Uncapped commission structure",
-    "Paid vacation and holidays",
-    "Medical and dental benefits",
-    "Minimal travel required",
-  ];
+  const applyUrl = `mailto:${role.email}?subject=${encodeURIComponent(
+    `Application: ${role.title}`
+  )}`;
 
   return (
-    <div style={{ width: "100%", background: "#FFFFFF" }}>
+    <>
       <Navigation />
 
-      {/* HERO */}
-      <section
-        style={{
-          width: "100%",
-          height: isMobile ? "620px" : "520px",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "url(/images/account-manager.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            filter: "brightness(0.94)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.52) 40%, rgba(0,0,0,0.20) 72%, rgba(0,0,0,0.06) 100%)",
-          }}
-        />
+      <main className="btr-job">
 
-        <div
-          style={{
-            position: "relative",
-            height: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "0 24px",
-          }}
-        >
-          <div className="content-wrap" style={{ width: "100%", maxWidth: "1200px" }}>
-            <div style={{ maxWidth: "820px" }}>
-              <div
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  padding: "8px 12px",
-                  borderRadius: "999px",
-                  background: "rgba(255,255,255,0.12)",
-                  border: "1px solid rgba(255,255,255,0.20)",
-                  color: "rgba(255,255,255,0.90)",
-                  fontWeight: 600,
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                  fontSize: "12px",
-                }}
-              >
-                Careers • Job Posting
-              </div>
+        {/* ======================================
+            HERO
+        ====================================== */}
 
-              <h1
-                style={{
-                  margin: "14px 0 0 0",
-                  fontSize: "clamp(40px, 5vw, 62px)",
-                  lineHeight: 1.05,
-                  fontWeight: 300,
-                  letterSpacing: "-0.02em",
-                  color: "#FFFFFF",
-                  textShadow: "0 2px 8px rgba(0,0,0,0.45)",
-                }}
-              >
-                {role.title}
-              </h1>
+        <section className="btr-job-hero">
+          <div className="btr-job-container">
 
-              <p
-                style={{
-                  marginTop: "16px",
-                  fontSize: "clamp(16px, 2.2vw, 20px)",
-                  lineHeight: 1.6,
-                  fontWeight: 300,
-                  color: "rgba(255,255,255,0.92)",
-                  textShadow: "0 2px 8px rgba(0,0,0,0.35)",
-                }}
-              >
-                A sales and sourcing role developing B2B relationships-identifying opportunities, sourcing material,
-                and delivering tailored solutions across a dynamic recycled polymers market.
+            <Link
+              to="/careers"
+              className="btr-job-back-hero"
+            >
+              ← Back to Careers
+            </Link>
+
+            <span className="btr-job-eyebrow">
+              JOIN THE BTR TEAM
+            </span>
+
+            <h1>
+              Account
+              <br />
+              <span>Manager.</span>
+            </h1>
+
+            <p>
+              Build relationships. Find opportunities.
+              Help manufacturers turn recycled polymers
+              into real business value.
+            </p>
+
+            <div className="btr-job-meta">
+              <span>{role.department}</span>
+              <span>{role.type}</span>
+              <span>{role.location}</span>
+            </div>
+
+            <a
+              href="#apply"
+              className="btr-job-button-primary"
+            >
+              Apply for This Role <span>↗</span>
+            </a>
+
+          </div>
+        </section>
+
+        {/* ======================================
+            ABOUT THE ROLE
+        ====================================== */}
+
+        <section className="btr-job-intro">
+          <div className="btr-job-container btr-job-two-col">
+
+            <div>
+              <span className="btr-job-eyebrow">
+                THE OPPORTUNITY
+              </span>
+
+              <h2>
+                Own your pipeline.
+                <br />
+                Grow the business.
+              </h2>
+            </div>
+
+            <div className="btr-job-intro-copy">
+              <p>
+                As an Account Manager at BTR Polymers,
+                you'll develop customer and supplier
+                relationships, identify new opportunities,
+                and source recycled polymer materials
+                across a dynamic industrial marketplace.
               </p>
 
-              <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "18px" }}>
-                {[
-                  { label: "Type", value: role.type },
-                  { label: "Department", value: role.department },
-                  { label: "Location", value: role.location },
-                ].map((item) => (
-                  <div
-                    key={item.label}
-                    style={{
-                      background: "rgba(255,255,255,0.14)",
-                      border: "1px solid rgba(255,255,255,0.18)",
-                      padding: "10px 12px",
-                      borderRadius: "12px",
-                      color: "#FFFFFF",
-                      backdropFilter: "blur(6px)",
-                    }}
-                  >
-                    <div style={{ fontSize: "12px", opacity: 0.85, letterSpacing: "0.08em", textTransform: "uppercase" }}>
-                      {item.label}
-                    </div>
-                    <div style={{ fontSize: "14px", fontWeight: 700, marginTop: "2px" }}>{item.value}</div>
-                  </div>
-                ))}
-              </div>
+              <p>
+                This is a hands-on sales role for someone
+                who enjoys prospecting, solving problems,
+                and moving opportunities forward. You'll
+                manage your own pipeline while working
+                closely with our operations team to
+                deliver results.
+              </p>
 
-              <a
-                href={`mailto:${role.email}?subject=${encodeURIComponent(`Application: ${role.title}`)}`}
-                style={{
-                  display: "inline-block",
-                  marginTop: "22px",
-                  padding: "14px 26px",
-                  background: "#003A5D",
-                  color: "#FFFFFF",
-                  borderRadius: "8px",
-                  textDecoration: "none",
-                  fontWeight: 600,
-                  boxShadow: "0 10px 26px rgba(0,0,0,0.22)",
-                }}
-              >
-                Email your resume to {role.email}
-              </a>
+              <p>
+                The role offers performance-based
+                compensation, uncapped commission
+                potential, and minimal travel.
+              </p>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* MAIN CONTENT */}
-      <section
-        style={{
-          width: "100%",
-          background: "#FFFFFF",
-          padding: "90px 24px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <div className="content-wrap" style={{ width: "100%", maxWidth: "1200px" }}>
-          <div
-            className="two-col"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1.05fr 0.95fr",
-              gap: "56px",
-              alignItems: "start",
-            }}
-          >
-            {/* LEFT: DESCRIPTION */}
+          </div>
+        </section>
+
+        {/* ======================================
+            RESPONSIBILITIES
+        ====================================== */}
+
+        <section className="btr-job-responsibilities">
+          <div className="btr-job-container">
+
+            <div className="btr-job-section-heading">
+              <span className="btr-job-eyebrow">
+                THE WORK
+              </span>
+
+              <h2>What you'll do.</h2>
+            </div>
+
+            <div className="btr-job-list-grid">
+              {responsibilities.map((item, index) => (
+                <div
+                  className="btr-job-list-item"
+                  key={item}
+                >
+                  <span className="btr-job-list-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+
+        {/* ======================================
+            QUALIFICATIONS
+        ====================================== */}
+
+        <section className="btr-job-qualifications">
+          <div className="btr-job-container btr-job-two-col">
+
             <div>
-              <h2
-                style={{
-                  margin: 0,
-                  fontSize: "clamp(30px, 3.4vw, 44px)",
-                  lineHeight: 1.1,
-                  fontWeight: 300,
-                  letterSpacing: "-0.02em",
-                  color: "#2F3A3A",
-                }}
-              >
-                Job Description & Company Overview
+              <span className="btr-job-eyebrow">
+                WHAT WE'RE LOOKING FOR
+              </span>
+
+              <h2>
+                Driven.
+                <br />
+                Resourceful.
+                <br />
+                Accountable.
               </h2>
 
-              <p
-                style={{
-                  marginTop: "18px",
-                  fontSize: "clamp(18px, 2vw, 22px)",
-                  lineHeight: 1.7,
-                  fontWeight: 300,
-                  color: "#4A4A4A",
-                  maxWidth: "860px",
-                }}
-              >
-                The Account Manager at BTR Polymers is a sales and sourcing role responsible for developing,
-                managing, and growing business-to-business (B2B) relationships within the plastics manufacturing industry.
-                This position focuses on identifying new opportunities, sourcing material, and supporting customers with
-                tailored solutions across a complex and rapidly evolving marketplace.
+              <p className="btr-job-qualifications-intro">
+                We're looking for someone who takes
+                ownership, communicates clearly, and
+                knows how to turn opportunities into
+                results.
               </p>
-
-              <p
-                style={{
-                  marginTop: "14px",
-                  fontSize: "clamp(18px, 2vw, 22px)",
-                  lineHeight: 1.7,
-                  fontWeight: 300,
-                  color: "#4A4A4A",
-                  maxWidth: "860px",
-                }}
-              >
-                BTR Polymers is a post-industrial plastics recycling company committed to providing high-quality recycled
-                polymers through sustainable and responsible manufacturing practices. The recycled polymers market presents
-                significant opportunities due to its scale, diversity, and increasing demand for sustainable materials.
-                Success in this role requires a driven, goal-oriented individual who is comfortable managing multiple
-                opportunities simultaneously and advancing deals primarily through the sales process.
-              </p>
-
-              <p
-                style={{
-                  marginTop: "14px",
-                  fontSize: "clamp(18px, 2vw, 22px)",
-                  lineHeight: 1.7,
-                  fontWeight: 300,
-                  color: "#4A4A4A",
-                  maxWidth: "860px",
-                }}
-              >
-                This position involves minimal travel and offers a performance-based compensation structure with uncapped
-                commission potential.
-              </p>
-
-              {/* RESPONSIBILITIES */}
-              <div style={{ marginTop: "34px" }}>
-                <div
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: 900,
-                    color: "#003A5D",
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Primary Responsibilities
-                </div>
-
-                <ul
-                  style={{
-                    marginTop: "14px",
-                    paddingLeft: "18px",
-                    marginBottom: 0,
-                    color: "#4A4A4A",
-                    lineHeight: 1.75,
-                    fontWeight: 300,
-                    fontSize: "18px",
-                    maxWidth: "920px",
-                  }}
-                >
-                  {responsibilities.map((r) => (
-                    <li key={r} style={{ marginBottom: "10px" }}>
-                      {r}
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
 
-            {/* RIGHT: SKILLS / QUALIFICATIONS / CTA */}
-            <div>
-              <div
-                style={{
-                  background: "#EEF4F2",
-                  borderRadius: "18px",
-                  padding: "22px",
-                  border: "1px solid rgba(0,0,0,0.06)",
-                }}
-              >
+            <div className="btr-job-qualification-list">
+              {qualifications.map((item) => (
                 <div
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: 900,
-                    color: "#003A5D",
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                  }}
+                  className="btr-job-qualification"
+                  key={item}
                 >
-                  Required Skills & Competencies
+                  <span
+                    className="btr-job-check"
+                    aria-hidden="true"
+                  >
+                    ✓
+                  </span>
+
+                  <p>{item}</p>
                 </div>
-
-                <ul
-                  style={{
-                    marginTop: "14px",
-                    paddingLeft: "18px",
-                    marginBottom: 0,
-                    color: "#4A4A4A",
-                    lineHeight: 1.75,
-                    fontWeight: 300,
-                    fontSize: "16px",
-                  }}
-                >
-                  {skills.map((s) => (
-                    <li key={s} style={{ marginBottom: "10px" }}>
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div
-                style={{
-                  marginTop: "16px",
-                  background: "#FFFFFF",
-                  borderRadius: "18px",
-                  padding: "22px",
-                  border: "1px solid rgba(0,0,0,0.06)",
-                  boxShadow: "0 10px 26px rgba(0,0,0,0.06)",
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: 900,
-                    color: "#003A5D",
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Experience & Qualifications
-                </div>
-
-                <ul
-                  style={{
-                    marginTop: "14px",
-                    paddingLeft: "18px",
-                    marginBottom: 0,
-                    color: "#4A4A4A",
-                    lineHeight: 1.75,
-                    fontWeight: 300,
-                    fontSize: "16px",
-                  }}
-                >
-                  {qualifications.map((q) => (
-                    <li key={q} style={{ marginBottom: "10px" }}>
-                      {q}
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href={`mailto:${role.email}?subject=${encodeURIComponent(`Application: ${role.title}`)}`}
-                  style={{
-                    display: "inline-block",
-                    marginTop: "18px",
-                    padding: "12px 16px",
-                    background: "#003A5D",
-                    color: "#FFFFFF",
-                    borderRadius: "10px",
-                    textDecoration: "none",
-                    fontWeight: 700,
-                  }}
-                >
-                  Apply now - email your resume
-                </a>
-
-                <div style={{ marginTop: "10px", color: "#4A4A4A", fontWeight: 300, lineHeight: 1.6 }}>
-                  Email your resume to{" "}
-                  <a href={`mailto:${role.email}`} style={{ color: "#003A5D", fontWeight: 700, textDecoration: "none" }}>
-                    {role.email}
-                  </a>
-                  .
-                </div>
-              </div>
-
-              <div
-                style={{
-                  marginTop: "16px",
-                  background: "#E9EEF0",
-                  borderRadius: "18px",
-                  padding: "18px",
-                  border: "1px solid rgba(0,0,0,0.06)",
-                }}
-              >
-                <div style={{ color: "#003A5D", fontWeight: 900 }}>Compensation & Benefits</div>
-
-                <ul
-                  style={{
-                    marginTop: "12px",
-                    paddingLeft: "18px",
-                    marginBottom: 0,
-                    color: "#4A4A4A",
-                    lineHeight: 1.75,
-                    fontWeight: 300,
-                    fontSize: "16px",
-                  }}
-                >
-                  {benefits.map((b) => (
-                    <li key={b} style={{ marginBottom: "10px" }}>
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div style={{ marginTop: "18px" }}>
-                <Link
-                  to="/careers"
-                  style={{
-                    color: "#003A5D",
-                    fontWeight: 700,
-                    textDecoration: "none",
-                  }}
-                >
-                  ← Back to Careers
-                </Link>
-              </div>
+              ))}
             </div>
+
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA STRIP */}
-      <section
-        style={{
-          width: "100%",
-          background: "#EEF4F2",
-          padding: "70px 24px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <div className="content-wrap" style={{ width: "100%", maxWidth: "1200px", textAlign: "center" }}>
-          <h2
-            style={{
-              margin: 0,
-              fontSize: "clamp(28px, 3.2vw, 42px)",
-              lineHeight: 1.1,
-              fontWeight: 300,
-              letterSpacing: "-0.02em",
-              color: "#2F3A3A",
-            }}
-          >
-            Ready to apply?
-          </h2>
+        {/* ======================================
+            COMPENSATION & BENEFITS
+        ====================================== */}
 
-          <p
-            style={{
-              margin: "16px auto 0 auto",
-              maxWidth: "860px",
-              fontSize: "clamp(18px, 2vw, 22px)",
-              lineHeight: 1.7,
-              fontWeight: 300,
-              color: "#4A4A4A",
-            }}
-          >
-            Email your resume to <b>hr@btrpolymers.com</b> with the subject line: <b>Application: Account Manager</b>.
-          </p>
+        <section className="btr-job-benefits">
+          <div className="btr-job-container">
 
-          <a
-            href={`mailto:${role.email}?subject=${encodeURIComponent(`Application: ${role.title}`)}`}
-            style={{
-              display: "inline-block",
-              marginTop: "22px",
-              padding: "14px 28px",
-              background: "#003A5D",
-              color: "#FFFFFF",
-              borderRadius: "8px",
-              textDecoration: "none",
-              fontWeight: 700,
-            }}
-          >
-            Email hr@btrpolymers.com
-          </a>
-        </div>
-      </section>
+            <div className="btr-job-section-heading">
+              <span className="btr-job-eyebrow">
+                COMPENSATION & BENEFITS
+              </span>
 
-      {/* Responsive: 80% width on mobile */}
-      <style>
-        {`
-          @media (max-width: 900px) {
-            .content-wrap { width: 80% !important; }
-            .two-col {
-              grid-template-columns: 1fr !important;
-              gap: 34px !important;
-            }
-          }
-          @media (max-width: 500px) {
-            .content-wrap { width: 92% !important; }
-          }
-        `}
-      </style>
+              <h2>
+                Rewarding work.
+                <br />
+                Room to grow.
+              </h2>
+            </div>
+
+            <div className="btr-job-benefits-grid">
+              {benefits.map((benefit) => (
+                <div
+                  className="btr-job-benefit"
+                  key={benefit}
+                >
+                  <span
+                    className="btr-job-benefit-mark"
+                    aria-hidden="true"
+                  >
+                    ↗
+                  </span>
+
+                  <span>{benefit}</span>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+
+        {/* ======================================
+            APPLICATION CTA
+        ====================================== */}
+
+        <section
+          className="btr-job-cta"
+          id="apply"
+        >
+          <div className="btr-job-container">
+
+            <h2>Ready to join BTR?</h2>
+
+            <p>
+              Send your resume to{" "}
+              <strong>{role.email}</strong> with the
+              subject line{" "}
+              <strong>Application: Account Manager</strong>.
+            </p>
+
+            <a
+              href={applyUrl}
+              className="btr-job-button-primary"
+            >
+              Email Your Resume <span>↗</span>
+            </a>
+
+            <div className="btr-job-cta-back">
+              <Link to="/careers">
+                ← View All Careers
+              </Link>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
 
       <Footer />
-    </div>
+
+      <style>{`
+
+        /* ======================================
+           BASE
+        ====================================== */
+
+        .btr-job {
+          width: 100%;
+          color: #071e2e;
+          font-family: inherit;
+        }
+
+        .btr-job *,
+        .btr-job *::before,
+        .btr-job *::after {
+          box-sizing: border-box;
+        }
+
+        .btr-job-container {
+          width: 100%;
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 0 40px;
+        }
+
+        .btr-job-eyebrow {
+          display: block;
+
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+
+          color: #348e38;
+        }
+
+        /* ======================================
+           BUTTON
+        ====================================== */
+
+        .btr-job-button-primary {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+
+          gap: 25px;
+          padding: 15px 24px;
+
+          background: #071e2e;
+          color: #ffffff !important;
+
+          border: 1px solid #071e2e;
+          border-radius: 4px;
+
+          font-size: 16px;
+          font-weight: 600;
+
+          text-decoration: none !important;
+
+          transition:
+            background 0.2s ease,
+            border-color 0.2s ease;
+        }
+
+        .btr-job-button-primary:hover {
+          background: #17405a;
+          border-color: #17405a;
+        }
+
+        /* ======================================
+           HERO
+        ====================================== */
+
+        .btr-job-hero {
+          position: relative;
+          isolation: isolate;
+          overflow: hidden;
+
+          background:
+            linear-gradient(
+              90deg,
+              rgba(4, 22, 34, 0.94) 0%,
+              rgba(4, 22, 34, 0.82) 48%,
+              rgba(4, 22, 34, 0.48) 100%
+            ),
+            url("/images/account-manager.jpg");
+
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+
+          padding: 90px 0 105px;
+        }
+
+        .btr-job-hero .btr-job-container {
+          position: relative;
+          z-index: 1;
+        }
+
+        .btr-job-back-hero {
+          display: inline-block;
+
+          margin-bottom: 45px;
+
+          font-size: 16px;
+          font-weight: 600;
+
+          color: #d5e3e8 !important;
+          text-decoration: none !important;
+        }
+
+        .btr-job-back-hero:hover {
+          color: #78d84b !important;
+        }
+
+        .btr-job-hero .btr-job-eyebrow {
+          color: #86df58;
+        }
+
+        .btr-job-hero h1 {
+          max-width: 1050px;
+          margin: 25px 0 28px;
+
+          font-size: clamp(48px, 6vw, 82px);
+          line-height: 1.08;
+          font-weight: 750;
+          letter-spacing: -0.055em;
+
+          color: #ffffff;
+        }
+
+        .btr-job-hero h1 span {
+          color: #78d84b;
+        }
+
+        .btr-job-hero p {
+          max-width: 700px;
+          margin: 0;
+
+          font-size: clamp(19px, 2vw, 23px);
+          line-height: 1.7;
+
+          color: #e0e8eb;
+        }
+
+        /* Job metadata */
+
+        .btr-job-meta {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 12px;
+
+          margin: 28px 0 35px;
+        }
+
+        .btr-job-meta span {
+          display: inline-block;
+
+          padding: 9px 15px;
+
+          background: rgba(255, 255, 255, 0.12);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 4px;
+
+          font-size: 14px;
+          font-weight: 600;
+
+          color: #ffffff;
+        }
+
+        .btr-job-hero .btr-job-button-primary {
+          background: #72d348;
+          border-color: #72d348;
+          color: #071e2e !important;
+        }
+
+        .btr-job-hero .btr-job-button-primary:hover {
+          background: #8ae566;
+          border-color: #8ae566;
+        }
+
+        /* ======================================
+           TWO COLUMN LAYOUT
+        ====================================== */
+
+        .btr-job-two-col {
+          display: grid;
+          grid-template-columns: 0.9fr 1.1fr;
+          gap: 90px;
+          align-items: start;
+        }
+
+        .btr-job-two-col h2,
+        .btr-job-section-heading h2 {
+          margin: 20px 0;
+
+          font-size: clamp(38px, 4vw, 56px);
+          line-height: 1.15;
+          font-weight: 650;
+          letter-spacing: -0.035em;
+
+          color: #071e2e;
+        }
+
+        /* ======================================
+           ABOUT ROLE
+        ====================================== */
+
+        .btr-job-intro {
+          padding: 110px 0;
+          background: #ffffff;
+        }
+
+        .btr-job-intro-copy p {
+          margin: 0 0 24px;
+
+          font-size: 20px;
+          line-height: 1.75;
+
+          color: #53636a;
+        }
+
+        .btr-job-intro-copy p:last-child {
+          margin-bottom: 0;
+        }
+
+        /* ======================================
+           RESPONSIBILITIES
+        ====================================== */
+
+        .btr-job-responsibilities {
+          padding: 110px 0;
+          background: #f4f7f6;
+        }
+
+        .btr-job-section-heading {
+          margin-bottom: 50px;
+        }
+
+        .btr-job-list-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          column-gap: 65px;
+        }
+
+        .btr-job-list-item {
+          display: flex;
+          align-items: flex-start;
+
+          gap: 22px;
+          padding: 25px 0;
+
+          border-top: 1px solid #d6e0dc;
+        }
+
+        .btr-job-list-number {
+          flex-shrink: 0;
+          padding-top: 4px;
+
+          font-size: 14px;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+
+          color: #40973c;
+        }
+
+        .btr-job-list-item p {
+          margin: 0;
+
+          font-size: 19px;
+          line-height: 1.6;
+          font-weight: 500;
+
+          color: #071e2e;
+        }
+
+        /* ======================================
+           QUALIFICATIONS
+        ====================================== */
+
+        .btr-job-qualifications {
+          padding: 110px 0;
+          background: #ffffff;
+        }
+
+        .btr-job-qualifications-intro {
+          max-width: 460px;
+          margin: 25px 0 0;
+
+          font-size: 20px;
+          line-height: 1.7;
+
+          color: #53636a;
+        }
+
+        .btr-job-qualification-list {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .btr-job-qualification {
+          display: flex;
+          align-items: flex-start;
+
+          gap: 18px;
+          padding: 20px 0;
+
+          border-bottom: 1px solid #e1e8e6;
+        }
+
+        .btr-job-qualification:first-child {
+          border-top: 1px solid #e1e8e6;
+        }
+
+        .btr-job-check {
+          flex-shrink: 0;
+          padding-top: 2px;
+
+          font-size: 20px;
+          font-weight: 700;
+
+          color: #348e38;
+        }
+
+        .btr-job-qualification p {
+          margin: 0;
+
+          font-size: 19px;
+          line-height: 1.6;
+
+          color: #53636a;
+        }
+
+        /* ======================================
+           BENEFITS
+        ====================================== */
+
+        .btr-job-benefits {
+          padding: 110px 0;
+          background: #f4f7f6;
+        }
+
+        .btr-job-benefits-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 18px;
+        }
+
+        .btr-job-benefit {
+          display: flex;
+          align-items: center;
+
+          gap: 15px;
+          min-height: 100px;
+          padding: 25px;
+
+          background: #ffffff;
+          border: 1px solid #e1e8e6;
+          border-radius: 5px;
+
+          font-size: 20px;
+          line-height: 1.4;
+          font-weight: 600;
+
+          color: #071e2e;
+        }
+
+        .btr-job-benefit-mark {
+          flex-shrink: 0;
+
+          font-size: 24px;
+          color: #348e38;
+        }
+
+        /* ======================================
+           CTA
+        ====================================== */
+
+        .btr-job-cta {
+          padding: 100px 0;
+          background: #071e2e;
+          text-align: center;
+          scroll-margin-top: 80px;
+        }
+
+        .btr-job-cta h2 {
+          margin: 0 0 20px;
+
+          font-size: clamp(40px, 5vw, 62px);
+          line-height: 1.15;
+          font-weight: 650;
+          letter-spacing: -0.035em;
+
+          color: #ffffff;
+        }
+
+        .btr-job-cta p {
+          max-width: 680px;
+          margin: 0 auto 32px;
+
+          font-size: 20px;
+          line-height: 1.7;
+
+          color: #c2cdd3;
+        }
+
+        .btr-job-cta p strong {
+          color: #ffffff;
+          font-weight: 650;
+        }
+
+        .btr-job-cta .btr-job-button-primary {
+          background: #67cb42;
+          border-color: #67cb42;
+          color: #071e2e !important;
+        }
+
+        .btr-job-cta .btr-job-button-primary:hover {
+          background: #85dd62;
+          border-color: #85dd62;
+        }
+
+        .btr-job-cta-back {
+          margin-top: 35px;
+        }
+
+        .btr-job-cta-back a {
+          font-size: 16px;
+          font-weight: 600;
+          color: #c2cdd3 !important;
+          text-decoration: none !important;
+        }
+
+        .btr-job-cta-back a:hover {
+          color: #78d84b !important;
+        }
+
+        /* ======================================
+           TABLET
+        ====================================== */
+
+        @media (max-width: 900px) {
+
+          .btr-job-hero {
+            padding: 80px 0 90px;
+          }
+
+          .btr-job-two-col {
+            gap: 45px;
+          }
+
+          .btr-job-list-grid {
+            column-gap: 35px;
+          }
+
+          .btr-job-benefits-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+        }
+
+        /* ======================================
+           MOBILE
+        ====================================== */
+
+        @media (max-width: 700px) {
+
+          .btr-job-container {
+            padding: 0 24px;
+          }
+
+          .btr-job-hero {
+            padding: 60px 0 75px;
+            background-position: 60% center;
+          }
+
+          .btr-job-back-hero {
+            margin-bottom: 35px;
+          }
+
+          .btr-job-hero h1 {
+            font-size: clamp(42px, 10vw, 58px);
+          }
+
+          .btr-job-hero p {
+            font-size: 18px;
+          }
+
+          .btr-job-intro,
+          .btr-job-responsibilities,
+          .btr-job-qualifications,
+          .btr-job-benefits {
+            padding: 70px 0;
+          }
+
+          .btr-job-two-col {
+            grid-template-columns: 1fr;
+            gap: 30px;
+          }
+
+          .btr-job-intro-copy p {
+            font-size: 18px;
+          }
+
+          .btr-job-section-heading {
+            margin-bottom: 35px;
+          }
+
+          .btr-job-list-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .btr-job-list-item {
+            padding: 20px 0;
+          }
+
+          .btr-job-list-item p {
+            font-size: 18px;
+          }
+
+          .btr-job-qualifications-intro {
+            font-size: 18px;
+          }
+
+          .btr-job-qualification p {
+            font-size: 18px;
+          }
+
+          .btr-job-benefits-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+          }
+
+          .btr-job-benefit {
+            min-height: 85px;
+            font-size: 18px;
+          }
+
+          .btr-job-cta {
+            padding: 75px 0;
+          }
+
+          .btr-job-cta p {
+            font-size: 18px;
+          }
+
+        }
+
+        /* ======================================
+           REDUCED MOTION
+        ====================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+          .btr-job-button-primary {
+            transition: none;
+          }
+        }
+
+      `}</style>
+    </>
   );
 }

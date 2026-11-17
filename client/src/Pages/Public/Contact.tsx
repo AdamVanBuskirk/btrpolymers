@@ -1,260 +1,380 @@
-// src/Pages/Contact/Contact.tsx (or wherever this lives)
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Footer from "../../Components/Footer";
+
+import React, { useEffect } from "react";
 import Navigation from "../../Components/Navigation";
-import { useIsMobile, useAppDispatch } from "../../Core/hooks";
-import { axiosPublic } from "../../Core/axios"; // <-- use your public axios instance (no auth) OR swap to axios
+import Footer from "../../Components/Footer";
 
-function Contact() {
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-
-  const [email, setEmail] = useState<string>("");
-  const [firstName, setFirstName] = useState<string>("");
-  const [lastName, setLastName] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
-
-  // UI states
-  const [errorText, setErrorText] = useState<string>("");
-  const [success, setSuccess] = useState<boolean>(false);
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-
-  const isMobile = useIsMobile();
-  const successTimerRef = useRef<number | null>(null);
-
+export default function Contact() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    return () => {
-      if (successTimerRef.current) window.clearTimeout(successTimerRef.current);
-    };
   }, []);
-
-  const emailIsValid = (value: string) => {
-    const v = value.trim().toLowerCase();
-    // Practical email regex (not perfect, but solid UX)
-    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(v);
-  };
-
-  const canSubmit = useMemo(() => {
-    return (
-      firstName.trim().length > 0 &&
-      lastName.trim().length > 0 &&
-      message.trim().length > 0 &&
-      emailIsValid(email)
-    );
-  }, [firstName, lastName, message, email]);
-
-  const resetAlerts = () => {
-    setErrorText("");
-    setSuccess(false);
-  };
-
-  const handleSubmit = async () => {
-    resetAlerts();
-
-    // Front-end validation
-    const fn = firstName.trim();
-    const ln = lastName.trim();
-    const em = email.trim();
-    const msg = message.trim();
-
-    if (!fn || !ln || !em || !msg) {
-      setErrorText("Please complete all fields.");
-      return;
-    }
-    if (!emailIsValid(em)) {
-      setErrorText("Please enter a valid email address.");
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      // IMPORTANT: Do NOT call SendGrid directly from the browser.
-      // Call your backend endpoint that sends the email server-side.
-      await axiosPublic.post("/api/contact", {
-        firstName: fn,
-        lastName: ln,
-        email: em,
-        message: msg,
-        // optional metadata
-        source: "btrpolymers.com/contact",
-        submittedAt: new Date().toISOString(),
-      });
-
-      setSuccess(true);
-
-      // auto-hide success after 2 seconds
-      if (successTimerRef.current) window.clearTimeout(successTimerRef.current);
-      successTimerRef.current = window.setTimeout(() => {
-        setSuccess(false);
-      }, 2000);
-
-      // optional: clear fields on success
-      setFirstName("");
-      setLastName("");
-      setEmail("");
-      setMessage("");
-    } catch (err: any) {
-      // Prefer showing server error if you return one
-      const serverMsg =
-        err?.response?.data?.message ||
-        err?.response?.data?.error ||
-        "Something went wrong sending your message. Please try again.";
-      setErrorText(serverMsg);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <>
       <Navigation />
 
-      <div className="main-container" style={{ width: isMobile ? "80%" : "70%" }}>
-        <h1
-          style={{
-            paddingTop: isMobile ? "60px" : "0px",
-            fontWeight: "bold",
-            fontSize: isMobile ? "50px" : "60px",
-            margin: " 0px auto 30px auto",
-            letterSpacing: "-1px",
-            textAlign: "center",
-          }}
-        >
-          Get in touch with us
-        </h1>
+      <main className="btr-contact">
 
-        <div style={{ margin: "0px auto", textAlign: "center", width: isMobile ? "80%" : "50%" }}>
-          <div
-            style={{
-              color: "#6B6A6A",
-              fontSize: "24px",
-              fontWeight: "460",
-              marginBottom: "20px",
-              textAlign: "left",
-            }}
-          >
-            Whether you're interested in joining our team or exploring how we can work together,
-            we'd love to hear from you. Reach out and start the conversation.
-          </div>
+        <section className="btr-contact-section">
+          <div className="btr-contact-container">
 
-          <div style={{ margin: isMobile ? "0px auto" : "unset", textAlign: isMobile ? "center" : "unset" }}>
-            {!!errorText && (
-              <div className="error" style={{ marginBottom: "10px" }}>
-                {errorText}
+            {/* LEFT: INTRODUCTION */}
+
+            <div className="btr-contact-intro">
+
+              <span className="btr-contact-eyebrow">
+                CONTACT BTR POLYMERS
+              </span>
+
+              <h1>
+                Let's get
+                <br />
+                <span>to work.</span>
+              </h1>
+
+              <p className="btr-contact-description">
+                Have plastic scrap to recycle, need a reliable
+                source of recycled polymers, or want to explore
+                working together? We'd love to hear from you.
+              </p>
+
+              <div className="btr-contact-phone-block">
+
+                <span className="btr-contact-label">
+                  GIVE US A CALL
+                </span>
+
+                <a
+                  href="tel:+12346023600"
+                  className="btr-contact-phone"
+                >
+                  (234) 602-3600
+                </a>
+
               </div>
-            )}
 
-            {success && (
-              <div className="success" style={{ marginBottom: "10px" }}>
-                Thanks for reaching out! We'll get back to you shortly.
+              <div className="btr-contact-note">
+                Or send us a message using the form.
               </div>
-            )}
 
-            <div style={{ marginBottom: "40px" }}>
-                <div style={{ fontSize: "24pt", fontWeight: "700" }}>
-                    <a href="tel:+12346023600" style={{ color: "#000", textDecoration: "none" }}>(234) 602-3600</a>
-                </div>
             </div>
 
+            {/* RIGHT: JOTFORM */}
 
-            <div style={{ marginTop: "20px", marginBottom: "0px", fontSize: "17pt", fontWeight: "600" }}>
-                OR
-            </div>
+            <div className="btr-contact-form-column">
 
+              <div className="btr-contact-form-heading">
+                <h2>Send us a message.</h2>
+                <p>
+                  Tell us a little about what you're looking for.
+                </p>
+              </div>
 
-            <div
-              style={{
-                width: "100%",
-                height: "800px",
-                overflow: "hidden",
-              }}
-            >
-              <iframe
-                src="https://form.jotform.com/263143393857061"
-                title="BTR Form"
-                style={{
-                  width: "100%",
-                  height: "900px",
-                  border: "none",
-                }}
-              />
-            </div>
-
-
-
-
-
-            
-            {/*
-            <div style={{ display: "flex", gap: "10%", marginBottom: "10px" }}>
-              <div style={{ flex: "0 0 45%" }}>
-                <input
-                  type="text"
-                  placeholder="First Name*"
-                  className="form-control"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.currentTarget.value)}
-                  onFocus={resetAlerts}
+              <div className="btr-contact-form-wrap">
+                <iframe
+                  src="https://form.jotform.com/263143393857061"
+                  title="Contact BTR Polymers"
+                  className="btr-contact-iframe"
+                  loading="lazy"
                 />
               </div>
-              <div style={{ flex: "0 0 45%" }}>
-                <input
-                  type="text"
-                  placeholder="Last Name*"
-                  className="form-control"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.currentTarget.value)}
-                  onFocus={resetAlerts}
-                />
-              </div>
-            </div>
-            */}
-            {/*
-            <div style={{ marginBottom: "10px" }}>
-              <input
-                type="email"
-                placeholder="Email*"
-                className="form-control"
-                value={email}
-                onChange={(e) => setEmail(e.currentTarget.value)}
-                onFocus={resetAlerts}
-              />
+
             </div>
 
-            <div style={{ marginBottom: "30px" }}>
-              <textarea
-                rows={3}
-                placeholder="Message*"
-                className="form-control"
-                value={message}
-                onChange={(e) => setMessage(e.currentTarget.value)}
-                onFocus={resetAlerts}
-              />
-            </div>
-            <div
-              className="cta-orange-outline"
-              onClick={() => {
-                if (!isSubmitting) handleSubmit();
-              }}
-              style={{
-                opacity: isSubmitting ? 0.7 : 1,
-                pointerEvents: isSubmitting ? "none" : "auto",
-                userSelect: "none",
-              }}
-            >
-              {isSubmitting ? "SENDING..." : "SUBMIT"}
-            </div>
-            */}
           </div>
-        </div>
-      </div>
+        </section>
 
-      <Footer style={{ position: "relative" }} />
+      </main>
+
+      <Footer />
+
+      <style>{`
+
+        /* ======================================
+           BASE
+        ====================================== */
+
+        .btr-contact {
+          width: 100%;
+          background: #ffffff;
+          color: #071e2e;
+          font-family: inherit;
+        }
+
+        .btr-contact *,
+        .btr-contact *::before,
+        .btr-contact *::after {
+          box-sizing: border-box;
+        }
+
+        /* ======================================
+           MAIN LAYOUT
+        ====================================== */
+
+        .btr-contact-section {
+          padding: 110px 0 115px;
+        }
+
+        .btr-contact-container {
+          display: grid;
+          grid-template-columns:
+            minmax(0, 0.9fr)
+            minmax(0, 1.1fr);
+
+          gap: 90px;
+          align-items: start;
+
+          width: 100%;
+          max-width: 1280px;
+
+          margin: 0 auto;
+          padding: 0 40px;
+        }
+
+        /* ======================================
+           LEFT COLUMN
+        ====================================== */
+
+        .btr-contact-eyebrow {
+          display: block;
+
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+
+          color: #348e38;
+        }
+
+        .btr-contact-intro h1 {
+          margin: 24px 0 28px;
+
+          font-size: clamp(54px, 6vw, 82px);
+          line-height: 1.07;
+          font-weight: 750;
+          letter-spacing: -0.055em;
+
+          color: #071e2e;
+        }
+
+        .btr-contact-intro h1 span {
+          color: #4aa52f;
+        }
+
+        .btr-contact-description {
+          max-width: 480px;
+          margin: 0;
+
+          font-size: 21px;
+          line-height: 1.75;
+
+          color: #53636a;
+        }
+
+        /* ======================================
+           PHONE NUMBER
+        ====================================== */
+
+        .btr-contact-phone-block {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+
+          gap: 12px;
+
+          margin-top: 55px;
+          padding-top: 28px;
+
+          border-top: 1px solid #dce5e1;
+        }
+
+        .btr-contact-label {
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 0.15em;
+
+          color: #348e38;
+        }
+
+        .btr-contact-phone {
+          display: inline-block;
+
+          font-size: clamp(28px, 3vw, 38px);
+          font-weight: 650;
+          letter-spacing: -0.025em;
+
+          color: #071e2e !important;
+          text-decoration: none !important;
+
+          transition: color 0.2s ease;
+        }
+
+        .btr-contact-phone:hover {
+          color: #348e38 !important;
+        }
+
+        .btr-contact-note {
+          margin-top: 35px;
+
+          font-size: 17px;
+          line-height: 1.6;
+
+          color: #65737a;
+        }
+
+        /* ======================================
+           FORM COLUMN
+        ====================================== */
+
+        .btr-contact-form-column {
+          min-width: 0;
+        }
+
+        .btr-contact-form-heading {
+          margin-bottom: 22px;
+        }
+
+        .btr-contact-form-heading h2 {
+          margin: 0 0 10px;
+
+          font-size: 32px;
+          line-height: 1.2;
+          font-weight: 650;
+          letter-spacing: -0.025em;
+
+          color: #071e2e;
+        }
+
+        .btr-contact-form-heading p {
+          margin: 0;
+
+          font-size: 18px;
+          line-height: 1.65;
+
+          color: #53636a;
+        }
+
+        /* Jotform container */
+
+        .btr-contact-form-wrap {
+          width: 100%;
+          min-width: 0;
+
+          background: #f4f7f6;
+
+          border: 1px solid #e1e8e6;
+          border-radius: 8px;
+
+          overflow: hidden;
+        }
+
+        .btr-contact-iframe {
+          display: block;
+
+          width: 100%;
+          height: 850px;
+
+          border: 0;
+          background: transparent;
+        }
+
+        /* ======================================
+           TABLET
+        ====================================== */
+
+        @media (max-width: 1000px) {
+
+          .btr-contact-container {
+            gap: 45px;
+          }
+
+          .btr-contact-section {
+            padding: 85px 0;
+          }
+
+          .btr-contact-description {
+            font-size: 19px;
+          }
+
+        }
+
+        /* ======================================
+           MOBILE
+        ====================================== */
+
+        @media (max-width: 700px) {
+
+          .btr-contact-section {
+            padding: 65px 0 75px;
+          }
+
+          .btr-contact-container {
+            grid-template-columns: 1fr;
+
+            gap: 55px;
+
+            padding: 0 24px;
+          }
+
+          .btr-contact-intro h1 {
+            font-size: clamp(48px, 11vw, 64px);
+          }
+
+          .btr-contact-description {
+            font-size: 18px;
+          }
+
+          .btr-contact-phone-block {
+            margin-top: 35px;
+          }
+
+          .btr-contact-phone {
+            font-size: 32px;
+          }
+
+          .btr-contact-note {
+            margin-top: 25px;
+          }
+
+          .btr-contact-form-heading h2 {
+            font-size: 28px;
+          }
+
+          .btr-contact-form-heading p {
+            font-size: 17px;
+          }
+
+          .btr-contact-iframe {
+            height: 900px;
+          }
+
+        }
+
+        /* ======================================
+           SMALL MOBILE
+        ====================================== */
+
+        @media (max-width: 420px) {
+
+          .btr-contact-container {
+            padding: 0 18px;
+          }
+
+          .btr-contact-iframe {
+            height: 950px;
+          }
+
+        }
+
+        /* ======================================
+           REDUCED MOTION
+        ====================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+          .btr-contact-phone {
+            transition: none;
+          }
+        }
+
+      `}</style>
     </>
   );
 }
-
-export default Contact;

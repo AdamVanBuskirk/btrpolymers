@@ -1,48 +1,105 @@
-import React, { useEffect } from "react";
+
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "../../Components/Navigation";
 import Footer from "../../Components/Footer";
-import { useIsMobile } from "../../Core/hooks";
 
+type TeamMember = {
+  name: string;
+  title: string;
+  image?: string;
+  linkedin?: string;
+};
 
-function TeamAvatar({ name, image }: { name: string; image?: string }) {
-  const [imageFailed, setImageFailed] = React.useState(false);
-  const showImage = Boolean(image?.trim()) && !imageFailed;
+const team: TeamMember[] = [
+  {
+    name: "Adam VanBuskirk",
+    title: "President",
+    image: "/images/team/BTR_Adam_Headshot.png",
+    linkedin:
+      "https://www.linkedin.com/in/adam-vanbuskirk-28b93136/",
+  },
+  {
+    name: "Jack Bartosic",
+    title: "Chief Revenue Officer",
+    image: "/images/team/BTR_Jack_Headshot.png",
+    linkedin:
+      "https://www.linkedin.com/in/jack-bartosic-939497215/",
+  },
+  {
+    name: "Kim Holz",
+    title: "Customer Service Manager",
+    image: "/images/team/BTR_Kim_Headshot.png",
+  },
+  {
+    name: "Mike Murphy",
+    title: "Operations Manager",
+    image: "/images/team/BTR_Mike_Headshot.png",
+  },
+  {
+    name: "Cristina Pascual",
+    title: "Business Development Representative",
+    image: "/images/team/BTR_Cristina_Headshot.png",
+  },
+  {
+    name: "Warehouse Team",
+    title: "Material Handlers",
+  },
+];
+
+const values = [
+  {
+    number: "01",
+    title: "Reliability",
+    description:
+      "We do what we say we'll do and take our commitments seriously.",
+  },
+  {
+    number: "02",
+    title: "Transparency",
+    description:
+      "We believe strong partnerships are built on honest communication and accountability.",
+  },
+  {
+    number: "03",
+    title: "Long-Term Thinking",
+    description:
+      "We're building a business designed to create lasting value for customers, suppliers, and our team.",
+  },
+];
+
+function TeamAvatar({
+  name,
+  image,
+}: {
+  name: string;
+  image?: string;
+}) {
+  const [imageFailed, setImageFailed] = useState(false);
 
   return (
-    <div
-      style={{
-        width: "100%",
-        aspectRatio: "1 / 1",
-        borderRadius: "50%",
-        border: "4px solid #FFFFFF",
-        boxShadow: "0 8px 24px rgba(0, 58, 93, 0.12)",
-        overflow: "hidden",
-        background: "#E9EEF0",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        boxSizing: "border-box",
-      }}
-    >
-      {showImage ? (
+    <div className="btr-about-team-photo">
+      {image && !imageFailed ? (
         <img
           src={image}
-          alt={name || "Team member"}
+          alt={name}
           loading="lazy"
           onError={() => setImageFailed(true)}
-          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
         />
       ) : (
         <svg
           viewBox="0 0 100 100"
-          width="65%"
-          height="65%"
+          width="55%"
+          height="55%"
           fill="none"
-          aria-label={name ? `${name} avatar placeholder` : "Team avatar placeholder"}
           role="img"
+          aria-label={`${name} avatar placeholder`}
         >
-          <circle cx="50" cy="34" r="17" fill="#003A5D" />
-          <path d="M17 85c0-20 14-32 33-32s33 12 33 32" fill="#003A5D" />
+          <circle cx="50" cy="34" r="17" fill="#8aa0a8" />
+          <path
+            d="M17 85c0-20 14-32 33-32s33 12 33 32"
+            fill="#8aa0a8"
+          />
         </svg>
       )}
     </div>
@@ -50,626 +107,801 @@ function TeamAvatar({ name, image }: { name: string; image?: string }) {
 }
 
 export default function About() {
-
-    const isMobile = useIsMobile();
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
-    /*
-        {
-      year: "2011",
-      title: "Founded with an operational mindset",
-      body:
-        "Burdette Thomas Company LLC was founded with a simple goal: build a business grounded in quality products, strong partnerships, and disciplined execution.",
-    },
-    {
-      year: "2012 - 2018",
-      title: "Retail → national distribution platform",
-      body:
-        "What began as an online retailer of consumer goods-most notably backyard game products-scaled into a distribution platform serving customers across the United States.",
-    },
-    {
-      year: "2019 - 2020",
-      title: "Supply-chain focus becomes a strategic edge",
-      body:
-        "As the business matured, we doubled down on distribution and supply-chain solutions that supported our growth and improved reliability.",
-    },
-    {
-      year: "2020 - 2022",
-      title: "Post-COVID disruption drives expansion into recycled polymers",
-      body:
-        "When global shortages hit, we built creative sourcing solutions and expanded into recycled polymer markets using our distribution network and supplier relationships.",
-    },
-    {
-      year: "2022 - Today",
-      title: "Investing in circular manufacturing and vertical integration",
-      body:
-        "Recognizing long-term demand for sustainable materials, we expanded investment into polymer recycling operations and a vertically integrated approach from source material to end use.",
-    },
-    */
-
-  const team = [
-    { name: "Adam VanBuskirk", title: "President", image: "/images/team/BTR_Adam_Headshot.png", linkedin: "https://www.linkedin.com/in/adam-vanbuskirk-28b93136/" },
-    { name: "Jack Bartosic", title: "Chief Revenue Officer", image: "/images/team/BTR_Jack_Headshot.png", linkedin: "https://www.linkedin.com/in/jack-bartosic-939497215/" },
-    { name: "Kim Holz", title: "Customer Service Manager", image: "/images/team/BTR_Kim_Headshot.png" },
-    { name: "Mike Murphy", title: "Operations Manager", image: "/images/team/BTR_Mike_Headshot.png" },
-    { name: "Cristina Pascual", title: "Business Development Representitive", image: "/images/team/BTR_Cristina_Headshot.png" },
-    { name: "Warehouse Team", title: "Material Handlers", image: "" },
-  ];
-
-  const timeline = [
-    {
-      year: "Today",
-      title: "Scaling infrastructure, technology, and capabilities",
-      body:
-        "We continue investing in infrastructure, technology, and operational capabilities to support growth across additional polymer streams and end-use applications.",
-    },
-  ];
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <div style={{ width: "100%", background: "#FFFFFF" }}>
+    <>
       <Navigation />
 
-      {/* HERO */}
-      <section
-        style={{
-          width: "100%",
-          height: isMobile ? "600px" : "520px",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "url(/images/group-photo-us.png)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            filter: "brightness(0.92)",
-          }}
-        />
+      <main className="btr-about">
 
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.55) 36%, rgba(0,0,0,0.24) 70%, rgba(0,0,0,0.05) 100%)",
-          }}
-        />
+        {/* ======================================
+            HERO
+        ====================================== */}
 
-        <div
-          style={{
-            position: "relative",
-            height: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "0 24px",
-          }}
-        >
-          <div  className="content-wrap"  style={{ width: "100%", maxWidth: "1200px" }}>
-            <div style={{ maxWidth: "720px" }}>
-              <h1
-                style={{
-                  margin: 0,
-                  fontSize: "clamp(40px, 5vw, 64px)",
-                  lineHeight: 1.05,
-                  fontWeight: 300,
-                  letterSpacing: "-0.02em",
-                  color: "#FFFFFF",
-                  textShadow: "0 2px 8px rgba(0,0,0,0.45)",
-                }}
-              >
-                Built Through Disruption. Focused on What Endures.
-              </h1>
+        <section className="btr-about-hero">
+          <div className="btr-about-container">
 
-              <p
-                style={{
-                  marginTop: "18px",
-                  fontSize: "clamp(18px, 2.2vw, 22px)",
-                  lineHeight: 1.6,
-                  fontWeight: 300,
-                  color: "rgba(255,255,255,0.92)",
-                  textShadow: "0 2px 8px rgba(0,0,0,0.35)",
-                }}
-              >
-                Founded in 2011, Burdette Thomas Company evolved from a national
-                distribution business into a vertically integrated recycled polymer
-                partner-investing in infrastructure, market expertise, and sustainable
-                manufacturing to deliver reliable outcomes for customers.
+            <span className="btr-about-eyebrow">
+              ABOUT BTR POLYMERS
+            </span>
+
+            <h1>
+              Built to Last.
+              <br />
+              <span>Driven to Grow.</span>
+            </h1>
+
+            <p>
+              We're building a better way to recycle
+              industrial plastics through strong
+              partnerships, practical solutions,
+              and relentless execution.
+            </p>
+
+          </div>
+        </section>
+
+        {/* ======================================
+            OUR STORY
+        ====================================== */}
+
+        <section className="btr-about-story">
+          <div className="btr-about-container btr-about-story-grid">
+
+            <div>
+              <span className="btr-about-eyebrow">
+                OUR STORY
+              </span>
+
+              <h2>
+                Built on experience.
+                <br />
+                Focused on the future.
+              </h2>
+            </div>
+
+            <div className="btr-about-story-copy">
+
+              <p>
+                Founded in 2011, Burdette Thomas Company
+                began as a consumer goods business and
+                grew into a national distribution operation.
               </p>
 
-              <a
-                href="/solutions"
-                style={{
-                  display: "inline-block",
-                  marginTop: "26px",
-                  padding: "14px 26px",
-                  background: "#003A5D",
-                  //background: "#319C17",
-                  color: "#FFFFFF",
-                  borderRadius: "8px",
-                  textDecoration: "none",
-                  fontWeight: 600,
-                  boxShadow: "0 10px 26px rgba(0,0,0,0.22)",
-                }}
-              >
-                Our Solutions
-              </a>
+              <p>
+                That experience in sourcing, logistics,
+                and supply chains led us into the recycled
+                polymer industry, where we saw an opportunity
+                to build something bigger.
+              </p>
+
+              <p>
+                Today, as BTR Polymers, we're investing
+                in people, infrastructure, and technology
+                to help manufacturers recover more value
+                from plastic scrap and bring recycled
+                materials back into productive use.
+              </p>
+
             </div>
+
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* INTRO (centered, whitespace-heavy) */}
-      <section
-        style={{
-          width: "100%",
-          padding: "90px 24px",
-          display: "flex",
-          justifyContent: "center",
-          background: "#FFFFFF",
-        }}
-      >
-        <div  className="content-wrap"  style={{ maxWidth: "1100px", textAlign: "center" }}>
-          <h2
-            style={{
-              margin: 0,
-              fontSize: "clamp(34px, 4vw, 54px)",
-              lineHeight: 1.1,
-              fontWeight: 300,
-              letterSpacing: "-0.02em",
-              color: "#2F3A3A",
-            }}
-          >
-            A distribution-first company evolving into circular manufacturing
-          </h2>
+        {/* ======================================
+            MISSION
+        ====================================== */}
 
-          <p
-            style={{
-              margin: "22px auto 0 auto",
-              maxWidth: "920px",
-              fontSize: "clamp(18px, 2vw, 22px)",
-              lineHeight: 1.7,
-              fontWeight: 300,
-              color: "#4A4A4A",
-            }}
-          >
-            Burdette Thomas Company began as an online retailer of consumer goods-most notably
-            backyard game products-and quickly grew into a scalable distribution platform serving
-            customers across the United States. That operational foundation became a strategic edge
-            during the post-COVID supply-chain disruption, driving expansion into recycled polymers
-            and a broader commitment to circular manufacturing solutions that deliver real business value.
-          </p>
-        </div>
-      </section>
+        <section className="btr-about-mission">
+          <div className="btr-about-container">
 
-      {/* TIMELINE (pulse circles, vertically centered in each card; dates inside cards) */}
-      <section
-        style={{
-          width: "100%",
-          background: "#E9EEF0",
-          padding: "90px 24px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <div  className="content-wrap" style={{ width: "100%", maxWidth: "1200px" }}>
-          <h2
-            style={{
-              margin: 0,
-              fontSize: "clamp(32px, 3.6vw, 46px)",
-              lineHeight: 1.1,
-              fontWeight: 300,
-              letterSpacing: "-0.02em",
-              color: "#2F3A3A",
-              textAlign: "center",
-            }}
-          >
-            Our story, by chapter
-          </h2>
+            <span className="btr-about-eyebrow">
+              OUR MISSION
+            </span>
 
-          <div
-            style={{
-                marginTop: "48px",
-                display: "flex",
-                flexDirection: "column",
-                gap: "20px",
-            }}
-            >
-            {timeline.map((t, idx) => {
-              // circles progressively grow, capped so the last ones don’t overpower the layout
-              const size = Math.min(18 + idx * 4, 34);
+            <h2>
+              3 Billion Pounds.
+              <br />
+              <span>One Mission.</span>
+            </h2>
 
-              return (
+            <p>
+              We're on a mission to recycle 3 billion
+              pounds of post-industrial plastic scrap
+              by the end of 2036.
+            </p>
+
+            <div className="btr-about-mission-line" />
+
+          </div>
+        </section>
+
+        {/* ======================================
+            WHAT WE BELIEVE
+        ====================================== */}
+
+        <section className="btr-about-values">
+          <div className="btr-about-container">
+
+            <div className="btr-about-section-heading">
+              <span className="btr-about-eyebrow">
+                WHAT WE BELIEVE
+              </span>
+
+              <h2>
+                The way we do business
+                <br />
+                matters.
+              </h2>
+            </div>
+
+            <div className="btr-about-values-grid">
+              {values.map((value) => (
                 <div
-                  key={t.year + t.title}
-                  style={{
-                    position: "relative",
-                    background: "#FFFFFF",
-                    borderRadius: "18px",
-                    padding: isMobile ? "40px" : "26px 26px 26px 96px", // reserve space for pulse
-                    border: "1px solid rgba(0,0,0,0.06)",
-                    boxShadow: "0 10px 26px rgba(0,0,0,0.06)",
-                  }}
+                  className="btr-about-value"
+                  key={value.number}
                 >
-                  {/* Vertically centered pulse circle */}
-                  {!isMobile &&
-                  <div
-                    style={{
-                      position: "absolute",
-                      left: "32px",
-                      top: "50%",
-                      transform: "translateY(-50%)",
-                      width: `${size}px`,
-                      height: `${size}px`,
-                      borderRadius: "50%",
-                      background: "#003A5D",
-                      boxShadow: "0 10px 20px rgba(0,0,0,0.12)",
-                    }}
-                  >
-                    {/* pulse rings */}
-                    <span
-                      style={{
-                        position: "absolute",
-                        inset: "-10px",
-                        borderRadius: "50%",
-                        border: "2px solid rgba(0,58,93,0.35)",
-                        animation: "btrPulse 2.2s ease-out infinite",
-                      }}
-                    />
-                    <span
-                      style={{
-                        position: "absolute",
-                        inset: "-18px",
-                        borderRadius: "50%",
-                        border: "2px solid rgba(0,58,93,0.18)",
-                        animation: "btrPulse 2.2s ease-out infinite",
-                        animationDelay: "0.35s",
-                      }}
-                    />
-                  </div>
-                }
+                  <span className="btr-about-value-number">
+                    {value.number}
+                  </span>
 
-                  {/* Card content */}
-                  <div>
-                    <div
-                      style={{
-                        fontSize: "18px",
-                        fontWeight: 800,
-                        letterSpacing: "0.08em",
-                        textTransform: "uppercase",
-                        color: "#003A5D",
-                        marginBottom: "6px",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      {t.year}
-                    </div>
+                  <h3>{value.title}</h3>
 
-                    <div
-                      style={{
-                        fontSize: "22px",
-                        fontWeight: 800,
-                        color: "#003A5D",
-                        letterSpacing: "-0.01em",
-                      }}
-                    >
-                      {t.title}
-                    </div>
-
-                    <div
-                      style={{
-                        marginTop: "10px",
-                        fontSize: "18px",
-                        lineHeight: 1.65,
-                        color: "#4A4A4A",
-                        fontWeight: 300,
-                        maxWidth: "920px",
-                      }}
-                    >
-                      {t.body}
-                    </div>
-                  </div>
+                  <p>{value.description}</p>
                 </div>
-              );
-            })}
+              ))}
+            </div>
+
           </div>
+        </section>
 
-          <style>
-            {`
-              @keyframes btrPulse {
-                0% { transform: scale(0.7); opacity: 0.6; }
-                60% { transform: scale(1.05); opacity: 0.2; }
-                100% { transform: scale(1.25); opacity: 0; }
-              }
-            `}
-          </style>
-        </div>
-      </section>
+        {/* ======================================
+            OUR TEAM
+        ====================================== */}
 
-{/* VALUES / BELIEFS (two-column statement) */}
-<section
-  style={{
-    width: "100%",
-    background: "#FFFFFF",
-    padding: "clamp(48px, 8vw, 90px) 24px",
-    display: "flex",
-    justifyContent: "center",
-  }}
->
-  <div
-    className="beliefs-grid content-wrap"
-    style={{
-      maxWidth: "1200px",
-      width: "100%",
-      display: "grid",
-      gridTemplateColumns: "1.1fr 0.9fr",
-      gap: "80px",
-      alignItems: "center",
-    }}
-  >
-    {/* LEFT CONTENT */}
-    <div>
-      <h2
-        style={{
-          margin: 0,
-          fontSize: "clamp(30px, 4vw, 46px)",
-          lineHeight: 1.1,
-          fontWeight: 300,
-          letterSpacing: "-0.02em",
-          color: "#2F3A3A",
-        }}
-      >
-        What we believe
-      </h2>
+        <section className="btr-about-team">
+          <div className="btr-about-container">
 
-      <p
-        style={{
-          marginTop: "22px",
-          fontSize: "clamp(17px, 2.2vw, 22px)",
-          lineHeight: 1.7,
-          fontWeight: 300,
-          color: "#4A4A4A",
-          maxWidth: "560px",
-        }}
-      >
-        Today, Burdette Thomas Company LLC is focused on delivering high-quality
-        products manufactured through responsible, sustainable practices using
-        recycled polymers. We continue investing in infrastructure, technology,
-        and operational capabilities to support future growth across additional
-        polymer streams and end-use applications.
-      </p>
+            <div className="btr-about-section-heading">
+              <span className="btr-about-eyebrow">
+                THE PEOPLE BEHIND BTR
+              </span>
 
-      <p
-        style={{
-          marginTop: "18px",
-          fontSize: "clamp(17px, 2.2vw, 22px)",
-          lineHeight: 1.7,
-          fontWeight: 300,
-          color: "#4A4A4A",
-          maxWidth: "560px",
-        }}
-      >
-        At our core, we are driven by long-term thinking, disciplined execution,
-        and a belief that sustainable manufacturing and strong business
-        fundamentals go hand in hand. We partner with customers who value
-        reliability, transparency, and innovation—and remain committed to
-        building solutions that are not only good for business, but good for the
-        future.
-      </p>
-    </div>
+              <h2>Meet our team.</h2>
 
-    {/* RIGHT VALUES */}
-    <div className="beliefs-values">
-      <div
-        style={{
-          fontSize: "clamp(32px, 4.5vw, 56px)",
-          lineHeight: 1.1,
-          fontWeight: 800,
-          color: "#003A5D",
-        }}
-      >
-        Reliability.
-      </div>
-      <div
-        style={{
-          marginTop: "10px",
-          fontSize: "clamp(32px, 4.5vw, 56px)",
-          lineHeight: 1.1,
-          fontWeight: 800,
-          color: "#8A8A8A",
-        }}
-      >
-        Transparency.
-      </div>
-      <div
-        style={{
-          marginTop: "10px",
-          fontSize: "clamp(32px, 4.5vw, 56px)",
-          lineHeight: 1.1,
-          fontWeight: 800,
-          color: "#00A3E0",
-        }}
-      >
-        Long-Term Value.
-      </div>
-    </div>
-  </div>
+              <p>
+                A hands-on team committed to solving
+                problems, serving customers, and
+                building something that lasts.
+              </p>
+            </div>
 
-  <style>
-    {`
-      @media (max-width: 900px) {
-        .beliefs-grid {
-          grid-template-columns: 1fr !important;
-          gap: 48px !important;
-        }
+            <div className="btr-about-team-grid">
+              {team.map((person) => (
+                <div
+                  className="btr-about-team-member"
+                  key={person.name}
+                >
+                  <TeamAvatar
+                    name={person.name}
+                    image={person.image}
+                  />
 
-        .beliefs-values {
-          text-align: center;
-        }
-      }
-    `}
-  </style>
-</section>
+                  <h3>{person.name}</h3>
+                  <p>{person.title}</p>
 
+                  {person.linkedin && (
+                    <a
+                      href={person.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btr-about-linkedin"
+                      aria-label={`View ${person.name} on LinkedIn`}
+                    >
+                      <svg
+                        width="17"
+                        height="17"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                      </svg>
+                      LinkedIn
+                    </a>
+                  )}
 
+                </div>
+              ))}
+            </div>
 
-      {/* TEAM */}
-      <section
-        style={{
-          width: "100%",
-          background: "#F5F7F8",
-          padding: "90px 24px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <div className="content-wrap" style={{ width: "100%", maxWidth: "1200px", textAlign: "center" }}>
-          <h2
-            style={{
-              margin: 0,
-              fontSize: "clamp(32px, 3.6vw, 46px)",
-              lineHeight: 1.1,
-              fontWeight: 300,
-              letterSpacing: "-0.02em",
-              color: "#2F3A3A",
-            }}
-          >
-            Meet Our Team
-          </h2>
-          <div className="btr-team-grid">
-            {team.map((person) => (
-              <div key={person.name || person.title} className="btr-team-member">
-                <TeamAvatar name={person.name} image={person.image} />
-                {person.name && (
-                  <h3 style={{ margin: "20px 0 5px", fontSize: "21px", fontWeight: 700, color: "#003A5D" }}>
-                    {person.name}
-                  </h3>
-                )}
-                <p style={{ margin: 0, fontSize: "15px", lineHeight: 1.5, color: "#66747A" }}>
-                  {person.title}
-                </p>
-                {person.linkedin && (
-                  <a
-                    href={person.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View ${person.name} on LinkedIn`}
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "6px",
-                      marginTop: "10px",
-                      color: "#003A5D",
-                      fontSize: "14px",
-                      fontWeight: 600,
-                      textDecoration: "none",
-                    }}
-                  >
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                    LinkedIn
-                  </a>
-                )}
-              </div>
-            ))}
           </div>
-        </div>
-        <style>{`
-          .btr-team-grid {
-            display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            gap: 32px;
-            margin-top: 52px;
-          }
-          .btr-team-member { min-width: 0; }
-          @media (max-width: 900px) {
-            .btr-team-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
-          }
-          @media (max-width: 600px) {
-            .btr-team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 18px; }
-          }
-        `}</style>
-      </section>
+        </section>
 
-      {/* CTA */}
-      <section
-        style={{
-          width: "100%",
-          background: "#EEF4F2",
-          padding: "90px 24px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <div className="content-wrap" style={{ width: "100%", maxWidth: "1200px", textAlign: "center" }}>
-          <h2
-            style={{
-              margin: 0,
-              fontSize: "clamp(32px, 3.6vw, 46px)",
-              lineHeight: 1.1,
-              fontWeight: 300,
-              letterSpacing: "-0.02em",
-              color: "#2F3A3A",
-            }}
-          >
-            Let’s build something durable
-          </h2>
-          <p
-            style={{
-              margin: "18px auto 0 auto",
-              maxWidth: "860px",
-              fontSize: "clamp(18px, 2vw, 22px)",
-              lineHeight: 1.7,
-              fontWeight: 300,
-              color: "#4A4A4A",
-            }}
-          >
-            If you value reliability, transparency, and practical solutions that work in real manufacturing
-            environments, we’d love to talk.
-          </p>
+        {/* ======================================
+            CONTACT CTA
+        ====================================== */}
 
-          <a
-            href="/contact"
-            style={{
-              display: "inline-block",
-              marginTop: "26px",
-              padding: "14px 28px",
-              background: "#003A5D",
-              color: "#FFFFFF",
-              borderRadius: "8px",
-              textDecoration: "none",
-              fontWeight: 600,
-            }}
-          >
-            Contact Us
-          </a>
-        </div>
-      </section>
+        <section className="btr-about-cta">
+          <div className="btr-about-container">
 
-      <style>
-        {`
-            @media (max-width: 900px) {
-            .content-wrap {
-                width: 80% !important;
-            }
-            }
+            <h2>Let's build something.</h2>
 
-            @media (max-width: 500px) {
-            .content-wrap {
-                width: 92% !important;
-            }
-            }
-        `}
-      </style>
+            <p>
+              Looking for a recycling partner or a
+              reliable source of recycled polymers?
+              We'd love to talk.
+            </p>
+
+            <Link
+              to="/contact"
+              className="btr-about-button-primary"
+            >
+              Contact BTR <span>↗</span>
+            </Link>
+
+          </div>
+        </section>
+
+      </main>
 
       <Footer />
-    </div>
+
+      {/* ======================================
+          ALL ABOUT PAGE STYLES
+      ====================================== */}
+
+      <style>{`
+
+        /* ======================================
+           BASE
+        ====================================== */
+
+        .btr-about {
+          width: 100%;
+          color: #071e2e;
+          font-family: inherit;
+        }
+
+        .btr-about *,
+        .btr-about *::before,
+        .btr-about *::after {
+          box-sizing: border-box;
+        }
+
+        .btr-about-container {
+          width: 100%;
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 0 40px;
+        }
+
+        .btr-about-eyebrow {
+          display: block;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          color: #348e38;
+        }
+
+        /* ======================================
+           BUTTON
+        ====================================== */
+
+        .btr-about-button-primary {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 25px;
+          padding: 15px 24px;
+
+          background: #071e2e;
+          color: #ffffff !important;
+
+          border: 1px solid #071e2e;
+          border-radius: 4px;
+
+          font-size: 16px;
+          font-weight: 600;
+          text-decoration: none !important;
+
+          transition:
+            background 0.2s ease,
+            border-color 0.2s ease;
+        }
+
+        .btr-about-button-primary:hover {
+          background: #17405a;
+          border-color: #17405a;
+        }
+
+        /* ======================================
+           HERO
+        ====================================== */
+
+        .btr-about-hero {
+          position: relative;
+          isolation: isolate;
+          overflow: hidden;
+
+          background:
+            linear-gradient(
+              90deg,
+              rgba(4, 22, 34, 0.94) 0%,
+              rgba(4, 22, 34, 0.82) 48%,
+              rgba(4, 22, 34, 0.48) 100%
+            ),
+            url("/images/group-photo-us.png");
+
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+
+          padding: 125px 0 115px;
+        }
+
+        .btr-about-hero .btr-about-container {
+          position: relative;
+          z-index: 1;
+        }
+
+        .btr-about-hero .btr-about-eyebrow {
+          color: #86df58;
+        }
+
+        .btr-about-hero h1 {
+          max-width: 1050px;
+          margin: 25px 0 28px;
+
+          font-size: clamp(48px, 6vw, 82px);
+          line-height: 1.08;
+          font-weight: 750;
+          letter-spacing: -0.055em;
+
+          color: #ffffff;
+        }
+
+        .btr-about-hero h1 span {
+          color: #78d84b;
+        }
+
+        .btr-about-hero p {
+          max-width: 700px;
+          margin: 0;
+
+          font-size: clamp(19px, 2vw, 23px);
+          line-height: 1.7;
+
+          color: #e0e8eb;
+        }
+
+        /* ======================================
+           OUR STORY
+        ====================================== */
+
+        .btr-about-story {
+          padding: 110px 0;
+          background: #ffffff;
+        }
+
+        .btr-about-story-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 100px;
+          align-items: start;
+        }
+
+        .btr-about-story h2 {
+          margin: 20px 0 0;
+
+          font-size: clamp(38px, 4vw, 56px);
+          line-height: 1.15;
+          font-weight: 650;
+          letter-spacing: -0.035em;
+
+          color: #071e2e;
+        }
+
+        .btr-about-story-copy p {
+          margin: 0 0 24px;
+
+          font-size: 20px;
+          line-height: 1.75;
+
+          color: #53636a;
+        }
+
+        .btr-about-story-copy p:last-child {
+          margin-bottom: 0;
+        }
+
+        /* ======================================
+           MISSION
+        ====================================== */
+
+        .btr-about-mission {
+          padding: 110px 0;
+          background: #071e2e;
+        }
+
+        .btr-about-mission .btr-about-eyebrow {
+          color: #86df58;
+        }
+
+        .btr-about-mission h2 {
+          margin: 25px 0 25px;
+
+          font-size: clamp(48px, 6vw, 82px);
+          line-height: 1.08;
+          font-weight: 750;
+          letter-spacing: -0.055em;
+
+          color: #ffffff;
+        }
+
+        .btr-about-mission h2 span {
+          color: #78d84b;
+        }
+
+        .btr-about-mission p {
+          max-width: 760px;
+          margin: 0;
+
+          font-size: 22px;
+          line-height: 1.7;
+
+          color: #d1dde1;
+        }
+
+        .btr-about-mission-line {
+          width: 75px;
+          height: 3px;
+          margin-top: 45px;
+          background: #78d84b;
+        }
+
+        /* ======================================
+           VALUES
+        ====================================== */
+
+        .btr-about-values {
+          padding: 110px 0;
+          background: #ffffff;
+        }
+
+        .btr-about-section-heading {
+          margin-bottom: 55px;
+        }
+
+        .btr-about-section-heading h2 {
+          margin: 20px 0;
+
+          font-size: clamp(38px, 4vw, 56px);
+          line-height: 1.15;
+          font-weight: 650;
+          letter-spacing: -0.035em;
+
+          color: #071e2e;
+        }
+
+        .btr-about-section-heading > p {
+          max-width: 700px;
+          margin: 0;
+
+          font-size: 20px;
+          line-height: 1.7;
+
+          color: #53636a;
+        }
+
+        .btr-about-values-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 45px;
+        }
+
+        .btr-about-value {
+          padding-top: 24px;
+          border-top: 3px solid #5bb83c;
+        }
+
+        .btr-about-value-number {
+          display: block;
+          margin-bottom: 25px;
+
+          font-size: 14px;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+
+          color: #40973c;
+        }
+
+        .btr-about-value h3 {
+          margin: 0 0 15px;
+
+          font-size: 29px;
+          line-height: 1.3;
+          font-weight: 650;
+
+          color: #071e2e;
+        }
+
+        .btr-about-value p {
+          margin: 0;
+
+          font-size: 19px;
+          line-height: 1.7;
+
+          color: #53636a;
+        }
+
+        /* ======================================
+           TEAM
+        ====================================== */
+
+        .btr-about-team {
+          padding: 110px 0 115px;
+          background: #f4f7f6;
+        }
+
+        .btr-about-team-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 55px 40px;
+        }
+
+        .btr-about-team-member {
+          min-width: 0;
+        }
+
+        .btr-about-team-photo {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          width: 100%;
+          aspect-ratio: 1 / 1;
+
+          overflow: hidden;
+          background: #e1e9e7;
+
+          border-radius: 5px;
+        }
+
+        .btr-about-team-photo img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .btr-about-team-member h3 {
+          margin: 22px 0 7px;
+
+          font-size: 25px;
+          line-height: 1.3;
+          font-weight: 650;
+          letter-spacing: -0.02em;
+
+          color: #071e2e;
+        }
+
+        .btr-about-team-member > p {
+          margin: 0;
+
+          font-size: 18px;
+          line-height: 1.5;
+
+          color: #53636a;
+        }
+
+        .btr-about-linkedin {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+
+          margin-top: 14px;
+
+          font-size: 16px;
+          font-weight: 600;
+
+          color: #2d8c35 !important;
+          text-decoration: none !important;
+        }
+
+        .btr-about-linkedin:hover {
+          text-decoration: underline !important;
+        }
+
+        /* ======================================
+           CONTACT CTA
+        ====================================== */
+
+        .btr-about-cta {
+          padding: 100px 0;
+          background: #071e2e;
+          text-align: center;
+        }
+
+        .btr-about-cta h2 {
+          margin: 0 0 20px;
+
+          font-size: clamp(40px, 5vw, 62px);
+          line-height: 1.15;
+          font-weight: 650;
+          letter-spacing: -0.035em;
+
+          color: #ffffff;
+        }
+
+        .btr-about-cta p {
+          max-width: 620px;
+          margin: 0 auto 32px;
+
+          font-size: 20px;
+          line-height: 1.7;
+
+          color: #c2cdd3;
+        }
+
+        .btr-about-cta .btr-about-button-primary {
+          background: #67cb42;
+          border-color: #67cb42;
+          color: #071e2e !important;
+        }
+
+        .btr-about-cta .btr-about-button-primary:hover {
+          background: #85dd62;
+          border-color: #85dd62;
+        }
+
+        /* ======================================
+           TABLET
+        ====================================== */
+
+        @media (max-width: 900px) {
+
+          .btr-about-hero {
+            padding: 95px 0 85px;
+          }
+
+          .btr-about-story-grid {
+            gap: 45px;
+          }
+
+          .btr-about-values-grid {
+            gap: 25px;
+          }
+
+          .btr-about-team-grid {
+            gap: 40px 25px;
+          }
+
+        }
+
+        /* ======================================
+           MOBILE
+        ====================================== */
+
+        @media (max-width: 700px) {
+
+          .btr-about-container {
+            padding: 0 24px;
+          }
+
+          .btr-about-hero {
+            padding: 85px 0 75px;
+            background-position: 60% center;
+          }
+
+          .btr-about-hero h1 {
+            font-size: clamp(42px, 10vw, 58px);
+          }
+
+          .btr-about-hero p {
+            font-size: 18px;
+          }
+
+          .btr-about-story,
+          .btr-about-mission,
+          .btr-about-values,
+          .btr-about-team {
+            padding: 70px 0;
+          }
+
+          .btr-about-story-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+          }
+
+          .btr-about-story-copy p {
+            font-size: 18px;
+          }
+
+          .btr-about-mission h2 {
+            font-size: clamp(44px, 10vw, 62px);
+          }
+
+          .btr-about-mission p {
+            font-size: 19px;
+          }
+
+          .btr-about-section-heading {
+            margin-bottom: 35px;
+          }
+
+          .btr-about-section-heading > p {
+            font-size: 18px;
+          }
+
+          .btr-about-values-grid {
+            grid-template-columns: 1fr;
+            gap: 35px;
+          }
+
+          .btr-about-value h3 {
+            font-size: 26px;
+          }
+
+          .btr-about-value p {
+            font-size: 18px;
+          }
+
+          .btr-about-team-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 35px 18px;
+          }
+
+          .btr-about-team-member h3 {
+            font-size: 21px;
+            margin-top: 16px;
+          }
+
+          .btr-about-team-member > p {
+            font-size: 16px;
+          }
+
+          .btr-about-linkedin {
+            font-size: 15px;
+          }
+
+          .btr-about-cta {
+            padding: 75px 0;
+          }
+
+          .btr-about-cta p {
+            font-size: 18px;
+          }
+
+        }
+
+        /* ======================================
+           SMALL MOBILE
+        ====================================== */
+
+        @media (max-width: 420px) {
+
+          .btr-about-team-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+
+        }
+
+        /* ======================================
+           REDUCED MOTION
+        ====================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+          .btr-about-button-primary {
+            transition: none;
+          }
+        }
+
+      `}</style>
+    </>
   );
 }

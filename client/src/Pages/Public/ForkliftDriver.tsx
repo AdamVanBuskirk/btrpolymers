@@ -1,537 +1,769 @@
+
 import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Navigation from "../../Components/Navigation";
 import Footer from "../../Components/Footer";
-import { useIsMobile } from "../../Core/hooks";
+
+const responsibilities = [
+  "Load and unload full truckloads of plastic materials using a forklift.",
+  "Grade and verify inbound and outbound materials against shipping documentation.",
+  "Organize, stage, and maintain materials throughout the warehouse.",
+  "Perform light processing activities, including baling, slitting, and grinding.",
+  "Keep warehouse work areas clean, organized, and ready for daily operations.",
+  "Follow all safety procedures and operational guidelines.",
+];
+
+const qualifications = [
+  "Prior experience operating a forklift in a warehouse or industrial environment.",
+  "Ability to safely load, unload, move, and stage materials.",
+  "A safety-first mindset with strong attention to detail.",
+  "Reliable, punctual, and accountable.",
+  "Comfortable working in a fast-paced warehouse environment.",
+  "Able to follow instructions and work efficiently with a team.",
+  "Experience verifying materials against shipping documents is a plus.",
+  "Willingness to support light processing activities as needed.",
+];
+
+const role = {
+  title: "Forklift Driver",
+  department: "Operations",
+  type: "Full-time",
+  location: "On-site",
+  email: "hr@btrpolymers.com",
+};
 
 export default function ForkliftDriver() {
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "auto" });
+    window.scrollTo(0, 0);
   }, []);
 
-  // Optional: support routes like /careers/:slug
-  const { slug } = useParams();
-  const isMobile = useIsMobile();
-
-  const role = {
-    title: "Forklift Driver",
-    location: "On-site",
-    type: "Full-time",
-    department: "Operations",
-    email: "hr@btrpolymers.com",
-  };
-
-  const responsibilities = [
-    "Load and unload full truckloads of plastic materials using a forklift.",
-    "Grade and verify inbound and outbound materials against shipping documentation.",
-    "Organize, stage, and maintain materials within the warehouse.",
-    "Perform light processing activities, including baling, slitting, and grinding.",
-    "Support general warehouse operations, including cleaning and organizing work areas.",
-    "Follow all safety procedures and operational guidelines.",
-  ];
-
-  const skills = [
-    "Safety-first mindset and consistent attention to detail.",
-    "Strong reliability, punctuality, and accountability.",
-    "Ability to follow instructions and execute tasks efficiently.",
-    "Comfortable working in a fast-paced warehouse environment.",
-    "Collaborative, team-oriented approach to daily operations.",
-    "Ability to stay organized while managing multiple priorities.",
-  ];
-
-  const qualifications = [
-    "Prior experience operating a forklift in a warehouse or industrial environment.",
-    "Ability to safely load/unload and stage materials for inbound and outbound shipments.",
-    "Experience verifying materials against shipping documentation is a plus.",
-    "Willingness to support light processing activities (baling, slitting, grinding) as needed.",
-  ];
-
-  const benefits = [
-    "Full-time position with benefits",
-    "Competitive pay with monthly bonus opportunities",
-    "Vacation and paid time off",
-    "Medical and dental benefits",
-    "Consistent overtime available",
-    "Advancement and growth opportunities",
-  ];
+  const applyUrl = `mailto:${role.email}?subject=${encodeURIComponent(
+    `Application: ${role.title}`
+  )}`;
 
   return (
-    <div style={{ width: "100%", background: "#FFFFFF" }}>
+    <>
       <Navigation />
 
-      {/* HERO */}
-      <section
-        style={{
-          width: "100%",
-          height: isMobile ? "620px" : "520px",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "url(/images/forklift-driver.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            filter: "brightness(0.94)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.52) 40%, rgba(0,0,0,0.20) 72%, rgba(0,0,0,0.06) 100%)",
-          }}
-        />
+      <main className="btr-forklift">
 
-        <div
-          style={{
-            position: "relative",
-            height: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "0 24px",
-          }}
-        >
-          <div className="content-wrap" style={{ width: "100%", maxWidth: "1200px" }}>
-            <div style={{ maxWidth: "820px" }}>
-              <div
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  padding: "8px 12px",
-                  borderRadius: "999px",
-                  background: "rgba(255,255,255,0.12)",
-                  border: "1px solid rgba(255,255,255,0.20)",
-                  color: "rgba(255,255,255,0.90)",
-                  fontWeight: 600,
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                  fontSize: "12px",
-                }}
-              >
-                Careers • Job Posting
-              </div>
+        {/* ======================================
+            HERO
+        ====================================== */}
 
-              <h1
-                style={{
-                  margin: "14px 0 0 0",
-                  fontSize: "clamp(40px, 5vw, 62px)",
-                  lineHeight: 1.05,
-                  fontWeight: 300,
-                  letterSpacing: "-0.02em",
-                  color: "#FFFFFF",
-                  textShadow: "0 2px 8px rgba(0,0,0,0.45)",
-                }}
-              >
-                {role.title}
-              </h1>
+        <section className="btr-forklift-hero">
+          <div className="btr-forklift-container">
 
-              <p
-                style={{
-                  marginTop: "16px",
-                  fontSize: "clamp(16px, 2.2vw, 20px)",
-                  lineHeight: 1.6,
-                  fontWeight: 300,
-                  color: "rgba(255,255,255,0.92)",
-                  textShadow: "0 2px 8px rgba(0,0,0,0.35)",
-                }}
-              >
-                A hands-on warehouse role responsible for the safe and efficient movement of materials
-                within our recycling operations-supporting daily inbound and outbound logistics.
+            <Link
+              to="/careers"
+              className="btr-forklift-back-hero"
+            >
+              ← Back to Careers
+            </Link>
+
+            <span className="btr-forklift-eyebrow">
+              JOIN THE BTR TEAM
+            </span>
+
+            <h1>
+              Forklift
+              <br />
+              <span>Driver.</span>
+            </h1>
+
+            <p>
+              Keep materials moving. Keep operations
+              running. Be part of the team building
+              BTR Polymers.
+            </p>
+
+            <div className="btr-forklift-meta">
+              <span>{role.department}</span>
+              <span>{role.type}</span>
+              <span>{role.location}</span>
+            </div>
+
+            <a
+              href="#apply"
+              className="btr-forklift-button-primary"
+            >
+              Apply for This Role <span>↗</span>
+            </a>
+
+          </div>
+        </section>
+
+        {/* ======================================
+            ABOUT THE ROLE
+        ====================================== */}
+
+        <section className="btr-forklift-intro">
+          <div className="btr-forklift-container btr-forklift-two-col">
+
+            <div>
+              <span className="btr-forklift-eyebrow">
+                THE OPPORTUNITY
+              </span>
+
+              <h2>
+                Hands-on work.
+                <br />
+                Real responsibility.
+              </h2>
+            </div>
+
+            <div className="btr-forklift-intro-copy">
+
+              <p>
+                As a Forklift Driver at BTR Polymers,
+                you'll play an important role in our
+                daily recycling operations, safely
+                moving materials and supporting
+                inbound and outbound shipments.
               </p>
 
-              <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "18px" }}>
-                {[
-                  { label: "Type", value: role.type },
-                  { label: "Department", value: role.department },
-                  { label: "Location", value: role.location },
-                ].map((item) => (
-                  <div
-                    key={item.label}
-                    style={{
-                      background: "rgba(255,255,255,0.14)",
-                      border: "1px solid rgba(255,255,255,0.18)",
-                      padding: "10px 12px",
-                      borderRadius: "12px",
-                      color: "#FFFFFF",
-                      backdropFilter: "blur(6px)",
-                    }}
-                  >
-                    <div
-                      style={{
-                        fontSize: "12px",
-                        opacity: 0.85,
-                        letterSpacing: "0.08em",
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      {item.label}
-                    </div>
-                    <div style={{ fontSize: "14px", fontWeight: 700, marginTop: "2px" }}>
-                      {item.value}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <p>
+                You'll load and unload trucks, organize
+                inventory, verify materials, and help
+                keep our warehouse running efficiently.
+                You'll also assist with light material
+                processing when needed.
+              </p>
 
-              <a
-                href={`mailto:${role.email}?subject=${encodeURIComponent(`Application: ${role.title}`)}`}
-                style={{
-                  display: "inline-block",
-                  marginTop: "22px",
-                  padding: "14px 26px",
-                  background: "#003A5D",
-                  color: "#FFFFFF",
-                  borderRadius: "8px",
-                  textDecoration: "none",
-                  fontWeight: 600,
-                  boxShadow: "0 10px 26px rgba(0,0,0,0.22)",
-                }}
-              >
-                Email your resume to {role.email}
-              </a>
+              <p>
+                We're looking for someone dependable,
+                safety-minded, and willing to roll up
+                their sleeves to get the job done.
+              </p>
+
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* MAIN CONTENT */}
-      <section
-        style={{
-          width: "100%",
-          background: "#FFFFFF",
-          padding: "90px 24px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <div className="content-wrap" style={{ width: "100%", maxWidth: "1200px" }}>
-          <div
-            className="two-col"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1.05fr 0.95fr",
-              gap: "56px",
-              alignItems: "start",
-            }}
-          >
-            {/* LEFT: DESCRIPTION */}
+          </div>
+        </section>
+
+        {/* ======================================
+            RESPONSIBILITIES
+        ====================================== */}
+
+        <section className="btr-forklift-responsibilities">
+          <div className="btr-forklift-container">
+
+            <div className="btr-forklift-section-heading">
+              <span className="btr-forklift-eyebrow">
+                THE WORK
+              </span>
+
+              <h2>What you'll do.</h2>
+            </div>
+
+            <div className="btr-forklift-list-grid">
+              {responsibilities.map((item, index) => (
+                <div
+                  className="btr-forklift-list-item"
+                  key={item}
+                >
+                  <span className="btr-forklift-list-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+
+        {/* ======================================
+            QUALIFICATIONS
+        ====================================== */}
+
+        <section className="btr-forklift-qualifications">
+          <div className="btr-forklift-container btr-forklift-two-col">
+
             <div>
-              <h2
-                style={{
-                  margin: 0,
-                  fontSize: "clamp(30px, 3.4vw, 44px)",
-                  lineHeight: 1.1,
-                  fontWeight: 300,
-                  letterSpacing: "-0.02em",
-                  color: "#2F3A3A",
-                }}
-              >
-                Job Description & Company Overview
+              <span className="btr-forklift-eyebrow">
+                WHAT WE'RE LOOKING FOR
+              </span>
+
+              <h2>
+                Reliable.
+                <br />
+                Safety-minded.
+                <br />
+                Ready to work.
               </h2>
 
-              <p
-                style={{
-                  marginTop: "18px",
-                  fontSize: "clamp(18px, 2vw, 22px)",
-                  lineHeight: 1.7,
-                  fontWeight: 300,
-                  color: "#4A4A4A",
-                  maxWidth: "860px",
-                }}
-              >
-                The Forklift Driver at BTR Polymers is a hands-on warehouse position responsible for the
-                safe and efficient movement of materials within our recycling operations. This role
-                supports daily inbound and outbound logistics and plays a key part in maintaining an
-                organized, productive facility.
+              <p className="btr-forklift-qualifications-intro">
+                We value people who show up, take
+                ownership, work safely, and help
+                their teammates succeed.
               </p>
-
-              <p
-                style={{
-                  marginTop: "14px",
-                  fontSize: "clamp(18px, 2vw, 22px)",
-                  lineHeight: 1.7,
-                  fontWeight: 300,
-                  color: "#4A4A4A",
-                  maxWidth: "860px",
-                }}
-              >
-                BTR Polymers is a post-industrial plastics recycling company focused on delivering
-                high-quality recycled polymers through sustainable manufacturing practices. We offer a
-                stable, growth-oriented work environment with opportunities for advancement.
-              </p>
-
-              {/* RESPONSIBILITIES */}
-              <div style={{ marginTop: "34px" }}>
-                <div
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: 900,
-                    color: "#003A5D",
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Primary Responsibilities
-                </div>
-
-                <ul
-                  style={{
-                    marginTop: "14px",
-                    paddingLeft: "18px",
-                    marginBottom: 0,
-                    color: "#4A4A4A",
-                    lineHeight: 1.75,
-                    fontWeight: 300,
-                    fontSize: "18px",
-                    maxWidth: "920px",
-                  }}
-                >
-                  {responsibilities.map((r) => (
-                    <li key={r} style={{ marginBottom: "10px" }}>
-                      {r}
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
 
-            {/* RIGHT: SKILLS / QUALIFICATIONS / CTA */}
-            <div>
-              <div
-                style={{
-                  background: "#EEF4F2",
-                  borderRadius: "18px",
-                  padding: "22px",
-                  border: "1px solid rgba(0,0,0,0.06)",
-                }}
-              >
+            <div className="btr-forklift-qualification-list">
+              {qualifications.map((item) => (
                 <div
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: 900,
-                    color: "#003A5D",
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                  }}
+                  className="btr-forklift-qualification"
+                  key={item}
                 >
-                  Required Skills & Competencies
-                </div>
-
-                <ul
-                  style={{
-                    marginTop: "14px",
-                    paddingLeft: "18px",
-                    marginBottom: 0,
-                    color: "#4A4A4A",
-                    lineHeight: 1.75,
-                    fontWeight: 300,
-                    fontSize: "16px",
-                  }}
-                >
-                  {skills.map((s) => (
-                    <li key={s} style={{ marginBottom: "10px" }}>
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div
-                style={{
-                  marginTop: "16px",
-                  background: "#FFFFFF",
-                  borderRadius: "18px",
-                  padding: "22px",
-                  border: "1px solid rgba(0,0,0,0.06)",
-                  boxShadow: "0 10px 26px rgba(0,0,0,0.06)",
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: 900,
-                    color: "#003A5D",
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Experience & Qualifications
-                </div>
-
-                <ul
-                  style={{
-                    marginTop: "14px",
-                    paddingLeft: "18px",
-                    marginBottom: 0,
-                    color: "#4A4A4A",
-                    lineHeight: 1.75,
-                    fontWeight: 300,
-                    fontSize: "16px",
-                  }}
-                >
-                  {qualifications.map((q) => (
-                    <li key={q} style={{ marginBottom: "10px" }}>
-                      {q}
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href={`mailto:${role.email}?subject=${encodeURIComponent(`Application: ${role.title}`)}`}
-                  style={{
-                    display: "inline-block",
-                    marginTop: "18px",
-                    padding: "12px 16px",
-                    background: "#003A5D",
-                    color: "#FFFFFF",
-                    borderRadius: "10px",
-                    textDecoration: "none",
-                    fontWeight: 700,
-                  }}
-                >
-                  Apply now - email your resume
-                </a>
-
-                <div style={{ marginTop: "10px", color: "#4A4A4A", fontWeight: 300, lineHeight: 1.6 }}>
-                  Email your resume to{" "}
-                  <a
-                    href={`mailto:${role.email}`}
-                    style={{ color: "#003A5D", fontWeight: 700, textDecoration: "none" }}
+                  <span
+                    className="btr-forklift-check"
+                    aria-hidden="true"
                   >
-                    {role.email}
-                  </a>
-                  .
+                    ✓
+                  </span>
+
+                  <p>{item}</p>
                 </div>
-              </div>
-
-              <div
-                style={{
-                  marginTop: "16px",
-                  background: "#E9EEF0",
-                  borderRadius: "18px",
-                  padding: "18px",
-                  border: "1px solid rgba(0,0,0,0.06)",
-                }}
-              >
-              {/*
-                <div style={{ color: "#003A5D", fontWeight: 900 }}>Position Details & Benefits</div>
-                <ul
-                  style={{
-                    marginTop: "12px",
-                    paddingLeft: "18px",
-                    marginBottom: 0,
-                    color: "#4A4A4A",
-                    lineHeight: 1.75,
-                    fontWeight: 300,
-                    fontSize: "16px",
-                  }}
-                >
-                  {benefits.map((b) => (
-                    <li key={b} style={{ marginBottom: "10px" }}>
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-                 */}
-              </div>
-             
-
-              <div style={{ marginTop: "18px" }}>
-                <Link
-                  to="/careers"
-                  style={{
-                    color: "#003A5D",
-                    fontWeight: 700,
-                    textDecoration: "none",
-                  }}
-                >
-                  ← Back to Careers
-                </Link>
-              </div>
+              ))}
             </div>
+
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA STRIP */}
-      <section
-        style={{
-          width: "100%",
-          background: "#EEF4F2",
-          padding: "70px 24px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <div className="content-wrap" style={{ width: "100%", maxWidth: "1200px", textAlign: "center" }}>
-          <h2
-            style={{
-              margin: 0,
-              fontSize: "clamp(28px, 3.2vw, 42px)",
-              lineHeight: 1.1,
-              fontWeight: 300,
-              letterSpacing: "-0.02em",
-              color: "#2F3A3A",
-            }}
-          >
-            Ready to apply?
-          </h2>
+        {/* ======================================
+            APPLICATION CTA
+        ====================================== */}
 
-          <p
-            style={{
-              margin: "16px auto 0 auto",
-              maxWidth: "860px",
-              fontSize: "clamp(18px, 2vw, 22px)",
-              lineHeight: 1.7,
-              fontWeight: 300,
-              color: "#4A4A4A",
-            }}
-          >
-            Email your resume to <b>hr@btrpolymers.com</b> with the subject line: <b>Application: Forklift Driver</b>.
-          </p>
+        <section
+          className="btr-forklift-cta"
+          id="apply"
+        >
+          <div className="btr-forklift-container">
 
-          <a
-            href={`mailto:${role.email}?subject=${encodeURIComponent(`Application: ${role.title}`)}`}
-            style={{
-              display: "inline-block",
-              marginTop: "22px",
-              padding: "14px 28px",
-              background: "#003A5D",
-              color: "#FFFFFF",
-              borderRadius: "8px",
-              textDecoration: "none",
-              fontWeight: 700,
-            }}
-          >
-            Email hr@btrpolymers.com
-          </a>
-        </div>
-      </section>
+            <h2>Ready to join BTR?</h2>
 
-      {/* Responsive: 80% width on mobile */}
-      <style>
-        {`
-          @media (max-width: 900px) {
-            .content-wrap { width: 80% !important; }
-            .two-col {
-              grid-template-columns: 1fr !important;
-              gap: 34px !important;
-            }
-          }
-          @media (max-width: 500px) {
-            .content-wrap { width: 92% !important; }
-          }
-        `}
-      </style>
+            <p>
+              Send your resume to{" "}
+              <strong>{role.email}</strong> with the
+              subject line{" "}
+              <strong>Application: Forklift Driver</strong>.
+            </p>
+
+            <a
+              href={applyUrl}
+              className="btr-forklift-button-primary"
+            >
+              Email Your Resume <span>↗</span>
+            </a>
+
+            <div className="btr-forklift-cta-back">
+              <Link to="/careers">
+                ← View All Careers
+              </Link>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
 
       <Footer />
-    </div>
+
+      <style>{`
+
+        /* ======================================
+           BASE
+        ====================================== */
+
+        .btr-forklift {
+          width: 100%;
+          color: #071e2e;
+          font-family: inherit;
+        }
+
+        .btr-forklift *,
+        .btr-forklift *::before,
+        .btr-forklift *::after {
+          box-sizing: border-box;
+        }
+
+        .btr-forklift-container {
+          width: 100%;
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 0 40px;
+        }
+
+        .btr-forklift-eyebrow {
+          display: block;
+
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+
+          color: #348e38;
+        }
+
+        /* ======================================
+           BUTTON
+        ====================================== */
+
+        .btr-forklift-button-primary {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+
+          gap: 25px;
+          padding: 15px 24px;
+
+          background: #071e2e;
+          color: #ffffff !important;
+
+          border: 1px solid #071e2e;
+          border-radius: 4px;
+
+          font-size: 16px;
+          font-weight: 600;
+
+          text-decoration: none !important;
+
+          transition:
+            background 0.2s ease,
+            border-color 0.2s ease;
+        }
+
+        .btr-forklift-button-primary:hover {
+          background: #17405a;
+          border-color: #17405a;
+        }
+
+        /* ======================================
+           HERO
+        ====================================== */
+
+        .btr-forklift-hero {
+          position: relative;
+          isolation: isolate;
+          overflow: hidden;
+
+          background:
+            linear-gradient(
+              90deg,
+              rgba(4, 22, 34, 0.94) 0%,
+              rgba(4, 22, 34, 0.82) 48%,
+              rgba(4, 22, 34, 0.48) 100%
+            ),
+            url("/images/forklift-driver.jpg");
+
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+
+          padding: 90px 0 105px;
+        }
+
+        .btr-forklift-hero .btr-forklift-container {
+          position: relative;
+          z-index: 1;
+        }
+
+        .btr-forklift-back-hero {
+          display: inline-block;
+
+          margin-bottom: 45px;
+
+          font-size: 16px;
+          font-weight: 600;
+
+          color: #d5e3e8 !important;
+          text-decoration: none !important;
+        }
+
+        .btr-forklift-back-hero:hover {
+          color: #78d84b !important;
+        }
+
+        .btr-forklift-hero .btr-forklift-eyebrow {
+          color: #86df58;
+        }
+
+        .btr-forklift-hero h1 {
+          max-width: 1050px;
+          margin: 25px 0 28px;
+
+          font-size: clamp(48px, 6vw, 82px);
+          line-height: 1.08;
+          font-weight: 750;
+          letter-spacing: -0.055em;
+
+          color: #ffffff;
+        }
+
+        .btr-forklift-hero h1 span {
+          color: #78d84b;
+        }
+
+        .btr-forklift-hero p {
+          max-width: 700px;
+          margin: 0;
+
+          font-size: clamp(19px, 2vw, 23px);
+          line-height: 1.7;
+
+          color: #e0e8eb;
+        }
+
+        /* Job metadata */
+
+        .btr-forklift-meta {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 12px;
+
+          margin: 28px 0 35px;
+        }
+
+        .btr-forklift-meta span {
+          display: inline-block;
+
+          padding: 9px 15px;
+
+          background: rgba(255, 255, 255, 0.12);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 4px;
+
+          font-size: 14px;
+          font-weight: 600;
+
+          color: #ffffff;
+        }
+
+        .btr-forklift-hero .btr-forklift-button-primary {
+          background: #72d348;
+          border-color: #72d348;
+          color: #071e2e !important;
+        }
+
+        .btr-forklift-hero .btr-forklift-button-primary:hover {
+          background: #8ae566;
+          border-color: #8ae566;
+        }
+
+        /* ======================================
+           TWO COLUMN LAYOUT
+        ====================================== */
+
+        .btr-forklift-two-col {
+          display: grid;
+          grid-template-columns: 0.9fr 1.1fr;
+          gap: 90px;
+          align-items: start;
+        }
+
+        .btr-forklift-two-col h2,
+        .btr-forklift-section-heading h2 {
+          margin: 20px 0;
+
+          font-size: clamp(38px, 4vw, 56px);
+          line-height: 1.15;
+          font-weight: 650;
+          letter-spacing: -0.035em;
+
+          color: #071e2e;
+        }
+
+        /* ======================================
+           ABOUT ROLE
+        ====================================== */
+
+        .btr-forklift-intro {
+          padding: 110px 0;
+          background: #ffffff;
+        }
+
+        .btr-forklift-intro-copy p {
+          margin: 0 0 24px;
+
+          font-size: 20px;
+          line-height: 1.75;
+
+          color: #53636a;
+        }
+
+        .btr-forklift-intro-copy p:last-child {
+          margin-bottom: 0;
+        }
+
+        /* ======================================
+           RESPONSIBILITIES
+        ====================================== */
+
+        .btr-forklift-responsibilities {
+          padding: 110px 0;
+          background: #f4f7f6;
+        }
+
+        .btr-forklift-section-heading {
+          margin-bottom: 50px;
+        }
+
+        .btr-forklift-list-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          column-gap: 65px;
+        }
+
+        .btr-forklift-list-item {
+          display: flex;
+          align-items: flex-start;
+
+          gap: 22px;
+          padding: 25px 0;
+
+          border-top: 1px solid #d6e0dc;
+        }
+
+        .btr-forklift-list-number {
+          flex-shrink: 0;
+          padding-top: 4px;
+
+          font-size: 14px;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+
+          color: #40973c;
+        }
+
+        .btr-forklift-list-item p {
+          margin: 0;
+
+          font-size: 19px;
+          line-height: 1.6;
+          font-weight: 500;
+
+          color: #071e2e;
+        }
+
+        /* ======================================
+           QUALIFICATIONS
+        ====================================== */
+
+        .btr-forklift-qualifications {
+          padding: 110px 0;
+          background: #ffffff;
+        }
+
+        .btr-forklift-qualifications-intro {
+          max-width: 460px;
+          margin: 25px 0 0;
+
+          font-size: 20px;
+          line-height: 1.7;
+
+          color: #53636a;
+        }
+
+        .btr-forklift-qualification-list {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .btr-forklift-qualification {
+          display: flex;
+          align-items: flex-start;
+
+          gap: 18px;
+          padding: 20px 0;
+
+          border-bottom: 1px solid #e1e8e6;
+        }
+
+        .btr-forklift-qualification:first-child {
+          border-top: 1px solid #e1e8e6;
+        }
+
+        .btr-forklift-check {
+          flex-shrink: 0;
+          padding-top: 2px;
+
+          font-size: 20px;
+          font-weight: 700;
+
+          color: #348e38;
+        }
+
+        .btr-forklift-qualification p {
+          margin: 0;
+
+          font-size: 19px;
+          line-height: 1.6;
+
+          color: #53636a;
+        }
+
+        /* ======================================
+           CTA
+        ====================================== */
+
+        .btr-forklift-cta {
+          padding: 100px 0;
+          background: #071e2e;
+          text-align: center;
+          scroll-margin-top: 80px;
+        }
+
+        .btr-forklift-cta h2 {
+          margin: 0 0 20px;
+
+          font-size: clamp(40px, 5vw, 62px);
+          line-height: 1.15;
+          font-weight: 650;
+          letter-spacing: -0.035em;
+
+          color: #ffffff;
+        }
+
+        .btr-forklift-cta p {
+          max-width: 680px;
+          margin: 0 auto 32px;
+
+          font-size: 20px;
+          line-height: 1.7;
+
+          color: #c2cdd3;
+        }
+
+        .btr-forklift-cta p strong {
+          color: #ffffff;
+          font-weight: 650;
+        }
+
+        .btr-forklift-cta .btr-forklift-button-primary {
+          background: #67cb42;
+          border-color: #67cb42;
+          color: #071e2e !important;
+        }
+
+        .btr-forklift-cta .btr-forklift-button-primary:hover {
+          background: #85dd62;
+          border-color: #85dd62;
+        }
+
+        .btr-forklift-cta-back {
+          margin-top: 35px;
+        }
+
+        .btr-forklift-cta-back a {
+          font-size: 16px;
+          font-weight: 600;
+          color: #c2cdd3 !important;
+          text-decoration: none !important;
+        }
+
+        .btr-forklift-cta-back a:hover {
+          color: #78d84b !important;
+        }
+
+        /* ======================================
+           TABLET
+        ====================================== */
+
+        @media (max-width: 900px) {
+
+          .btr-forklift-hero {
+            padding: 80px 0 90px;
+          }
+
+          .btr-forklift-two-col {
+            gap: 45px;
+          }
+
+          .btr-forklift-list-grid {
+            column-gap: 35px;
+          }
+
+        }
+
+        /* ======================================
+           MOBILE
+        ====================================== */
+
+        @media (max-width: 700px) {
+
+          .btr-forklift-container {
+            padding: 0 24px;
+          }
+
+          .btr-forklift-hero {
+            padding: 60px 0 75px;
+            background-position: 60% center;
+          }
+
+          .btr-forklift-back-hero {
+            margin-bottom: 35px;
+          }
+
+          .btr-forklift-hero h1 {
+            font-size: clamp(42px, 10vw, 58px);
+          }
+
+          .btr-forklift-hero p {
+            font-size: 18px;
+          }
+
+          .btr-forklift-intro,
+          .btr-forklift-responsibilities,
+          .btr-forklift-qualifications {
+            padding: 70px 0;
+          }
+
+          .btr-forklift-two-col {
+            grid-template-columns: 1fr;
+            gap: 30px;
+          }
+
+          .btr-forklift-intro-copy p {
+            font-size: 18px;
+          }
+
+          .btr-forklift-section-heading {
+            margin-bottom: 35px;
+          }
+
+          .btr-forklift-list-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .btr-forklift-list-item {
+            padding: 20px 0;
+          }
+
+          .btr-forklift-list-item p {
+            font-size: 18px;
+          }
+
+          .btr-forklift-qualifications-intro {
+            font-size: 18px;
+          }
+
+          .btr-forklift-qualification p {
+            font-size: 18px;
+          }
+
+          .btr-forklift-cta {
+            padding: 75px 0;
+          }
+
+          .btr-forklift-cta p {
+            font-size: 18px;
+          }
+
+        }
+
+        /* ======================================
+           REDUCED MOTION
+        ====================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+          .btr-forklift-button-primary {
+            transition: none;
+          }
+        }
+
+      `}</style>
+    </>
   );
 }

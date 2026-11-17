@@ -1,770 +1,831 @@
+
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "../../Components/Navigation";
 import Footer from "../../Components/Footer";
 
+const polymers = [
+  { code: "PP", name: "Polypropylene" },
+  { code: "PE", name: "Polyethylene" },
+  { code: "PS", name: "Polystyrene" },
+  { code: "PET", name: "Polyethylene Terephthalate" },
+  { code: "PVC", name: "Polyvinyl Chloride" },
+  { code: "TPO", name: "Thermoplastic Polyolefins" },
+  { code: "ABS", name: "Acrylonitrile Butadiene Styrene" },
+  { code: "PA", name: "Polyamides" },
+  { code: "+", name: "Specialty & Engineering Polymers" },
+];
+
+const materialStreams = [
+  "Wide-spec materials",
+  "Off-spec & transitional production",
+  "Reprocessed resins",
+  "Regrinds",
+  "Post-industrial & post-commercial feedstocks",
+  "Custom blends & application-specific materials",
+];
+
+const advantages = [
+  {
+    number: "01",
+    title: "Material Fit",
+    description:
+      "We source around your processing requirements, performance needs, and commercial objectives.",
+  },
+  {
+    number: "02",
+    title: "Market Access",
+    description:
+      "Our supplier and customer network connects material opportunities with real manufacturing demand.",
+  },
+  {
+    number: "03",
+    title: "Reliable Execution",
+    description:
+      "Responsive communication, coordinated logistics, and practical solutions that keep material moving.",
+  },
+];
+
 export default function Materials() {
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "auto" });
+    window.scrollTo(0, 0);
   }, []);
 
-  const materialStreams = [
-    "Wide-spec materials",
-    "Off-spec and transitional production runs",
-    "Reprocessed resins",
-    "Regrinds",
-    "Post-industrial and post-commercial feedstocks",
-    "Custom-blended or application-driven materials",
-  ];
-
-  const polymers = [
-    "Polypropylene (PP)",
-    "Polyethylene (PE)",
-    "Polystyrene (PS)",
-    "Polyethylene terephthalate (PET)",
-    "Polyvinyl chloride (PVC)",
-    "Thermoplastic polyolefins (TPO)",
-    "ABS",
-    "Polyamides (PA)",
-    "Specialty & engineering polymers",
-  ];
-
   return (
-    <div style={{ width: "100%", background: "#FFFFFF" }}>
+    <>
       <Navigation />
 
-      {/* HERO */}
-      <section
-        style={{
-          width: "100%",
-          height: "520px",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "url(/images/materials-photo.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            filter: "brightness(0.92)",
-          }}
-        />
+      <main className="btr-materials">
 
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.55) 36%, rgba(0,0,0,0.24) 70%, rgba(0,0,0,0.05) 100%)",
-          }}
-        />
+        {/* ======================================
+            HERO
+        ====================================== */}
 
-        <div
-          style={{
-            position: "relative",
-            height: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "0 24px",
-          }}
-        >
-          <div className="content-wrap" style={{ width: "100%", maxWidth: "1200px" }}>
-            <div style={{ maxWidth: "760px" }}>
-              <h1
-                style={{
-                  margin: 0,
-                  fontSize: "clamp(40px, 5vw, 64px)",
-                  lineHeight: 1.05,
-                  fontWeight: 300,
-                  letterSpacing: "-0.02em",
-                  color: "#FFFFFF",
-                  textShadow: "0 2px 8px rgba(0,0,0,0.45)",
-                }}
-              >
-                Recycled polymers, sourced with discipline
-              </h1>
+        <section className="btr-materials-hero">
+          <div className="btr-materials-container">
 
-              <p
-                style={{
-                  marginTop: "18px",
-                  fontSize: "clamp(18px, 2.2vw, 22px)",
-                  lineHeight: 1.6,
-                  fontWeight: 300,
-                  color: "rgba(255,255,255,0.92)",
-                  textShadow: "0 2px 8px rgba(0,0,0,0.35)",
-                }}
-              >
-                The recycled plastics marketplace is dynamic and complex-and that’s exactly where we thrive.
-                We connect buyers with consistent, cost-effective feedstocks while helping suppliers move
-                material efficiently and responsibly.
-              </p>
+            <span className="btr-materials-eyebrow">
+              OUR MATERIALS
+            </span>
 
-              <a
-                href="/contact"
-                style={{
-                  display: "inline-block",
-                  padding: "12px 22px",
-                  background: "#003A5D",
-                  //background: "#319C17",
-                  color: "#fff",
-                  borderRadius: "10px",
-                  textDecoration: "none",
-                  fontWeight: 600,
-                }}
-              >
-                Request materials
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+            <h1>
+              Recycled Polymers.
+              <br />
+              <span>Real Possibilities.</span>
+            </h1>
 
-      {/* INTRO */}
-      <section
-        style={{
-          width: "100%",
-          padding: "90px 24px",
-          display: "flex",
-          justifyContent: "center",
-          background: "#FFFFFF",
-        }}
-      >
-        <div className="content-wrap" style={{ width: "100%", maxWidth: "1100px", textAlign: "center" }}>
-          <h2
-            style={{
-              margin: 0,
-              fontSize: "clamp(34px, 4vw, 54px)",
-              lineHeight: 1.1,
-              fontWeight: 300,
-              letterSpacing: "-0.02em",
-              color: "#2F3A3A",
-            }}
-          >
-            A market-driven approach to recycled materials
-          </h2>
+            <p>
+              Reliable, cost-effective recycled polymer
+              feedstocks sourced to meet your manufacturing
+              requirements.
+            </p>
 
-          <p
-            style={{
-              margin: "22px auto 0 auto",
-              maxWidth: "920px",
-              fontSize: "clamp(18px, 2vw, 22px)",
-              lineHeight: 1.7,
-              fontWeight: 300,
-              color: "#4A4A4A",
-            }}
-          >
-            BTR Polymers specializes in sourcing, processing, and supplying a broad spectrum of recycled
-            polymer materials to support manufacturers across diverse end-markets. Rather than focusing on
-            a limited catalog, we continually identify new streams and opportunities to meet evolving needs.
-          </p>
-        </div>
-      </section>
-
-      {/* SECTION: Comprehensive Offering */}
-      <section
-        style={{
-          width: "100%",
-          background: "#E9EEF0",
-          padding: "90px 24px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <div className="content-wrap" style={{ width: "100%", maxWidth: "1200px" }}>
-          <div
-            className="two-col"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1.15fr 0.85fr",
-              gap: "64px",
-              alignItems: "center",
-            }}
-          >
-            {/* Left */}
-            <div>
-              <h2
-                style={{
-                  margin: 0,
-                  fontSize: "clamp(32px, 3.6vw, 46px)",
-                  lineHeight: 1.1,
-                  fontWeight: 300,
-                  letterSpacing: "-0.02em",
-                  color: "#2F3A3A",
-                }}
-              >
-                A comprehensive recycled polymer offering
-              </h2>
-
-              <p
-                style={{
-                  marginTop: "18px",
-                  fontSize: "clamp(18px, 2vw, 22px)",
-                  lineHeight: 1.7,
-                  fontWeight: 300,
-                  color: "#4A4A4A",
-                  maxWidth: "760px",
-                }}
-              >
-                BTR Polymers provides access to an extensive range of recycled polymer streams. Our flexible
-                sourcing model allows us to match material characteristics to your requirements-whether the
-                priority is performance, price, availability, or sustainability goals.
-              </p>
-
-              <div
-                style={{
-                  marginTop: "18px",
-                  display: "flex",
-                  gap: "12px",
-                  flexWrap: "wrap",
-                }}
-              >
-                <span
-                  style={{
-                    display: "inline-block",
-                    padding: "10px 12px",
-                    background: "#FFFFFF",
-                    border: "1px solid rgba(0,0,0,0.06)",
-                    borderRadius: "999px",
-                    color: "#003A5D",
-                    fontWeight: 700,
-                    fontSize: "14px",
-                    letterSpacing: "0.03em",
-                  }}
-                >
-                  Performance
-                </span>
-                <span
-                  style={{
-                    display: "inline-block",
-                    padding: "10px 12px",
-                    background: "#FFFFFF",
-                    border: "1px solid rgba(0,0,0,0.06)",
-                    borderRadius: "999px",
-                    color: "#003A5D",
-                    fontWeight: 700,
-                    fontSize: "14px",
-                    letterSpacing: "0.03em",
-                  }}
-                >
-                  Price
-                </span>
-                <span
-                  style={{
-                    display: "inline-block",
-                    padding: "10px 12px",
-                    background: "#FFFFFF",
-                    border: "1px solid rgba(0,0,0,0.06)",
-                    borderRadius: "999px",
-                    color: "#003A5D",
-                    fontWeight: 700,
-                    fontSize: "14px",
-                    letterSpacing: "0.03em",
-                  }}
-                >
-                  Availability
-                </span>
-                <span
-                  style={{
-                    display: "inline-block",
-                    padding: "10px 12px",
-                    background: "#FFFFFF",
-                    border: "1px solid rgba(0,0,0,0.06)",
-                    borderRadius: "999px",
-                    color: "#003A5D",
-                    fontWeight: 700,
-                    fontSize: "14px",
-                    letterSpacing: "0.03em",
-                  }}
-                >
-                  Sustainability
-                </span>
-              </div>
-            </div>
-
-            {/* Right: Card list */}
-            <div
-              style={{
-                background: "#FFFFFF",
-                borderRadius: "18px",
-                padding: "22px",
-                border: "1px solid rgba(0,0,0,0.06)",
-                boxShadow: "0 10px 26px rgba(0,0,0,0.06)",
-              }}
+            <Link
+              to="/contact"
+              className="btr-materials-button-primary"
             >
-              <div
-                style={{
-                  fontSize: "14px",
-                  fontWeight: 800,
-                  letterSpacing: "0.08em",
-                  textTransform: "uppercase",
-                  color: "#003A5D",
-                }}
-              >
-                Streams we source & supply
-              </div>
+              Request Materials <span>↗</span>
+            </Link>
 
-              <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "10px" }}>
-                {materialStreams.map((x) => (
-                  <div
-                    key={x}
-                    style={{
-                      display: "flex",
-                      gap: "12px",
-                      alignItems: "flex-start",
-                      padding: "10px 12px",
-                      borderRadius: "12px",
-                      background: "#EEF4F2",
-                      border: "1px solid rgba(0,0,0,0.04)",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "10px",
-                        height: "10px",
-                        borderRadius: "50%",
-                        background: "#003A5D",
-                        marginTop: "7px",
-                        flex: "0 0 auto",
-                      }}
-                    />
-                    <div style={{ color: "#2F3A3A", fontSize: "16px", lineHeight: 1.5, fontWeight: 400 }}>
-                      {x}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* SECTION: Broad Polymer Coverage */}
-      <section
-        style={{
-          width: "100%",
-          background: "#FFFFFF",
-          padding: "90px 24px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <div className="content-wrap" style={{ width: "100%", maxWidth: "1200px" }}>
-          <div
-            className="two-col reverse-on-mobile"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "0.9fr 1.1fr",
-              gap: "64px",
-              alignItems: "start",
-            }}
-          >
-            {/* Left: big word stack */}
-            <div className="materials-wordstack">
-              <div
-                style={{
-                  fontSize: "clamp(34px, 4vw, 56px)",
-                  lineHeight: 1.1,
-                  fontWeight: 800,
-                  color: "#003A5D",
-                }}
-              >
-                Broad
-              </div>
-              <div
-                style={{
-                  marginTop: "10px",
-                  fontSize: "clamp(34px, 4vw, 56px)",
-                  lineHeight: 1.1,
-                  fontWeight: 800,
-                  color: "#8A8A8A",
-                }}
-              >
-                Polymer
-              </div>
-              <div
-                style={{
-                  marginTop: "10px",
-                  fontSize: "clamp(34px, 4vw, 56px)",
-                  lineHeight: 1.1,
-                  fontWeight: 800,
-                  color: "#00A3E0",
-                }}
-              >
-                Coverage
-              </div>
-            </div>
+        {/* ======================================
+            POLYMER FAMILIES
+        ====================================== */}
 
-            {/* Right: Copy + polymer chips */}
-            <div>
-              <h2
-                style={{
-                  margin: 0,
-                  fontSize: "clamp(28px, 3.2vw, 40px)",
-                  lineHeight: 1.15,
-                  fontWeight: 300,
-                  letterSpacing: "-0.02em",
-                  color: "#2F3A3A",
-                }}
-              >
-                The resin families manufacturers rely on
+        <section className="btr-materials-polymers">
+          <div className="btr-materials-container">
+
+            <div className="btr-materials-section-heading">
+              <span className="btr-materials-eyebrow">
+                POLYMER FAMILIES
+              </span>
+
+              <h2>
+                The materials
+                <br />
+                manufacturers rely on.
               </h2>
 
-              <p
-                style={{
-                  marginTop: "18px",
-                  fontSize: "clamp(18px, 2vw, 22px)",
-                  lineHeight: 1.7,
-                  fontWeight: 300,
-                  color: "#4A4A4A",
-                  maxWidth: "820px",
-                }}
-              >
-                We work across many of the most widely used resin families in the market-covering commodity
-                materials, engineering polymers, and specialty streams. Because we operate with a market-driven
-                approach, we can adapt as opportunities shift and needs evolve.
+              <p>
+                From commodity resins to engineering polymers,
+                we source and supply materials across a broad
+                range of resin families.
               </p>
+            </div>
 
-              <div
-                style={{
-                  marginTop: "18px",
-                  display: "flex",
-                  gap: "10px",
-                  flexWrap: "wrap",
-                }}
-              >
-                {polymers.map((p) => (
-                  <span
-                    key={p}
-                    style={{
-                      display: "inline-block",
-                      padding: "10px 12px",
-                      background: "#EEF4F2",
-                      border: "1px solid rgba(0,0,0,0.06)",
-                      borderRadius: "999px",
-                      color: "#2F3A3A",
-                      fontWeight: 600,
-                      fontSize: "14px",
-                    }}
-                  >
-                    {p}
+            <div className="btr-materials-polymer-grid">
+              {polymers.map((polymer) => (
+                <div
+                  className="btr-materials-polymer"
+                  key={polymer.code}
+                >
+                  <span className="btr-materials-polymer-code">
+                    {polymer.code}
                   </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* SECTION: Market-Driven Solutions */}
-      <section
-        style={{
-          width: "100%",
-          background: "#E9EEF0",
-          padding: "90px 24px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <div className="content-wrap" style={{ width: "100%", maxWidth: "1200px" }}>
-          <div
-            className="two-col"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1.05fr 0.95fr",
-              gap: "64px",
-              alignItems: "center",
-            }}
-          >
-            {/* Left copy */}
-            <div>
-              <h2
-                style={{
-                  margin: 0,
-                  fontSize: "clamp(32px, 3.6vw, 46px)",
-                  lineHeight: 1.1,
-                  fontWeight: 300,
-                  letterSpacing: "-0.02em",
-                  color: "#2F3A3A",
-                }}
-              >
-                Market-driven solutions that keep production moving
+                  <span className="btr-materials-polymer-name">
+                    {polymer.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+
+        {/* ======================================
+            MATERIAL STREAMS
+        ====================================== */}
+
+        <section className="btr-materials-streams">
+          <div className="btr-materials-container btr-materials-two-col">
+
+            <div className="btr-materials-streams-intro">
+              <span className="btr-materials-eyebrow">
+                MATERIAL STREAMS
+              </span>
+
+              <h2>
+                More than
+                <br />
+                a resin catalog.
               </h2>
 
-              <p
-                style={{
-                  marginTop: "18px",
-                  fontSize: "clamp(18px, 2vw, 22px)",
-                  lineHeight: 1.7,
-                  fontWeight: 300,
-                  color: "#4A4A4A",
-                  maxWidth: "820px",
-                }}
-              >
-                Every customer and application is different. Our experienced sales and sourcing professionals
-                collaborate closely with buyers to understand processing requirements, performance expectations,
-                and commercial objectives. From there, we leverage our supplier network and logistical expertise
-                to deliver practical recycled material solutions.
-              </p>
-
-              <p
-                style={{
-                  marginTop: "14px",
-                  fontSize: "18px",
-                  lineHeight: 1.7,
-                  fontWeight: 300,
-                  color: "#4A4A4A",
-                  maxWidth: "820px",
-                }}
-              >
-                Whether you’re seeking a dependable alternative to prime resin, managing supply-chain volatility,
-                or advancing sustainability initiatives, BTR works as a strategic partner-not just a distributor.
+              <p>
+                Every material stream is different. We work
+                across a wide range of specifications, forms,
+                and production sources to connect supply
+                with demand.
               </p>
             </div>
 
-            {/* Right: “partner” card */}
-            <div
-              style={{
-                background: "#FFFFFF",
-                borderRadius: "18px",
-                padding: "26px",
-                border: "1px solid rgba(0,0,0,0.06)",
-                boxShadow: "0 10px 26px rgba(0,0,0,0.06)",
-              }}
+            <div className="btr-materials-stream-list">
+              {materialStreams.map((stream, index) => (
+                <div
+                  className="btr-materials-stream"
+                  key={stream}
+                >
+                  <span className="btr-materials-stream-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <span className="btr-materials-stream-name">
+                    {stream}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+
+        {/* ======================================
+            OUR APPROACH
+        ====================================== */}
+
+        <section className="btr-materials-approach">
+          <div className="btr-materials-container">
+
+            <div className="btr-materials-section-heading">
+              <span className="btr-materials-eyebrow">
+                THE BTR APPROACH
+              </span>
+
+              <h2>
+                The right material.
+                <br />
+                The right opportunity.
+              </h2>
+
+              <p>
+                We combine market knowledge, hands-on sourcing,
+                and logistical expertise to deliver material
+                solutions that make business sense.
+              </p>
+            </div>
+
+            <div className="btr-materials-advantages">
+              {advantages.map((advantage) => (
+                <div
+                  className="btr-materials-advantage"
+                  key={advantage.number}
+                >
+                  <span className="btr-materials-advantage-number">
+                    {advantage.number}
+                  </span>
+
+                  <h3>{advantage.title}</h3>
+
+                  <p>{advantage.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="btr-materials-approach-footer">
+              <p>
+                Whether you're looking for a recycled
+                alternative to prime resin or have a
+                material stream to sell, we're ready
+                to help.
+              </p>
+
+              <Link
+                to="/solutions"
+                className="btr-materials-text-link"
+              >
+                Explore Our Recycling Solutions ↗
+              </Link>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ======================================
+            CONTACT CTA
+        ====================================== */}
+
+        <section className="btr-materials-cta">
+          <div className="btr-materials-container">
+
+            <h2>Let's talk materials.</h2>
+
+            <p>
+              Have a specific resin, specification, or
+              material stream in mind? Tell us what you
+              need or what you have.
+            </p>
+
+            <Link
+              to="/contact"
+              className="btr-materials-button-primary"
             >
-              <div
-                style={{
-                  fontSize: "14px",
-                  fontWeight: 800,
-                  letterSpacing: "0.08em",
-                  textTransform: "uppercase",
-                  color: "#003A5D",
-                }}
-              >
-                What you can expect
-              </div>
+              Contact BTR <span>↗</span>
+            </Link>
 
-              <div style={{ marginTop: "14px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                {[
-                  { k: "Consistency", v: "Repeatable supply and clear communication." },
-                  { k: "Fit", v: "Materials aligned to your processing and performance needs." },
-                  { k: "Speed", v: "Responsive sourcing when markets shift." },
-                  { k: "Practicality", v: "Solutions that work in real manufacturing environments." },
-                ].map((row) => (
-                  <div
-                    key={row.k}
-                    style={{
-                      padding: "12px 14px",
-                      borderRadius: "14px",
-                      background: "#EEF4F2",
-                      border: "1px solid rgba(0,0,0,0.04)",
-                    }}
-                  >
-                    <div style={{ fontWeight: 800, color: "#2F3A3A", fontSize: "16px" }}>{row.k}</div>
-                    <div style={{ marginTop: "4px", color: "#4A4A4A", fontWeight: 300, lineHeight: 1.6 }}>
-                      {row.v}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* SECTION: Reliable Supply. Responsible Outcomes. */}
-      <section
-        style={{
-          width: "100%",
-          background: "#FFFFFF",
-          padding: "90px 24px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <div className="content-wrap" style={{ width: "100%", maxWidth: "1200px" }}>
-          <div
-            className="two-col"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1.1fr 0.9fr",
-              gap: "64px",
-              alignItems: "center",
-            }}
-          >
-            {/* Left */}
-            <div>
-              <h2
-                style={{
-                  margin: 0,
-                  fontSize: "clamp(32px, 3.6vw, 46px)",
-                  lineHeight: 1.1,
-                  fontWeight: 300,
-                  letterSpacing: "-0.02em",
-                  color: "#2F3A3A",
-                }}
-              >
-                Reliable supply. Responsible outcomes.
-              </h2>
-
-              <p
-                style={{
-                  marginTop: "18px",
-                  fontSize: "clamp(18px, 2vw, 22px)",
-                  lineHeight: 1.7,
-                  fontWeight: 300,
-                  color: "#4A4A4A",
-                  maxWidth: "900px",
-                }}
-              >
-                Sustainability is built into what we do. By diverting valuable polymers back into productive use,
-                we help reduce waste, conserve resources, and support circular manufacturing models-while staying
-                focused on reliability, transparency, and service so customers can source recycled materials with
-                confidence.
-              </p>
-
-              <a
-                href="/solutions"
-                style={{
-                  display: "inline-block",
-                  marginTop: "22px",
-                  padding: "14px 26px",
-                  //background: "#003A5D",
-                  background: "#319C17",
-                  color: "#FFFFFF",
-                  borderRadius: "8px",
-                  textDecoration: "none",
-                  fontWeight: 600,
-                }}
-              >
-                Explore Solutions
-              </a>
-            </div>
-
-            {/* Right: word stack */}
-            <div className="beliefs-values">
-              <div
-                style={{
-                  fontSize: "clamp(32px, 4.5vw, 56px)",
-                  lineHeight: 1.1,
-                  fontWeight: 800,
-                  color: "#003A5D",
-                }}
-              >
-                Sustainable.
-              </div>
-              <div
-                style={{
-                  marginTop: "10px",
-                  fontSize: "clamp(32px, 4.5vw, 56px)",
-                  lineHeight: 1.1,
-                  fontWeight: 800,
-                  color: "#8A8A8A",
-                }}
-              >
-                Reliable.
-              </div>
-              <div
-                style={{
-                  marginTop: "10px",
-                  fontSize: "clamp(32px, 4.5vw, 56px)",
-                  lineHeight: 1.1,
-                  fontWeight: 800,
-                  color: "#00A3E0",
-                }}
-              >
-                Practical.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section
-        style={{
-          width: "100%",
-          background: "#EEF4F2",
-          padding: "90px 24px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <div className="content-wrap" style={{ width: "100%", maxWidth: "1200px", textAlign: "center" }}>
-          <h2
-            style={{
-              margin: 0,
-              fontSize: "clamp(32px, 3.6vw, 46px)",
-              lineHeight: 1.1,
-              fontWeight: 300,
-              letterSpacing: "-0.02em",
-              color: "#2F3A3A",
-            }}
-          >
-            Need a specific stream or spec?
-          </h2>
-
-          <p
-            style={{
-              margin: "18px auto 0 auto",
-              maxWidth: "860px",
-              fontSize: "clamp(18px, 2vw, 22px)",
-              lineHeight: 1.7,
-              fontWeight: 300,
-              color: "#4A4A4A",
-            }}
-          >
-            Tell us what you’re running and what you need. We’ll help you source a recycled resin solution that
-            fits performance, availability, and commercial targets.
-          </p>
-
-          <a
-            href="/contact"
-            style={{
-              display: "inline-block",
-              marginTop: "26px",
-              padding: "14px 28px",
-              background: "#003A5D",
-              color: "#FFFFFF",
-              borderRadius: "8px",
-              textDecoration: "none",
-              fontWeight: 600,
-            }}
-          >
-            Contact Us
-          </a>
-        </div>
-      </section>
-
-      {/* Global styles */}
-      <style>
-        {`
-          @media (max-width: 900px) {
-            .content-wrap { width: 80% !important; }
-
-            .two-col {
-              grid-template-columns: 1fr !important;
-              gap: 40px !important;
-            }
-
-            .beliefs-values {
-              text-align: center;
-            }
-
-            .materials-wordstack {
-              text-align: left;
-            }
-          }
-
-          @media (max-width: 500px) {
-            .content-wrap { width: 92% !important; }
-          }
-        `}
-      </style>
+      </main>
 
       <Footer />
-    </div>
+
+      {/* ======================================
+          ALL MATERIALS PAGE STYLES
+      ====================================== */}
+
+      <style>{`
+
+        /* ======================================
+           BASE
+        ====================================== */
+
+        .btr-materials {
+          width: 100%;
+          color: #071e2e;
+          font-family: inherit;
+        }
+
+        .btr-materials *,
+        .btr-materials *::before,
+        .btr-materials *::after {
+          box-sizing: border-box;
+        }
+
+        .btr-materials-container {
+          width: 100%;
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 0 40px;
+        }
+
+        .btr-materials-eyebrow {
+          display: block;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          color: #348e38;
+        }
+
+        /* ======================================
+           BUTTONS
+        ====================================== */
+
+        .btr-materials-button-primary {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+
+          gap: 25px;
+          padding: 15px 24px;
+
+          background: #071e2e;
+          color: #ffffff !important;
+
+          border: 1px solid #071e2e;
+          border-radius: 4px;
+
+          font-size: 16px;
+          font-weight: 600;
+
+          text-decoration: none !important;
+
+          transition:
+            background 0.2s ease,
+            border-color 0.2s ease;
+        }
+
+        .btr-materials-button-primary:hover {
+          background: #17405a;
+          border-color: #17405a;
+        }
+
+        /* ======================================
+           HERO
+        ====================================== */
+
+        .btr-materials-hero {
+          position: relative;
+          isolation: isolate;
+          overflow: hidden;
+
+          background:
+            linear-gradient(
+              90deg,
+              rgba(4, 22, 34, 0.94) 0%,
+              rgba(4, 22, 34, 0.82) 48%,
+              rgba(4, 22, 34, 0.48) 100%
+            ),
+            url("/images/materials-photo.jpg");
+
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+
+          padding: 125px 0 115px;
+        }
+
+        .btr-materials-hero .btr-materials-container {
+          position: relative;
+          z-index: 1;
+        }
+
+        .btr-materials-hero .btr-materials-eyebrow {
+          color: #86df58;
+        }
+
+        .btr-materials-hero h1 {
+          max-width: 1050px;
+          margin: 25px 0 28px;
+
+          font-size: clamp(48px, 6vw, 82px);
+          line-height: 1.08;
+          font-weight: 750;
+          letter-spacing: -0.055em;
+
+          color: #ffffff;
+        }
+
+        .btr-materials-hero h1 span {
+          color: #78d84b;
+        }
+
+        .btr-materials-hero p {
+          max-width: 700px;
+          margin: 0 0 38px;
+
+          font-size: clamp(19px, 2vw, 23px);
+          line-height: 1.7;
+
+          color: #e0e8eb;
+        }
+
+        .btr-materials-hero .btr-materials-button-primary {
+          background: #72d348;
+          border-color: #72d348;
+          color: #071e2e !important;
+        }
+
+        .btr-materials-hero .btr-materials-button-primary:hover {
+          background: #8ae566;
+          border-color: #8ae566;
+        }
+
+        /* ======================================
+           SECTION HEADINGS
+        ====================================== */
+
+        .btr-materials-section-heading {
+          margin-bottom: 55px;
+        }
+
+        .btr-materials-section-heading h2,
+        .btr-materials-streams h2 {
+          margin: 20px 0;
+
+          font-size: clamp(38px, 4vw, 56px);
+          line-height: 1.15;
+          font-weight: 650;
+          letter-spacing: -0.035em;
+
+          color: #071e2e;
+        }
+
+        .btr-materials-section-heading > p,
+        .btr-materials-streams-intro > p {
+          max-width: 720px;
+          margin: 0;
+
+          font-size: 21px;
+          line-height: 1.7;
+
+          color: #53636a;
+        }
+
+        /* ======================================
+           POLYMER FAMILIES
+        ====================================== */
+
+        .btr-materials-polymers {
+          padding: 110px 0 115px;
+          background: #ffffff;
+        }
+
+        .btr-materials-polymer-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 18px;
+        }
+
+        .btr-materials-polymer {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          min-height: 155px;
+          padding: 28px 30px;
+
+          background: #f4f7f6;
+          border: 1px solid #e1e8e6;
+          border-radius: 5px;
+        }
+
+        .btr-materials-polymer-code {
+          display: block;
+
+          margin-bottom: 10px;
+
+          font-size: 34px;
+          line-height: 1.1;
+          font-weight: 750;
+          letter-spacing: -0.035em;
+
+          color: #348e38;
+        }
+
+        .btr-materials-polymer-name {
+          display: block;
+
+          font-size: 18px;
+          line-height: 1.5;
+          font-weight: 550;
+
+          color: #071e2e;
+        }
+
+        /* ======================================
+           MATERIAL STREAMS
+        ====================================== */
+
+        .btr-materials-streams {
+          padding: 110px 0;
+          background: #f4f7f6;
+        }
+
+        .btr-materials-two-col {
+          display: grid;
+          grid-template-columns: 0.9fr 1.1fr;
+          gap: 90px;
+          align-items: start;
+        }
+
+        .btr-materials-streams h2 {
+          margin-bottom: 24px;
+        }
+
+        .btr-materials-stream-list {
+          min-width: 0;
+        }
+
+        .btr-materials-stream {
+          display: flex;
+          align-items: flex-start;
+
+          gap: 22px;
+          padding: 22px 0;
+
+          border-top: 1px solid #d6e0dc;
+        }
+
+        .btr-materials-stream-number {
+          flex-shrink: 0;
+          padding-top: 5px;
+
+          font-size: 14px;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+
+          color: #40973c;
+        }
+
+        .btr-materials-stream-name {
+          font-size: 21px;
+          line-height: 1.45;
+          font-weight: 600;
+
+          color: #071e2e;
+        }
+
+        /* ======================================
+           OUR APPROACH
+        ====================================== */
+
+        .btr-materials-approach {
+          padding: 110px 0;
+          background: #ffffff;
+        }
+
+        .btr-materials-advantages {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 45px;
+        }
+
+        .btr-materials-advantage {
+          padding-top: 24px;
+          border-top: 3px solid #5bb83c;
+        }
+
+        .btr-materials-advantage-number {
+          display: block;
+          margin-bottom: 25px;
+
+          font-size: 14px;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+
+          color: #40973c;
+        }
+
+        .btr-materials-advantage h3 {
+          margin: 0 0 15px;
+
+          font-size: 29px;
+          line-height: 1.3;
+          font-weight: 650;
+          letter-spacing: -0.02em;
+
+          color: #071e2e;
+        }
+
+        .btr-materials-advantage p {
+          margin: 0;
+
+          font-size: 19px;
+          line-height: 1.7;
+
+          color: #53636a;
+        }
+
+        /* ======================================
+           APPROACH FOOTER
+        ====================================== */
+
+        .btr-materials-approach-footer {
+          margin-top: 65px;
+          padding-top: 28px;
+
+          border-top: 1px solid #e0e7e6;
+        }
+
+        .btr-materials-approach-footer p {
+          max-width: 850px;
+          margin: 0 0 20px;
+
+          font-size: 20px;
+          line-height: 1.7;
+
+          color: #53636a;
+        }
+
+        .btr-materials-text-link {
+          display: inline-block;
+
+          font-size: 18px;
+          font-weight: 650;
+
+          color: #2d8c35 !important;
+          text-decoration: none !important;
+        }
+
+        .btr-materials-text-link:hover {
+          text-decoration: underline !important;
+        }
+
+        /* ======================================
+           CONTACT CTA
+        ====================================== */
+
+        .btr-materials-cta {
+          padding: 100px 0;
+          background: #071e2e;
+          text-align: center;
+        }
+
+        .btr-materials-cta h2 {
+          margin: 0 0 20px;
+
+          font-size: clamp(40px, 5vw, 62px);
+          line-height: 1.15;
+          font-weight: 650;
+          letter-spacing: -0.035em;
+
+          color: #ffffff;
+        }
+
+        .btr-materials-cta p {
+          max-width: 620px;
+          margin: 0 auto 32px;
+
+          font-size: 20px;
+          line-height: 1.7;
+
+          color: #c2cdd3;
+        }
+
+        .btr-materials-cta .btr-materials-button-primary {
+          background: #67cb42;
+          border-color: #67cb42;
+          color: #071e2e !important;
+        }
+
+        .btr-materials-cta .btr-materials-button-primary:hover {
+          background: #85dd62;
+          border-color: #85dd62;
+        }
+
+        /* ======================================
+           TABLET
+        ====================================== */
+
+        @media (max-width: 900px) {
+
+          .btr-materials-hero {
+            padding: 95px 0 85px;
+          }
+
+          .btr-materials-two-col {
+            gap: 45px;
+          }
+
+          .btr-materials-polymer-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+          .btr-materials-advantages {
+            gap: 25px;
+          }
+
+        }
+
+        /* ======================================
+           MOBILE
+        ====================================== */
+
+        @media (max-width: 700px) {
+
+          .btr-materials-container {
+            padding: 0 24px;
+          }
+
+          .btr-materials-hero {
+            padding: 85px 0 75px;
+            background-position: 60% center;
+          }
+
+          .btr-materials-hero h1 {
+            font-size: clamp(42px, 10vw, 58px);
+          }
+
+          .btr-materials-hero p {
+            font-size: 18px;
+          }
+
+          .btr-materials-polymers,
+          .btr-materials-streams,
+          .btr-materials-approach {
+            padding: 70px 0;
+          }
+
+          .btr-materials-section-heading {
+            margin-bottom: 35px;
+          }
+
+          .btr-materials-section-heading > p,
+          .btr-materials-streams-intro > p {
+            font-size: 18px;
+          }
+
+          .btr-materials-polymer-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+          }
+
+          .btr-materials-polymer {
+            min-height: 130px;
+            padding: 20px;
+          }
+
+          .btr-materials-polymer-code {
+            font-size: 28px;
+          }
+
+          .btr-materials-polymer-name {
+            font-size: 16px;
+          }
+
+          .btr-materials-two-col {
+            grid-template-columns: 1fr;
+            gap: 35px;
+          }
+
+          .btr-materials-stream {
+            padding: 20px 0;
+          }
+
+          .btr-materials-stream-name {
+            font-size: 19px;
+          }
+
+          .btr-materials-advantages {
+            grid-template-columns: 1fr;
+            gap: 35px;
+          }
+
+          .btr-materials-advantage h3 {
+            font-size: 26px;
+          }
+
+          .btr-materials-advantage p {
+            font-size: 18px;
+          }
+
+          .btr-materials-approach-footer {
+            margin-top: 45px;
+          }
+
+          .btr-materials-approach-footer p {
+            font-size: 18px;
+          }
+
+          .btr-materials-cta {
+            padding: 75px 0;
+          }
+
+          .btr-materials-cta p {
+            font-size: 18px;
+          }
+
+        }
+
+        /* ======================================
+           SMALL MOBILE
+        ====================================== */
+
+        @media (max-width: 420px) {
+
+          .btr-materials-polymer-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .btr-materials-polymer {
+            min-height: 110px;
+          }
+
+        }
+
+        /* ======================================
+           REDUCED MOTION
+        ====================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+          .btr-materials-button-primary {
+            transition: none;
+          }
+        }
+
+      `}</style>
+    </>
   );
 }

@@ -1,165 +1,446 @@
-// BTRSpecialtiesSection.tsx
-import React from "react";
-import { useIsMobile } from "../Core/hooks";
 
-const items = [
+import React from "react";
+import {
+  Recycle,
+  Layers3,
+  RefreshCw,
+  Leaf,
+  Network,
+  Factory,
+  ArrowUpRight,
+  type LucideIcon,
+} from "lucide-react";
+
+interface Specialty {
+  title: string;
+  blurb: string;
+  icon: LucideIcon;
+  number: string;
+}
+
+const items: Specialty[] = [
   {
+    number: "01",
     title: "Post-Industrial Recycling",
-    blurb: "We help manufacturers recycle and reprocess post-industrial plastics to reduce waste and improve recovery.",
-    icon: "♻️",
+    blurb:
+      "We help manufacturers recycle and reprocess post-industrial plastics to reduce waste and improve recovery.",
+    icon: Recycle,
   },
   {
+    number: "02",
     title: "Recycled Resin Supply",
-    blurb: "Consistent recycled and reprocessed polymer resins aligned to your specs, availability needs, and cost targets.",
-    icon: "🧪",
+    blurb:
+      "Consistent recycled and reprocessed polymer resins aligned to your specs, availability needs, and cost targets.",
+    icon: Layers3,
   },
   {
+    number: "03",
     title: "Closed-Loop Programs",
-    blurb: "Turn your internal scrap into a repeatable loop - program design, routing, and market placement built around your operation.",
-    icon: "🔁",
+    blurb:
+      "Turn your internal scrap into a repeatable loop—program design, routing, and market placement built around your operation.",
+    icon: RefreshCw,
   },
   {
+    number: "04",
     title: "Sustainable Sourcing",
-    blurb: "Support sustainability initiatives with practical, performance-driven materials and transparent sourcing pathways.",
-    icon: "🌿",
+    blurb:
+      "Support sustainability initiatives with practical, performance-driven materials and transparent sourcing pathways.",
+    icon: Leaf,
   },
   {
+    number: "05",
     title: "Supply Chain Strength",
-    blurb: "Diversify supply and reduce risk with market-driven material strategies across domestic and global networks.",
-    icon: "🔗",
+    blurb:
+      "Diversify supply and reduce risk with market-driven material strategies across domestic and global networks.",
+    icon: Network,
   },
   {
+    number: "06",
     title: "Operational Fit",
-    blurb: "Every program is built to integrate into real manufacturing environments - simple to run, scalable to grow.",
-    icon: "🏭",
+    blurb:
+      "Every program is built to integrate into real manufacturing environments—simple to run, scalable to grow.",
+    icon: Factory,
   },
 ];
 
 export default function SpecialtiesSection() {
-
-  const isMobile = useIsMobile();
-
   return (
-    <section
-      style={{
-        width: "100%",
-        background: "#EEF4F2",
-        padding: "90px 24px",
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <div style={{ width: isMobile ? "80%" : "100%", maxWidth: "1200px" }}>
+    <section className="btr-specialties">
+      <div className="btr-specialties-container">
+
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "44px" }}>
-          <h2
-            style={{
-              margin: 0,
-              fontSize: "clamp(34px, 4vw, 54px)",
-              lineHeight: 1.1,
-              fontWeight: 300,
-              letterSpacing: "-0.02em",
-              color: "#2F3A3A",
-            }}
-          >
-            We specialize in
+        <div className="btr-specialties-header">
+          <div className="btr-specialties-eyebrow">
+            WHAT WE DO
+          </div>
+
+          <h2>
+            Built Around Your
+            <span> Material Needs.</span>
           </h2>
 
-          <p
-            style={{
-              margin: "18px auto 0 auto",
-              maxWidth: "820px",
-              fontSize: "clamp(18px, 2vw, 22px)",
-              lineHeight: 1.6,
-              fontWeight: 300,
-              color: "#4A4A4A",
-            }}
-          >
-            Every program is designed with one goal in mind: deliver high-quality materials while keeping plastics in
-            productive use.
+          <p>
+            From recycling and reprocessing to reliable resin
+            supply, we build practical material solutions that
+            help manufacturers operate more efficiently.
           </p>
         </div>
 
         {/* Cards */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-            gap: "18px",
-          }}
-        >
-          {items.map((item) => (
-            <div
-              key={item.title}
-              style={{
-                background: "#FFFFFF",
-                borderRadius: "14px",
-                padding: "22px",
-                boxShadow: "0 10px 26px rgba(0,0,0,0.06)",
-                border: "1px solid rgba(0,0,0,0.06)",
-                minHeight: "170px",
-                display: "flex",
-                flexDirection: "column",
-                gap: "12px",
-              }}
-            >
-              {/* Icon/Image bubble */}
-              <div
-                style={{
-                  width: "46px",
-                  height: "46px",
-                  borderRadius: "12px",
-                  background: "rgba(0,58,93,0.08)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "22px",
-                }}
-              >
-                {item.icon}
-              </div>
+        <div className="btr-specialties-grid">
+          {items.map((item) => {
+            const Icon = item.icon;
 
-              <div
-                style={{
-                  fontSize: "18px",
-                  fontWeight: 700,
-                  color: "#003A5D",
-                  letterSpacing: "-0.01em",
-                }}
+            return (
+              <article
+                key={item.number}
+                className="btr-specialty-card"
               >
-                {item.title}
-              </div>
+                <div className="btr-specialty-top">
+                  <div className="btr-specialty-icon">
+                    <Icon
+                      size={28}
+                      strokeWidth={1.7}
+                      aria-hidden="true"
+                    />
+                  </div>
 
-              <div
-                style={{
-                  fontSize: "16px",
-                  lineHeight: 1.55,
-                  color: "#4A4A4A",
-                  fontWeight: 300,
-                }}
-              >
-                {item.blurb}
-              </div>
-            </div>
-          ))}
+                  <span className="btr-specialty-number">
+                    {item.number}
+                  </span>
+                </div>
+
+                <div className="btr-specialty-content">
+                  <h3>{item.title}</h3>
+                  <p>{item.blurb}</p>
+                </div>
+
+                <div className="btr-specialty-bottom">
+                  <span className="btr-specialty-line" />
+                  <ArrowUpRight
+                    size={19}
+                    strokeWidth={1.8}
+                    aria-hidden="true"
+                  />
+                </div>
+              </article>
+            );
+          })}
         </div>
 
-        {/* Responsive helper (inline, minimal) */}
-        <style>
-          {`
-            @media (max-width: 980px) {
-              section > div > div:nth-child(2) {
-                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-              }
-            }
-            @media (max-width: 640px) {
-              section > div > div:nth-child(2) {
-                grid-template-columns: 1fr !important;
-              }
-            }
-          `}
-        </style>
       </div>
+
+      <style>{`
+        /* ======================================
+           SECTION
+        ====================================== */
+
+        .btr-specialties {
+          width: 100%;
+          padding: 100px 24px 110px;
+          background: #f5f8f7;
+          box-sizing: border-box;
+        }
+
+        .btr-specialties *,
+        .btr-specialties *::before,
+        .btr-specialties *::after {
+          box-sizing: border-box;
+        }
+
+        .btr-specialties-container {
+          max-width: 1240px;
+          margin: 0 auto;
+        }
+
+        /* ======================================
+           HEADER
+        ====================================== */
+
+        .btr-specialties-header {
+          max-width: 800px;
+          margin: 0 auto 55px;
+          text-align: center;
+        }
+
+        .btr-specialties-eyebrow {
+          margin-bottom: 18px;
+
+          font-size: 12px;
+          font-weight: 800;
+          letter-spacing: 0.18em;
+
+          color: #328e39;
+        }
+
+        .btr-specialties-header h2 {
+          margin: 0;
+
+          font-size: clamp(34px, 4vw, 52px);
+          line-height: 1.13;
+          font-weight: 700;
+          letter-spacing: -0.035em;
+
+          color: #071e2e;
+        }
+
+        .btr-specialties-header h2 span {
+          color: #3e9c39;
+        }
+
+        .btr-specialties-header p {
+          max-width: 700px;
+          margin: 22px auto 0;
+
+          font-size: 18px;
+          line-height: 1.75;
+          font-weight: 400;
+
+          color: #53636a;
+        }
+
+        /* ======================================
+           GRID
+        ====================================== */
+
+        .btr-specialties-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 22px;
+        }
+
+        /* ======================================
+           CARDS
+        ====================================== */
+
+        .btr-specialty-card {
+          position: relative;
+          overflow: hidden;
+
+          display: flex;
+          flex-direction: column;
+
+          min-height: 285px;
+          padding: 30px;
+
+          background: #ffffff;
+
+          border: 1px solid #e1e8e6;
+          border-radius: 12px;
+
+          box-shadow: 0 5px 20px rgba(7, 30, 46, 0.025);
+
+          transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease,
+            border-color 0.25s ease;
+        }
+
+        /* Green accent at top */
+        .btr-specialty-card::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          width: 100%;
+          height: 3px;
+
+          background: #63c843;
+
+          transform: scaleX(0);
+          transform-origin: left;
+
+          transition: transform 0.25s ease;
+        }
+
+        .btr-specialty-card:hover {
+          transform: translateY(-5px);
+
+          border-color: #cbded2;
+
+          box-shadow: 0 18px 38px rgba(7, 30, 46, 0.09);
+        }
+
+        .btr-specialty-card:hover::before {
+          transform: scaleX(1);
+        }
+
+        /* ======================================
+           ICON / NUMBER
+        ====================================== */
+
+        .btr-specialty-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+
+          margin-bottom: 26px;
+        }
+
+        .btr-specialty-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          width: 58px;
+          height: 58px;
+
+          border-radius: 12px;
+
+          background: #edf6ef;
+          color: #248b3a;
+
+          transition:
+            background 0.25s ease,
+            color 0.25s ease;
+        }
+
+        .btr-specialty-card:hover .btr-specialty-icon {
+          background: #071e2e;
+          color: #8de063;
+        }
+
+        .btr-specialty-number {
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+
+          color: #b4c0c3;
+        }
+
+        /* ======================================
+           CARD CONTENT
+        ====================================== */
+
+        .btr-specialty-content {
+          flex: 1;
+        }
+
+        .btr-specialty-content h3 {
+          margin: 0 0 13px;
+
+          font-size: 20px;
+          line-height: 1.35;
+          font-weight: 700;
+          letter-spacing: -0.015em;
+
+          color: #071e2e;
+        }
+
+        .btr-specialty-content p {
+          margin: 0;
+
+          font-size: 15.5px;
+          line-height: 1.75;
+          font-weight: 400;
+
+          color: #53636a;
+        }
+
+        /* ======================================
+           BOTTOM DECORATION
+        ====================================== */
+
+        .btr-specialty-bottom {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          margin-top: 28px;
+
+          color: #9cb2a7;
+        }
+
+        .btr-specialty-line {
+          display: block;
+
+          width: 34px;
+          height: 2px;
+
+          background: #c5d6cc;
+
+          transition:
+            width 0.25s ease,
+            background 0.25s ease;
+        }
+
+        .btr-specialty-card:hover .btr-specialty-line {
+          width: 60px;
+          background: #63c843;
+        }
+
+        .btr-specialty-card:hover .btr-specialty-bottom {
+          color: #248b3a;
+        }
+
+        /* ======================================
+           TABLET
+        ====================================== */
+
+        @media (max-width: 980px) {
+          .btr-specialties {
+            padding: 75px 24px;
+          }
+
+          .btr-specialties-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+          .btr-specialty-card {
+            min-height: 270px;
+          }
+        }
+
+        /* ======================================
+           MOBILE
+        ====================================== */
+
+        @media (max-width: 640px) {
+          .btr-specialties {
+            padding: 60px 20px 70px;
+          }
+
+          .btr-specialties-header {
+            margin-bottom: 35px;
+          }
+
+          .btr-specialties-header h2 {
+            font-size: 34px;
+          }
+
+          .btr-specialties-header p {
+            font-size: 16px;
+          }
+
+          .btr-specialties-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+
+          .btr-specialty-card {
+            min-height: unset;
+            padding: 25px;
+          }
+
+          .btr-specialty-top {
+            margin-bottom: 20px;
+          }
+
+          .btr-specialty-bottom {
+            margin-top: 22px;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .btr-specialty-card,
+          .btr-specialty-card::before,
+          .btr-specialty-icon,
+          .btr-specialty-line {
+            transition: none;
+          }
+        }
+      `}</style>
     </section>
   );
 }
