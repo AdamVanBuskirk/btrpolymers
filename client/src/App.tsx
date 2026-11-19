@@ -13,6 +13,11 @@ import Careers from './Pages/Public/Careers';
 import LogisticsCoordinator from './Pages/Public/LogisticsCoordinator';
 import ForkliftDriver from './Pages/Public/ForkliftDriver';
 import AccountManager from './Pages/Public/AccountManager';
+import Blog from './Pages/Public/Blog';
+import BlogArticle from './Pages/Public/BlogArticle';
+import BlogLogin from './Pages/Admin/BlogLogin';
+import BlogDashboard from './Pages/Admin/BlogDashboard';
+import BlogEditor from './Pages/Admin/BlogEditor';
 
 interface ComponentProps {
   children ?: React.ReactNode;
@@ -35,6 +40,15 @@ function App(props: Props) {
         <Route path='/careers/logistics-coordinator' element={<LogisticsCoordinator />} />
         <Route path='/careers/forklift-driver' element={<ForkliftDriver />} />
         <Route path='/careers/account-manager' element={<AccountManager />} />
+        {/* Public blog */}
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogArticle />} />
+
+        {/* Blog administration */}
+        <Route path="/admin/login" element={<BlogLogin />} />
+        <Route path="/admin/blog" element={<BlogDashboard />} />
+        <Route path="/admin/blog/new" element={<BlogEditor />} />
+        <Route path="/admin/blog/:id" element={<BlogEditor />} />
       </Routes>
     </Router>
   );

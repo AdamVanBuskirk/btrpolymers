@@ -51,6 +51,9 @@ function Footer({ style }: Props) {
                             <Link className="footerLink" to="/about">
                                 About
                             </Link>
+                            <Link className="footerLink" to="/blog">
+                                Blog
+                            </Link>
                             <Link className="footerLink" to="/contact">
                                 Contact
                             </Link>

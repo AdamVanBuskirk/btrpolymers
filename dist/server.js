@@ -18,6 +18,8 @@ const path = require("path");
 const http_1 = __importDefault(require("http"));
 const express_1 = __importDefault(require("express"));
 const mail_1 = __importDefault(require("@sendgrid/mail"));
+const blog_1 = __importDefault(require("./routes/blog"));
+const blogSeo_1 = __importDefault(require("./routes/blogSeo"));
 const app = (0, express_1.default)();
 // --------------------
 // Middleware
@@ -122,6 +124,9 @@ app.post("/api/contact", (req, res) => __awaiter(void 0, void 0, void 0, functio
         return res.status(500).json({ message: "Failed to send message." });
     }
 }));
+app.use("/api/blog", blog_1.default);
+// Public blog SEO routes
+app.use(blogSeo_1.default);
 // --------------------
 // Static client
 // --------------------

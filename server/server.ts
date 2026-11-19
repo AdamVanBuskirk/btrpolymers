@@ -5,6 +5,8 @@ const path = require("path");
 import http from "http";
 import express, { Express, Request, Response } from "express";
 import sgMail from "@sendgrid/mail";
+import blogRouter from "./routes/blog";
+import blogSeoRouter from "./routes/blogSeo";
 
 const app: Express = express();
 
@@ -132,6 +134,11 @@ app.post("/api/contact", async (req: Request, res: Response) => {
     return res.status(500).json({ message: "Failed to send message." });
   }
 });
+
+app.use("/api/blog", blogRouter);
+
+// Public blog SEO routes
+app.use(blogSeoRouter);
 
 // --------------------
 // Static client

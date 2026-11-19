@@ -72,6 +72,15 @@ function Navigation() {
             </NavLink>
           </NavItem>
           <NavItem>
+            <NavLink
+              to="/blog"
+              onClick={() => setIsOpen(false)}
+              className="nav-link"
+            >
+              Blog
+            </NavLink>
+          </NavItem>
+          <NavItem>
             <NavLink to="/contact" onClick={() => setIsOpen(false)} className="nav-link">
               Contact
             </NavLink>
