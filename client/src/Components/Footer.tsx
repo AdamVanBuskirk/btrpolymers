@@ -16,7 +16,7 @@ function Footer({ style }: Props) {
 
                 .btr-why-footer {
                     color: #ffffff;
-                    padding: 75px 24px 70px;
+                    padding: 30px 24px 70px;
                 }
 
                 .btr-why-inner {
