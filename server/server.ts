@@ -7,6 +7,7 @@ import express, { Express, Request, Response } from "express";
 import sgMail from "@sendgrid/mail";
 import blogRouter from "./routes/blog";
 import blogSeoRouter from "./routes/blogSeo";
+import salesRouter from "./routes/sales";
 
 const app: Express = express();
 
@@ -136,6 +137,7 @@ app.post("/api/contact", async (req: Request, res: Response) => {
 });
 
 app.use("/api/blog", blogRouter);
+app.use("/api/sales", salesRouter);
 
 // Public blog SEO routes
 app.use(blogSeoRouter);

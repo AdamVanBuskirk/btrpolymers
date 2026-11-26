@@ -18,6 +18,7 @@ import BlogArticle from './Pages/Public/BlogArticle';
 import BlogLogin from './Pages/Admin/BlogLogin';
 import BlogDashboard from './Pages/Admin/BlogDashboard';
 import BlogEditor from './Pages/Admin/BlogEditor';
+import SalesApp from './sales/SalesApp';
 
 interface ComponentProps {
   children ?: React.ReactNode;
@@ -49,6 +50,8 @@ function App(props: Props) {
         <Route path="/admin/blog" element={<BlogDashboard />} />
         <Route path="/admin/blog/new" element={<BlogEditor />} />
         <Route path="/admin/blog/:id" element={<BlogEditor />} />
+        {/* BTR Sales Platform */}
+        <Route path="/sales/*" element={<SalesApp />} />
       </Routes>
     </Router>
   );

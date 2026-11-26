@@ -1,9 +1,6 @@
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from '../Core/supabase';
 
-const url = process.env.REACT_APP_SUPABASE_URL;
-const key = process.env.REACT_APP_SUPABASE_PUBLISHABLE_KEY;
-if (!url || !key) throw new Error('Missing REACT_APP_SUPABASE_URL or REACT_APP_SUPABASE_PUBLISHABLE_KEY');
-export const auth = createClient(url, key);
+export const auth = supabase;
 export type Category = 'industry-insights' | 'building-btr';
 export type Status = 'draft' | 'published';
 export interface Post {
